@@ -1,4 +1,3 @@
-import React from "react";
 import {
     BrowserRouter as Router,
     Route,
@@ -17,7 +16,7 @@ import Footer from "./common/Footer";
 
 import "./sass/app.scss";
 
-function App() {
+export default function App() {
     const [isLoggedIn] = useAuth();
     return (
         <Router>
@@ -86,5 +85,3 @@ function App() {
         </Router>
     );
 }
-
-export default App;

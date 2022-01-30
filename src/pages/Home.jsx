@@ -1,5 +1,3 @@
-import React from "react";
-
 import { useState } from "react";
 // import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -10,7 +8,7 @@ import Button from "../common/Button";
 import classes from "./../sass/pages/Home.module.scss";
 import styles from "./../sass/common/Button.module.scss";
 
-function Home() {
+export default function Home() {
     const [title1, setTitle1] = useState("Play!");
     const [title2, setTitle2] = useState("Log in");
 
@@ -69,4 +67,3 @@ function Home() {
     );
 }
 
-export default Home;

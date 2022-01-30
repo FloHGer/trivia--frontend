@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -8,7 +7,7 @@ import Card from "../common/Card";
 
 import classes from "./../sass/pages/LogIn.module.scss";
 
-function LogIn() {
+export default function LogIn() {
     const [email, setEmail] = useState("");
     const [btnDisabled, setBtnDisabled] = useState(true);
 
@@ -79,5 +78,3 @@ function LogIn() {
         </div>
     );
 }
-
-export default LogIn;

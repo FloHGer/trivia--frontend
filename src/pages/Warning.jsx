@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 import { FaTimesCircle } from "react-icons/fa";
@@ -9,7 +8,7 @@ import Button from "./../common/Button";
 import classes from "./../sass/pages/Warning.module.scss";
 import styles from "./../sass/common/Button.module.scss";
 
-function Warning() {
+export default function Warning() {
     return (
         <div className={classes.warning}>
             <Card>
@@ -74,5 +73,3 @@ function Warning() {
         </div>
     );
 }
-
-export default Warning;
