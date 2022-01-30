@@ -17,33 +17,32 @@ export default function Game() {
 
 	useEffect(() => {
 		if(questions.length === 6) setIsLoading(false)
-	}, [questions]);
+	});
 
-	// fetch questions
+  // fetch questions
   useEffect(() => { 
-		try{
-			selectedCategories.forEach(async(category, i) => {
-
-				const easy = (
-					await axios(`https://opentdb.com/api.php?amount=2&category=${category.id}&difficulty=easy`)
-					).data.results;
-
-				const medium = (
-					await axios(`https://opentdb.com/api.php?amount=2&category=${category.id}&difficulty=medium`)
-				).data.results;
-
-				const hard = (
-					await axios(`https://opentdb.com/api.php?amount=1&category=${category.id}&difficulty=hard`)
-				).data.results;
-				// console.log(i, easy.length, medium.length, hard.length, questions.length)
-				// setQuestions([...questions, questions[i] = [...easy, ...medium, ...hard]]);
-				const promise = new Promise((res, rej) =>{
-					if(easy && medium && hard && questions.length === i)
-						res(setQuestions([...questions, questions[i] = [...easy, ...medium, ...hard]]))
-				});
-				promise.then(() => console.log('message'))
-			});
-		}catch(err){console.log(err)}
+    let cats = {};
+    for (let i = 0; i < selectedCategories.length; i++) {
+      (async () => {
+        const easy = (
+          await axios(
+            `https://opentdb.com/api.php?amount=2&category=${selectedCategories[i].id}&difficulty=easy`
+          )
+        ).data.results;
+        const medium = (
+          await axios(
+            `https://opentdb.com/api.php?amount=2&category=${selectedCategories[i].id}&difficulty=medium`
+          )
+        ).data.results;
+        const hard = (
+          await axios(
+            `https://opentdb.com/api.php?amount=1&category=${selectedCategories[i].id}&difficulty=hard`
+          )
+        ).data.results;
+        cats[i] = [...easy, ...medium, ...hard];
+      })();
+    }
+    setQuestions(cats);
   }, [selectedCategories]);
 
 	// calc score

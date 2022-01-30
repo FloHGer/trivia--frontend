@@ -11,7 +11,7 @@ export default function Auth({ children }) {
         (async () => {
             try {
                 const res = await axios.get(
-                    "http://localhost:3003/auth/check",
+                    `${process.env.REACT_APP_BACKEND}/auth/check`,
                     { withCredentials: true }
                 );
                 if (res.data.message === "success")
