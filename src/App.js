@@ -8,7 +8,7 @@ import LogIn from './pages/LogIn';
 import Warning from './pages/Warning';
 import Game from './pages/Game';
 import Footer from './common/Footer';
-import Authors from './pages/Authors';
+import About from './pages/About';
 
 import './sass/app.scss';
 
@@ -29,7 +29,7 @@ function App() {
 
 					<Route path='/warning' element={<Warning />} />
 
-					<Route path='/about' element={<Authors />} />
+					<Route path='/about' element={<About />} />
 
 					<Route path='*' element={<Navigate to={isLoggedIn ? '/dashboard' : '/'} />} />
 				</Routes>
