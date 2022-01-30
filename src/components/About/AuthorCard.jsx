@@ -18,15 +18,15 @@ function AuthorCard({name, nickname, github, homepage, email}) {
                     <h4>'{nickname}'</h4>
                     <div className={classes["item__info--git"]}>
                         <FaGithub className={classes.item__icons} />
-                        <Link to={`https://github.com${github}`}>
+                        <a href={`https://github.com${github}`} target={'_blank'} rel={'noreferrer'}>
                             <h3>{github}</h3>
-                        </Link>
+                        </a>
                     </div>
                     <div className={classes["item__info--page"]}>
                         <FaHome className={classes.item__icons} />
-                        <Link to={`https://${homepage}`}>
+                        <a href={`https://${homepage}`} target={'_blank'} rel={'noreferrer'}>
                             <h3>{homepage}</h3>
-                        </Link>
+                        </a>
                     </div>
                     <a href={`mailto:${email}?subject=Found you on your Trivia Project`}>
                         <div className={classes["item__info--email"]}>
