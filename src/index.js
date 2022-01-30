@@ -3,11 +3,14 @@ import ReactDOM from "react-dom";
 
 import App from "./App";
 import Auth from "./context/loginContext.js";
+import Game from "./context/gameContext.js";
 
 ReactDOM.render(
     <React.StrictMode>
         <Auth>
-            <App />
+            <Game>
+                <App />
+            </Game>
         </Auth>
     </React.StrictMode>,
     document.getElementById("root")

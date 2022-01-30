@@ -1,13 +1,14 @@
 @import "./../../../config.scss";
 
 .profile__stats {
-    margin: 1rem;
     text-align: center;
+    height: 65%;
 
     &--titles {
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
+        height: 5rem;
     }
 
     &--paragraph {
@@ -29,10 +30,12 @@
     }
 
     &--data {
-        padding: 1rem;
+        height: 100%;
+        padding: 2rem 1rem;
         background-color: $color__primary--light;
         border-bottom-left-radius: 1rem;
         border-bottom-right-radius: 1rem;
+        overflow-y: auto;
     }
 }
 

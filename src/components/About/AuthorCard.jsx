@@ -1,10 +1,20 @@
+<<<<<<< HEAD
 
 
+=======
+import React from "react";
+
+import { Link } from "react-router-dom";
+>>>>>>> main
 import { FaGithub, FaHome, FaEnvelope } from "react-icons/fa";
 
 import classes from "./../../sass/components/Authors/AuthorsItem.module.scss";
 
+<<<<<<< HEAD
 export default function AuthorCard({name, nickname, github, homepage, email}) {
+=======
+function AuthorCard({name, nickname, github, homepage, email}) {
+>>>>>>> main
     return (
         <div className={classes.container}>
             <img className={classes.picture} 
@@ -38,3 +48,8 @@ export default function AuthorCard({name, nickname, github, homepage, email}) {
         </div>
     );
 }
+<<<<<<< HEAD
+=======
+
+export default AuthorCard;
+>>>>>>> main

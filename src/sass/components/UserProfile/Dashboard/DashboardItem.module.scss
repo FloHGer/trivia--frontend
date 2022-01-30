@@ -6,6 +6,14 @@
     align-items: center;
     margin: 2rem 0;
 
+    &--select {
+        width: 15%;
+        border: none;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+
     &--category,
     &--value {
         font-size: 1.8rem;
@@ -13,6 +21,10 @@
         border-radius: 1rem;
         text-align: center;
         text-transform: uppercase;
+
+        & input[type="radio"] {
+            display: none;
+        }
     }
 
     &--category {
@@ -33,5 +45,11 @@
             background: #6ccfe8;
             box-shadow: 4px 4px 4px $color__primary--dark;
         }
+
+        &:active {
+            background: #6ccfe8;
+            box-shadow: 4px 4px 4px $color__primary--dark;
+        }
     }
 }
+

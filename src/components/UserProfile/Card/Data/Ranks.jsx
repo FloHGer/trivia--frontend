@@ -10,7 +10,6 @@ function Ranks() {
             const response = await axios.get(
                 `${process.env.REACT_APP_BACKEND}/ranks/highscore`
             );
-            console.log(response.data);
             if (response.data.message === "success")
                 setData(response.data.payload);
         })();

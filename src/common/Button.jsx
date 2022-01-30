@@ -8,6 +8,7 @@ function Button(props) {
             className={`${classes.btn} ${props.className}`}
             onMouseEnter={props.onMouseEnter}
             onMouseLeave={props.onMouseLeave}
+            onClick={props.onClick}
             type={props.type}
         >
             {props.title1}

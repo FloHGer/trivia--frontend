@@ -40,7 +40,7 @@ export default function Home() {
             <Navigation />
             <div className={classes.container}>
                 <h1 className="heading heading__1">
-                    Did you come to waste some time?
+                    {'Did you come to drop some knowledge?'}
                 </h1>
 
                 <div className={classes.container__buttons}>

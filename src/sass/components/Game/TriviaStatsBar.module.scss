@@ -1,1 +1,13 @@
 @import "./../../config.scss";
+
+.bar {
+    width: 30%;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: $color__primary--dark;
+    border-radius: 1rem;
+    box-shadow: inset 5px 5px 6px #11283b, inset -5px -5px 6px #1d4465;
+    color: $color__primary--light;
+    text-transform: uppercase;
+    text-align: center;
+}

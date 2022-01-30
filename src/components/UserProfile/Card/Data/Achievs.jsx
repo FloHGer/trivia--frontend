@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+import { useAuth } from "../../../../context/loginContext";
 import AchievCard from "./Achievs/AchievCard";
 import classes from "./../../../../sass/components/UserProfile/Card/Data/Achievs.module.scss";
 
 function Achievs() {
+    const [currentUser] = useAuth();
     const [data, setData] = useState();
     const [allUnlocked, setAllUnlocked] = useState();
 
     useEffect(() => {
         (async () => {
             const response = await axios.get(
-                `${process.env.REACT_APP_BACKEND}/user/FloH/achievs`
+                `${process.env.REACT_APP_BACKEND}/user/${currentUser}/achievs`
             );
             if (response.data.message === "success") {
                 setData(response.data.payload);
@@ -29,7 +31,7 @@ function Achievs() {
                     setAllUnlocked(true);
             }
         })();
-    }, []);
+    }, [currentUser]);
     return (
         <>
             {data && !allUnlocked && (

@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import Card from "../common/Card";
 import QuestionAnswer from "./QuestionAnswer";
 import FadeOut from "../common/FadeOut";
+=======
+import Card from "../../common/Card";
+import QuestionAnswer from "./QuestionAnswer";
+import FadeOut from "../../common/FadeOut";
+>>>>>>> main
 
 import classes from "../../sass/pages/Question.module.scss";
 

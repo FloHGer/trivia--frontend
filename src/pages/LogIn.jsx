@@ -11,8 +11,6 @@ export default function LogIn() {
     const [email, setEmail] = useState("");
     const [btnDisabled, setBtnDisabled] = useState(true);
 
-    /* Email verification */
-
     const updateInputHandler = (event) => {
         setBtnDisabled(true);
 
@@ -20,9 +18,8 @@ export default function LogIn() {
             event.target.value.match(
                 /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i
             )
-        ) {
+        )
             setBtnDisabled(false);
-        }
 
         setEmail(event.target.value);
     };
@@ -39,39 +36,53 @@ export default function LogIn() {
                 </Link>
                 <div className={classes.login__text}>
                     <h3 className="heading heading__3">
-                        You need to be logged in to play like A true warrior!
+                        {'You need to be logged in to play like A true warrior!'}
                     </h3>
                     <p className={classes.break}>
-                        No worries, we will register you on the way
+                        {'No worries, we will register you on the way'}
                     </p>
                 </div>
                 <form onSubmit={submitHandler}>
-                    <label htmlFor="">Your email</label>
+                    <label htmlFor="">{'Your email'}</label>
                     <input
-                        type="text"
+                        type="email"
                         name="text"
-                        value={email}
-                        placeholder="Please, write your email"
+                        value={email || ''}
+                        placeholder="enter your email"
                         onChange={updateInputHandler}
                     />
-                    <Link to="/userprofile">
-                        <button
-                            type="submit"
-                            className={classes.btn}
-                            disabled={btnDisabled}
-                        >
-                            Log in
-                        </button>{" "}
-                    </Link>
+                    <button
+                        type="submit"
+                        className={classes.btn}
+                        disabled={btnDisabled}
+                    >
+                        Log in
+                    </button>
                     <p className={classes.break}>OR</p>
                 </form>
                 <div className={classes.login__socials}>
-                    <div className={classes["login__socials--google"]}>
-                        <FaGoogle />
-                    </div>
-                    <div className={classes["login__socials--github"]}>
-                        <FaGithub />
-                    </div>
+                    <button
+                        className={classes["login__socials--google"]}
+                        onClick={() =>
+                            window.open(
+                                `${process.env.REACT_APP_BACKEND}/auth/google`,
+                                "_self"
+                            )
+                        }
+                    >
+                        <FaGoogle className={classes["login__socials--icon"]} />
+                    </button>
+                    <button
+                        className={classes["login__socials--github"]}
+                        onClick={() =>
+                            window.open(
+                                `${process.env.REACT_APP_BACKEND}/auth/github`,
+                                "_self"
+                            )
+                        }
+                    >
+                        <FaGithub className={classes["login__socials--icon"]} />
+                    </button>
                 </div>
             </Card>
             <FadeOut />

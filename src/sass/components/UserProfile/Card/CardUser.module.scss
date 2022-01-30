@@ -1,10 +1,12 @@
 @import "./../../../config.scss";
 
 .profile__user {
-    padding: 1rem;
+    background-color: rgba($color__primary, 0.5);
+    padding: 3rem;
+    margin-bottom: 2rem;
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
+    justify-content: space-between;
     border-radius: 1rem;
 
     &--piccontainer,
@@ -18,25 +20,62 @@
     &--pic {
         width: 16rem;
         height: 16rem;
-        background-color: #fff;
         border-radius: 50%;
         position: relative;
-        background-image: url(./../../../../img/natalia.jpg);
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
+        // background-color: #fff;
+        // background-position: center;
+        // background-size: cover;
+        // background-repeat: no-repeat;
         box-shadow: 0.2rem 0.2rem 0.2rem $color__primary--dark;
 
-        &::after {
-            content: url(https://flagcdn.com/64x48/pl.png);
+        &__flag {
             position: absolute;
-            top: 10rem;
-            left: -1rem;
-            width: 5rem;
-            height: 5rem;
-            // border-radius: 50%;
-            // background-color: $color__secondary--light;
-            // box-shadow: 0.2rem 0.2rem 0.2rem $color__primary--dark;
+            bottom: -10%;
+            left: -10%;
+            width: 40%;
+            height: 30%;
+            z-index: 150;
+
+            .flagSelection {
+                visibility: collapse;
+                position: relative;
+                bottom: -110%;
+                width: 800%;
+                height: 800%;
+                padding: 1rem;
+                overflow-y: scroll;
+                background: rgba($color__primary--dark, 0.6);
+
+                label {
+                    background: none;
+                    padding: 0.5rem;
+                    input {
+                        appearance: none;
+                        width: 10%;
+                        height: 10%;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        &__modal {
+            visibility: collapse;
+            width: 300%;
+            height: 200%;
+            position: relative;
+            z-index: 1;
+            bottom: -110%;
+            left: -10%;
+            background: rgba($color__primary--dark, 0.6);
+
+            // &__modalContent {
+            // 	background-color: $color__secondary--light;
+            // 	margin: auto;
+            // 	padding: 20px;
+            // 	border: 1px solid #888;
+            // 	width: 80%;
+            // }
         }
     }
 
@@ -68,13 +107,18 @@
         margin: 1rem 0;
         border-radius: 1rem;
         box-shadow: 0.2rem 0.2rem 0.2rem $color__primary--dark;
-    }
 
-    &--statcontainer {
-        display: flex;
-        justify-content: space-between;
-        padding: 1rem 0;
-        margin: 1rem 0;
+        & input {
+            padding: 1rem;
+            border: none;
+            background-color: transparent;
+            font-size: 2rem;
+            color: $color__primary--dark;
+
+            &:focus {
+                outline: none;
+            }
+        }
     }
 
     &--icon {

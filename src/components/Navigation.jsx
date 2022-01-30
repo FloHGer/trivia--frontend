@@ -19,9 +19,8 @@ function Navigation() {
                                     "heading heading__2"
                                 )}
                             >
-                                {" "}
-                                Statistics
-                            </h2>{" "}
+                                {'Statistics'}
+                            </h2>
                         </Link>
                     </li>
                     <li className={classes["navigation__list--item"]}>
@@ -34,7 +33,7 @@ function Navigation() {
                                     "heading heading__2"
                                 )}
                             >
-                                Ranking
+                                {'Rankings'}
                             </h2>
                         </Link>
                     </li>
@@ -48,8 +47,8 @@ function Navigation() {
                                     "heading heading__2"
                                 )}
                             >
-                                BLANK
-                            </h2>{" "}
+                                {'BLANK'}
+                            </h2>
                         </Link>
                     </li>
                 </ul>

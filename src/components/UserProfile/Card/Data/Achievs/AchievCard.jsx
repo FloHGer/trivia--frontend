@@ -1,19 +1,10 @@
 import React from "react";
+import { FaTrophy } from "react-icons/fa";
+import AchievCardSquare from "./AchievCardSquare";
 
 import classes from "./../../../../../sass/components/UserProfile/Card/Data/Achives/AchievCard.module.scss";
 
 function AchievCard({ data, title, text, values }) {
-    // const month = data.unlocked[data.unlocked.length - 1].toLocaleString(
-    //     "en-US",
-    //     { month: "long" }
-    // );
-    // const day = data.unlocked[data.unlocked.length - 1].toLocaleString(
-    //     "en-US",
-    //     { day: "2-digit" }
-    // );
-    // const year = data.unlocked[data.unlocked.length - 1].getFullYear();
-
-
     return (
         <div className={classes.card}>
             {/* <div
@@ -28,33 +19,46 @@ function AchievCard({ data, title, text, values }) {
                 }}
             ></div> */}
             <div className={classes.card__container}>
-                <div className={classes.card__square}></div>
-
-                <div className={classes.card__date}>
-                    <p>{(data.unlocked.length && (
-                        <p>{data.unlocked[data.unlocked.length - 1]}</p>
-                    )) ||
-                        ""}</p>
-                </div>
+                <AchievCardSquare></AchievCardSquare>
+                <FaTrophy className={classes.icon} />
             </div>
             <div className={classes.card__data}>
+                <div className={classes.card__date}>
+                    {(data.unlocked.length && (
+                        <p>{data.unlocked[data.unlocked.length - 1]}</p>
+                    )) ||
+                        ""}
+                </div>
+
                 <div className={classes.card__text}>
                     <h2 className={classes["card__data--title"]}>{title}</h2>
                     <h3 className={classes["card__data--condition"]}>
                         {text[0]}
-                        {data.unlocked.length === values.length ? values[values.length -1] : values[data.unlocked.length]}
+                        {data.unlocked.length === values.length
+                            ? values[values.length - 1]
+                            : values[data.unlocked.length]}
                         {text[1]}
                     </h3>
 
-                    {data.unlocked.length < values.length &&
+                    {data.unlocked.length < values.length && (
                         <h4 className={classes["card__data--todo"]}>
                             <div
                                 className={classes.card__progression}
-                                style={{width: `${(values[data.unlocked.length] - data.next) * 100 / values[data.unlocked.length]}%`,}}
+                                style={{
+                                    width: `${
+                                        ((values[data.unlocked.length] -
+                                            data.next) *
+                                            100) /
+                                        values[data.unlocked.length]
+                                    }%`,
+                                }}
                             ></div>
-                            {!data.unlocked.length && values.length === 6 ? 0 : values[data.unlocked.length] - data.next} / {values[data.unlocked.length]}
+                            {!data.unlocked.length && values.length === 6
+                                ? 0
+                                : values[data.unlocked.length] - data.next}{" "}
+                            / {values[data.unlocked.length]}
                         </h4>
-                    }
+                    )}
                 </div>
             </div>
         </div>
@@ -62,7 +66,3 @@ function AchievCard({ data, title, text, values }) {
 }
 
 export default AchievCard;
-
-
-// 100% = values[data.unlocked.length]
-// x% = (values[data.unlocked.length] - data.next) * 100 / values[data.unlocked.length]

@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+import { useAuth } from "../../../../context/loginContext";
 import classes from "./../../../../sass/components/UserProfile/Card/Data/Stats.module.scss";
 import DataCard from "./DataCard";
 
 function Stats() {
+    const [currentUser] = useAuth();
     const [data, setData] = useState();
+
     useEffect(() => {
         (async () => {
             const response = await axios.get(
-                `${process.env.REACT_APP_BACKEND}/user/FloH/stats`
+                `${process.env.REACT_APP_BACKEND}/user/${currentUser}/stats`
             );
             console.log(response.data);
             if (response.data.message === "success")
                 setData(response.data.payload);
         })();
-    }, []);
+    }, [currentUser]);
+
     return (
         <div className={classes.stats}>
             <DataCard>
