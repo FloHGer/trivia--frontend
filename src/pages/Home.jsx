@@ -2,8 +2,8 @@ import { useState } from "react";
 // import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
-import Navigation from "../components/Navigation";
-import Button from "../common/Button";
+import Navigation from "../components/common/Navigation";
+import Button from "../components/common/Button";
 
 import classes from "./../sass/pages/Home.module.scss";
 import styles from "./../sass/common/Button.module.scss";

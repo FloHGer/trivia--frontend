@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
 import { FaTimesCircle } from "react-icons/fa";
-import FadeOut from "../common/FadeOut";
-import Card from "../common/Card";
-import Button from "./../common/Button";
+import FadeOut from "../components/common/FadeOut";
+import Card from "../components/common/Card";
+import Button from "./../components/common/Button";
 
 import classes from "./../sass/pages/Warning.module.scss";
 import styles from "./../sass/common/Button.module.scss";
