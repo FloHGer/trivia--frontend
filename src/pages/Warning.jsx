@@ -18,53 +18,50 @@ export default function Warning() {
                 <div className={classes.warning__text}>
                     <h2 className="heading heading__2">
                         <span className={classes["warning__span--red"]}>
-                            WARNING! ACHTUNG! UWAGA!
+                            {'WARNING! ACHTUNG! UWAGA!'}
                         </span>
                     </h2>
                     <h3 className="heading heading__3">
-                        This is just a{" "}
+                        {'This is just a '}
                         <span className={classes["warning__span--red"]}>
-                            quickgame mode
+                            {'quickgame mode'}
                         </span>
-                        .{" "}
+                        {'.'}
                     </h3>
                     <h3 className="heading heading__3">
-                        Most of the options are not available and what is worse:
+                        {'Most of the options are not available and what is worse:'}
                     </h3>
                     <h3 className="heading heading__3">
-                        {" "}
                         <span
                             className={`${classes["warning__span--red"]} ${classes.warning__span}`}
                         >
-                            no ranking
+                            {'no ranking'}
                         </span>
                     </h3>
 
                     <h3 className="heading heading__3">
-                        {" "}
                         <span
                             className={`${classes["warning__span--red"]} ${classes.warning__span}`}
                         >
-                            no achievements
+                            {'no achievements'}
                         </span>
                     </h3>
                     <h3 className="heading heading__3">
-                        {" "}
                         <span className={classes["warning__span--gold"]}>
-                            no glory
+                            {'no glory'}
                         </span>
                     </h3>
                     <div className={classes.warning__buttons}>
                         <Link to="/game">
                             <Button
                                 className={styles.btn__blue}
-                                type="submit"
-                                title1="Play!"
+                                type={"submit"}
+                                title={"Play!"}
                             />
                         </Link>
-                        <p>OR</p>
+                        <p>{'OR'}</p>
                         <Link to="/login">
-                            <Button type="submit" title2="Log in" />
+                            <Button type="submit" title="Log in" />
                         </Link>
                     </div>
                 </div>

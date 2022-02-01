@@ -9,38 +9,27 @@ import classes from "./../sass/pages/Home.module.scss";
 import styles from "./../sass/common/Button.module.scss";
 
 export default function Home() {
-    const [title1, setTitle1] = useState("Play!");
-    const [title2, setTitle2] = useState("Log in");
+    const [title] = useState(Math.floor(Math.random() * 7));
+    const [title1, setTitle1] = useState(0);
+    const [title2, setTitle2] = useState(0);
 
     const titles = [
-        ["Just messing around...", "Getting serious, roar!"],
-        ["Be sweet! Be cute!", "Be aggressive!"],
-        ["Flower power", "Kill them all!"],
-        ["Everyone's a winner", "The one and only!"],
-        ["Relax, take it easy!", "Under pressure"],
-        ["Look at the top", "Be on the top!"],
+        ["drop some knowledge", "Play!", "Log in"],
+        ["earn some knowledge", "Just messing around...", "Getting serious, roar!"],
+        ["get the best", "Be sweet! Be cute!", "Be aggressive!"],
+        ["battle the best", "Flower power", "Kill them all!"],
+        ["waste some time", "Everyone's a winner", "The one and only!"],
+        ["waste some time", "Relax, take it easy!", "Under pressure"],
+        ["waste some time", "Look at the top", "Be on the top!"],
     ];
 
-    const mouseEnterHandlerLeft = () => {
-        setTitle1(titles[Math.floor(Math.random() * 6)][0]);
-    };
-    const mouseEnterHandlerRight = () => {
-        setTitle2(titles[Math.floor(Math.random() * 6)][1]);
-    };
-
-    const mouseLeaveHandlerLeft = () => {
-        setTitle1("Play!");
-    };
-    const mouseLeaveHandlerRight = () => {
-        setTitle2("Log In");
-    };
 
     return (
         <div>
             <Navigation />
             <div className={classes.container}>
                 <h1 className="heading heading__1">
-                    {'Did you come to drop some knowledge?'}
+                    {`Did you come to ${titles[title][0]}?`}
                 </h1>
 
                 <div className={classes.container__buttons}>
@@ -48,17 +37,17 @@ export default function Home() {
                         <Button
                             className={styles.btn__blue}
                             type="submit"
-                            onMouseEnter={mouseEnterHandlerLeft}
-                            onMouseLeave={mouseLeaveHandlerLeft}
-                            title1={title1}
+                            onMouseEnter={() => setTitle1(Math.floor(Math.random() * 6 + 1))}
+                            onMouseLeave={() => setTitle1(0)}
+                            title={titles[title1][1]}
                         />
                     </Link>
                     <Link to="/login">
                         <Button
-                            onMouseEnter={mouseEnterHandlerRight}
-                            onMouseLeave={mouseLeaveHandlerRight}
+                            onMouseEnter={() => setTitle2(Math.floor(Math.random() * 6 + 1))}
+                            onMouseLeave={() => setTitle2(0)}
                             type="submit"
-                            title2={title2}
+                            title={titles[title2][2]}
                         />
                     </Link>
                 </div>

@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import { useAuth } from "../../../../context/loginContext";
+import Card from "../../../common/Card";
+
 import classes from "./../../../../sass/components/UserProfile/Card/Data/Stats.module.scss";
+
 
 function Stats() {
     const [currentUser] = useAuth();
@@ -21,26 +24,24 @@ function Stats() {
 
     return (
         <div className={classes.stats}>
-            <div>
+            <div className={classes.dataCard}>
                 <h2 className={classes.stats__title}>Games played</h2>
                 <p className={classes.stats__data}>
-                    {" "}
-                    {data && data.gamesPlayed}{" "}
+                    {data && data.gamesPlayed}
                 </p>
             </div>
             <div className={classes.stats__together}>
                 <div className={classes["stats__together--item"]}>
-                    <div>
+                    <div className={classes.dataCard}>
                         <h2 className={classes.stats__title}>Total score</h2>
                         <p className={classes.stats__data}>
-                            {" "}
                             {data && data.score.total}
                         </p>
                     </div>
                 </div>
                 <div className={classes["stats__together--item"]}>
-                    <div>
-                        <h2 className={classes.stats__title}>Highscore</h2>{" "}
+                    <div className={classes.dataCard}>
+                        <h2 className={classes.stats__title}>Highscore</h2>
                         <p className={classes.stats__data}>
                             {data && data.score.high}
                         </p>
@@ -49,35 +50,35 @@ function Stats() {
             </div>
             <div className={classes.stats__together}>
                 <div className={classes["stats__together--item"]}>
-                    <div>
+                    <div className={classes.dataCard}>
                         <h2 className={classes.stats__title}>
                             Questions answered
-                        </h2>{" "}
+                        </h2>
                         <p className={classes.stats__data}>
                             {data && data.answers.total}
                         </p>
                     </div>
                 </div>
                 <div className={classes["stats__together--item"]}>
-                    <div>
+                    <div className={classes.dataCard}>
                         <h2 className={classes.stats__title}>
                             Correct answers
-                        </h2>{" "}
+                        </h2>
                         <p className={classes.stats__data}>
                             {data && data.answers.correct}
                         </p>
                     </div>
                 </div>
             </div>
-            <div>
+            <div className={classes.dataCard}>
                 <h2 className={classes.stats__title}>Categories completed</h2>
                 <p className={classes.stats__data}>
                     {data && data.completedCategories.total}
                 </p>
             </div>
-            <div>
+            <div className={classes.dataCard}>
                 <h2 className={classes.stats__title}>
-                    Max completed categories in one game{" "}
+                    Max completed categories in one game
                 </h2>
                 <p className={classes.stats__data}>
                     {data && data.completedCategories.max}

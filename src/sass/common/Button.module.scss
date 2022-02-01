@@ -3,8 +3,8 @@
 .btn {
     cursor: pointer;
     border: 0;
-    min-width: 40rem;
-    min-height: 10rem;
+    width: 40rem;
+    height: 10rem;
     padding: 1rem 3rem;
     margin: 2rem;
     border-radius: 3rem;
@@ -17,14 +17,18 @@
     background: $color__secondary--light;
     box-shadow: -0.5rem 0.5rem 0.2rem rgba($color__primary--dark, 0.9);
     transition: all 0.2 ease-in-out;
-
-    &__blue {
-        background-color: $color__primary--light;
-    }
-
+    
     &:hover {
         transform: scale(0.98);
         padding: 1rem 3rem;
-        background: $color__grey--light;
     }
+
+    &__blue {
+        background: $color__primary--light;
+
+        &:hover{
+            background: $color__primary--light;
+        }
+    }
+
 }

@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function GameCategory({data, count}) {
+import Button from "../common/Button";
+
+
+export default function GameCategory({data, index}) {
   const [questions, setQuestions] = useState([]);
 
-  useEffect(() => { 
+  useEffect(() => {
     (async () => {
       const easy = (
         await axios(
@@ -27,11 +30,11 @@ export default function GameCategory({data, count}) {
 
 
   return <div>
-    <h3>{data.name}</h3>
+    <h3>{data.name}asd</h3>
     {questions.map((question, i, array) => {
       i = array.length -1 - i;
       return(
-        <button key={i}>{(i + 1) * 100}</button>
+        <Button key={i} title={(i + 1) * 100}/>
       );
     })}
   </div>;

@@ -11,7 +11,7 @@ export default function Navigation() {
                     <li className={classes["navigation__list--item"]}>
                         <div className="line line__1"></div>
                         <div className="diamond"></div>
-                        <Link to="/games">
+                        <Link to="/stats">
                             <h2
                                 className={cn(
                                     classes["navigation__list--link"],
@@ -25,7 +25,7 @@ export default function Navigation() {
                     <li className={classes["navigation__list--item"]}>
                         <div className="line line__2"></div>
                         <div className="diamond"></div>
-                        <Link to="/achievements">
+                        <Link to="/ranks">
                             <h2
                                 className={cn(
                                     classes["navigation__list--link"],
@@ -39,7 +39,7 @@ export default function Navigation() {
                     <li className={classes["navigation__list--item"]}>
                         <div className="line line__3"></div>
                         <div className="diamond"></div>
-                        <Link to="/stats">
+                        <Link to="/">
                             <h2
                                 className={cn(
                                     classes["navigation__list--link"],

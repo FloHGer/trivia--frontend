@@ -5,7 +5,7 @@ import axios from 'axios';
 import Button from '../../common/Button';
 import DashboardItem from './Setting';
 import Square from '../../common/Square';
-import {useGame} from '../../../context/gameContext';
+import {useCategories} from '../../../context/gameContext';
 import { useAuth } from '../../../context/loginContext';
 
 import styles from '../../../sass/common/Button.module.scss'
@@ -15,7 +15,7 @@ import classes from '../../../sass/components/UserProfile/CardGameDashboard.modu
 export default function CardGameDashboard() {
 	const navigate = useNavigate();
 	const [currentUser] = useAuth();
-	const [selectedCategories, setSelectedCategories] = useGame([]);
+	const [selectedCategories, setSelectedCategories] = useCategories([]);
 	
 	const [gameMode, setGameMode] = useState(false);
 	const [categories, setCategories] = useState([]);
@@ -99,7 +99,7 @@ export default function CardGameDashboard() {
 			</div>
 			<div className={classes.dashboard__button}>
 				<div className={classes['dashboard__line--2']}></div>
-					<Button className={styles.btn__blue} title1='Play!' onClick={categorySelection} />
+					<Button className={styles.btn__blue} title='Play!' onClick={categorySelection} />
 			</div>
 		</section>
 	);

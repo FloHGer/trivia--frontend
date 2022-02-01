@@ -8,9 +8,11 @@ export default function Button(props) {
 			onMouseLeave={props.onMouseLeave}
 			onClick={props.onClick}
 			type={props.type}
+			style={{
+				maxWidth: '',
+			}}
 		>
-			{props.title1}
-			{props.title2}
+			{props.title}
 		</button>
 	);
 }

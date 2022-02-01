@@ -101,9 +101,10 @@ form {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    
     &--google,
     &--github {
+        cursor: pointer;
         display: block;
         border: 0;
         padding: 2rem 3rem;

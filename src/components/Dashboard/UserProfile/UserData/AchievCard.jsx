@@ -1,7 +1,10 @@
 import React from "react";
 import { FaTrophy } from "react-icons/fa";
 
+import Square from "../../../common/Square";
+
 import classes from "../../../../sass/components/UserProfile/Card/Data/Achives/AchievCard.module.scss";
+import squareClasses from "../../../../sass/components/UserProfile/Card/Data/Achives/AchievCardSquare.module.scss";
 
 function AchievCard({ data, title, text, values }) {
     return (
@@ -18,6 +21,7 @@ function AchievCard({ data, title, text, values }) {
                 }}
             ></div> */}
             <div className={classes.card__container}>
+                <Square className={squareClasses.square}/>
                 <FaTrophy className={classes.icon} />
             </div>
             <div className={classes.card__data}>

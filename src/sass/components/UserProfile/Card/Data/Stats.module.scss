@@ -1,9 +1,24 @@
 @import "./../../../../config.scss";
 
+
+.dataCard {
+    background-color: $color__secondary--light;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    box-shadow: 0.5rem 0.5rem 0.2rem rgba($color__primary, 0.5);
+    margin-bottom: 1.2rem;
+}
+
+
 .stats {
     // height: 40rem;
     // overflow-y: auto;
     color: $color__primary--dark;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: rem solid #000;
 
     &__title {
         font-size: 2rem;
@@ -34,3 +49,4 @@
         }
     }
 }
+
