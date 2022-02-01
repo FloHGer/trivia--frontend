@@ -44,22 +44,20 @@ export default function Game() {
   }, [selectedCategories, setQuestions]);
 
   // calc score
-  // useEffect(() => {
-  //   let calcScore = 0;
-  //   let correctCats = [];
-  //   for (let i = 0; i < allAnswers.length; i++) {
-  //     for (let j = 0; j < allAnswers[i].length; j++) {
-  //       if (allAnswers[i][j] === true) {
-  //         calcScore += (j + 1) * 100;
-  //         allRefs.current[i][j].style.color = 'green';
-  //       }
-  //     }
-  //     if (allAnswers[i][4] === true)
-  //       correctCats.push(100 + correctCats.length * 100);
-  //   }
-  //   for (let i in correctCats) calcScore += correctCats[i];
-  //   setScore(calcScore);
-  // }, [allAnswers]);
+  useEffect(() => {
+    let calcScore = 0;
+    const correctCats = [];
+    allAnswers.forEach(category => {
+      category.forEach((question, i) => {
+        if(question) calcScore += (i + 1) * 100;
+        if(question && i === 4 && correctCats.length < 6)
+          correctCats.push(100 + correctCats.length * 100);
+        if(correctCats.length === 6) correctCats[5] += 11;
+      });
+    });
+    calcScore += correctCats.reduce((sum, cat) => sum + cat, 0);
+    setScore(calcScore);
+  }, [allAnswers]);
 
 
   return (
@@ -71,20 +69,31 @@ export default function Game() {
 				{isLoading && <Spinner />}
         {!isLoading && !showQuestion &&
           questions.map((category, i) => {
+
             return (
               <div
                 key={i}
                 className={'CATEGORY CONTAINER CLASS NAME HERE'}
               >
-                <h3>{category[0].category}</h3>
+                <h3>
+                  {category[0].category.startsWith('Entertainment:')
+                    || category[0].category.startsWith('Science:')
+                    ? category[0].category.slice(category[0].category.indexOf(' ') + 1)
+                    : category[0].category}
+                </h3>
                 {questions[i].map((question, j, arr) => {
-                  j = arr.length -1 - j;
-                  return(
+                  let disabledState = true;
+                  if(!allAnswers[i].length
+                  || (allAnswers[i].length < 5 && allAnswers[i][j - 1]))
+                    disabledState = false;
+
+                    return(
                     <Button
                       className={'BUTTON CLASS NAME HERE'}
                       key={j}
                       title={(j + 1) * 100}
                       maxWidth={'15rem'}
+                      disabled={disabledState}
                       onClick={() => setShowQuestion({
                         question,
                         category: i,
