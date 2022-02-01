@@ -5,17 +5,17 @@ import { useShowQuestion } from "../../context/gameContext";
 
 import classes from "../../sass/pages/Question.module.scss";
 
-function Question() {
+export default function Question() {
     const [showQuestion] = useShowQuestion();
 
-    const answers = [showQuestion.correct_answer, ...showQuestion.incorrect_answers]
+    const answers = [showQuestion.question.correct_answer, ...showQuestion.question.incorrect_answers]
     answers.sort(() => (Math.random() > .5) ? 1 : -1);
 
     return (
         <div>
             <Card>
                 <h2 className={classes.question}>
-                    {showQuestion.question}
+                    {showQuestion.question.question}
                 </h2>
                 <div className={classes.question__container}>
                     <QuestionAnswer letter="A" text = {answers[0]}/>
@@ -34,4 +34,3 @@ function Question() {
     );
 }
 
-export default Question;

@@ -2,23 +2,17 @@ import {useState, useEffect, useRef} from 'react';
 import axios from 'axios';
 
 import Question from '../components/Game/Question';
-import {useCategories} from '../context/gameContext'
+import {useAnswers, useCategories, useQuestions, useShowQuestion} from '../context/gameContext'
 import Spinner from '../components/common/Spinner';
 
 export default function Game() {
 	const [selectedCategories, setSelectedCategories] = useCategories();
+  const [questions, setQuestions] = useQuestions();
+  const [allAnswers, setAllAnswers] = useAnswers();
+  const [showQuestion, setShowQuestion] = useShowQuestion();
 
+  const [isLoading, setIsLoading] = useState(true);
   const [score, setScore] = useState(0);
-  const [questions, setQuestions] = useState();
-  const [allAnswers, setAllAnswers] = useState([
-    [null, null, null, null, null],
-    [null, null, null, null, null],
-    [null, null, null, null, null],
-    [null, null, null, null, null],
-    [null, null, null, null, null],
-    [null, null, null, null, null],
-  ]);
-  const [showQuestion, setShowQuestion] = useState(null);
   const allRefs = useRef([[], [], [], [], [], []]);
   
   const setRef = (i, number, ref) => {
@@ -49,7 +43,8 @@ export default function Game() {
       })();
     }
     setQuestions(cats);
-  }, [selectedCategories]);
+    setIsLoading(false);
+  }, [selectedCategories, setQuestions]);
 
   // calc score
   useEffect(() => {
@@ -69,12 +64,13 @@ export default function Game() {
     setScore(calcScore);
   }, [allAnswers]);
 
+
   return (
     <>
       <h2 className='score'>Score: {score}</h2>
       <div className='game'>
-				{!questions && <Spinner />}
-        {questions && !showQuestion &&
+				{isLoading && <Spinner />}
+        {!isLoading && !showQuestion &&
           selectedCategories.map((category, i) => {
             return (
               <div className='category' key={category.id}>
@@ -85,50 +81,40 @@ export default function Game() {
                     : category.name}
                 </h3>
                 <button
-                  ref={ref => setRef(i, 4, ref)}
                   onClick={() => setShowQuestion({
                       question: questions[i][4],
-                      refs: allRefs[i],
                       category: i,
                       number: 4,
                     })
                   }
                 >500</button>
                 <button
-                  ref={ref => setRef(i, 3, ref)}
                   onClick={() => setShowQuestion({
                       question: questions[i][3],
-                      refs: allRefs[i],
                       category: i,
                       number: 3,
                     })
                   }
                 >400</button>
                 <button
-                  ref={ref => setRef(i, 2, ref)}
                   onClick={() => setShowQuestion({
                       question: questions[i][2],
-                      refs: allRefs[i],
                       category: i,
                       number: 2,
                     })
                   }
                 >300</button>
                 <button
-                  ref={ref => setRef(i, 1, ref)}
                   onClick={() => setShowQuestion({
                       question: questions[i][1],
-                      refs: allRefs[i],
                       category: i,
                       number: 1,
                     })
                   }
                 >200</button>
                 <button
-                  ref={ref => setRef(i, 0, ref)}
                   onClick={() => setShowQuestion({
                       question: questions[i][0],
-                      refs: allRefs[i],
                       category: i,
                       number: 0,
                     })
@@ -137,14 +123,7 @@ export default function Game() {
               </div>
             );
           })}
-        {showQuestion &&
-          <Question
-            showQuestion={showQuestion}
-            setShowQuestion={setShowQuestion}
-            allAnswers={allAnswers}
-            setAllAnswers={setAllAnswers}
-          />
-        }
+        {showQuestion && <Question />}
       </div>
     </>
   );
