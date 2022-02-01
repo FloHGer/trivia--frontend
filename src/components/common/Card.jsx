@@ -2,9 +2,7 @@
 
 import classes from "../../sass/common/Card.module.scss";
 
-export default function Card(props) {
-    return <div className={`${props.classname}` || `${classes.card}`}>
-        {props.children}
-    </div>;
+export default function Card({ classname, children }) {
+    return <div className={classes.card}>{children}</div>;
 }
 
