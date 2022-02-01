@@ -12,7 +12,14 @@ export const useAnswers = () => useContext(answerContext);
 
 export default function Game({ children }) {
     const [selectedCategories, setSelectedCategories] = useState([]);
-    const [questions, setQuestions] = useState([[], [], [], [], [], []]);
+    const [questions, setQuestions] = useState([
+        [false, false, false, false, false],
+        [false, false, false, false, false],
+        [false, false, false, false, false],
+        [false, false, false, false, false],
+        [false, false, false, false, false],
+        [false, false, false, false, false],
+    ]);
     const [showQuestion, setShowQuestion] = useState(null);
     const [allAnswers, setAllAnswers] = useState([[], [], [], [], [], []]);
 

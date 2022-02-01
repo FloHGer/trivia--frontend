@@ -1,29 +1,26 @@
-import {useState, useEffect, useRef} from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 
-import Question from '../components/Game/Question';
 import {useAnswers, useCategories, useQuestions, useShowQuestion} from '../context/gameContext'
+import Button from '../components/common/Button';
+import Question from '../components/Game/Question';
 import Spinner from '../components/common/Spinner';
 
 export default function Game() {
-	const [selectedCategories, setSelectedCategories] = useCategories();
+	const [selectedCategories] = useCategories();
   const [questions, setQuestions] = useQuestions();
   const [allAnswers, setAllAnswers] = useAnswers();
   const [showQuestion, setShowQuestion] = useShowQuestion();
 
   const [isLoading, setIsLoading] = useState(true);
   const [score, setScore] = useState(0);
-  const allRefs = useRef([[], [], [], [], [], []]);
-  
-  const setRef = (i, number, ref) => {
-    if (ref) allRefs.current[i][number] = ref;
-  };
+
 
   // fetch questions
   useEffect(() => { 
-    let cats = {};
-    for (let i = 0; i < selectedCategories.length; i++) {
-      (async () => {
+    let cats = [];
+    (async () => {
+      for (let i = 0; i < selectedCategories.length; i++) {
         const easy = (
           await axios(
             `https://opentdb.com/api.php?amount=2&category=${selectedCategories[i].id}&difficulty=easy`
@@ -40,86 +37,62 @@ export default function Game() {
           )
         ).data.results;
         cats[i] = [...easy, ...medium, ...hard];
-      })();
-    }
-    setQuestions(cats);
-    setIsLoading(false);
+      }
+      setQuestions(cats);
+      setIsLoading(false);
+    })();
   }, [selectedCategories, setQuestions]);
 
   // calc score
-  useEffect(() => {
-    let calcScore = 0;
-    let correctCats = [];
-    for (let i = 0; i < allAnswers.length; i++) {
-      for (let j = 0; j < allAnswers[i].length; j++) {
-        if (allAnswers[i][j] === true) {
-          calcScore += (j + 1) * 100;
-          allRefs.current[i][j].style.color = 'green';
-        }
-      }
-      if (allAnswers[i][4] === true)
-        correctCats.push(100 + correctCats.length * 100);
-    }
-    for (let i in correctCats) calcScore += correctCats[i];
-    setScore(calcScore);
-  }, [allAnswers]);
+  // useEffect(() => {
+  //   let calcScore = 0;
+  //   let correctCats = [];
+  //   for (let i = 0; i < allAnswers.length; i++) {
+  //     for (let j = 0; j < allAnswers[i].length; j++) {
+  //       if (allAnswers[i][j] === true) {
+  //         calcScore += (j + 1) * 100;
+  //         allRefs.current[i][j].style.color = 'green';
+  //       }
+  //     }
+  //     if (allAnswers[i][4] === true)
+  //       correctCats.push(100 + correctCats.length * 100);
+  //   }
+  //   for (let i in correctCats) calcScore += correctCats[i];
+  //   setScore(calcScore);
+  // }, [allAnswers]);
 
 
   return (
     <>
-      <h2 className='score'>Score: {score}</h2>
-      <div className='game'>
+      <div className={'INFO BOX CLASS NAME HERE'}>
+        <p>{score}</p>
+      </div>
+      <div className={'GAME CONTAINER CLASS NAME HERE'}>
 				{isLoading && <Spinner />}
         {!isLoading && !showQuestion &&
-          selectedCategories.map((category, i) => {
+          questions.map((category, i) => {
             return (
-              <div className='category' key={category.id}>
-                <h3>
-                  {category.name.startsWith('Entertainment:')
-                  || category.name.startsWith('Science:')
-                    ? category.name.slice(category.name.indexOf(' ') + 1)
-                    : category.name}
-                </h3>
-                <button
-                  onClick={() => setShowQuestion({
-                      question: questions[i][4],
-                      category: i,
-                      number: 4,
-                    })
-                  }
-                >500</button>
-                <button
-                  onClick={() => setShowQuestion({
-                      question: questions[i][3],
-                      category: i,
-                      number: 3,
-                    })
-                  }
-                >400</button>
-                <button
-                  onClick={() => setShowQuestion({
-                      question: questions[i][2],
-                      category: i,
-                      number: 2,
-                    })
-                  }
-                >300</button>
-                <button
-                  onClick={() => setShowQuestion({
-                      question: questions[i][1],
-                      category: i,
-                      number: 1,
-                    })
-                  }
-                >200</button>
-                <button
-                  onClick={() => setShowQuestion({
-                      question: questions[i][0],
-                      category: i,
-                      number: 0,
-                    })
-                  }
-                >100</button>
+              <div
+                key={i}
+                className={'CATEGORY CONTAINER CLASS NAME HERE'}
+              >
+                <h3>{category[0].category}</h3>
+                {questions[i].map((question, j, arr) => {
+                  j = arr.length -1 - j;
+                  return(
+                    <Button
+                      className={'BUTTON CLASS NAME HERE'}
+                      key={j}
+                      title={(j + 1) * 100}
+                      maxWidth={'15rem'}
+                      onClick={() => setShowQuestion({
+                        question,
+                        category: i,
+                        number: j,
+                      })}
+                    />
+                  );
+                })}
               </div>
             );
           })}
