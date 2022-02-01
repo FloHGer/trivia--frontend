@@ -13,11 +13,9 @@ export default function Auth({children}) {
 				const res = await axios.get(`${process.env.REACT_APP_BACKEND}/auth/check`, {withCredentials: true});
 				if (res.data.message === 'success') setIsLoggedIn(res.data.payload);
 				if (res.data.message !== 'success') setIsLoggedIn(false);
-			} catch (err) {
-				console.error(err);
-			}
+			} catch (err) {console.error(err)}
 		})();
-	}, []);
+	}, [isLoggedIn]);
 
 	return <AuthContext.Provider value={[isLoggedIn, setIsLoggedIn]}>{children}</AuthContext.Provider>;
 }

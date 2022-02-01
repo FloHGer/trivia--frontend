@@ -47,7 +47,7 @@ export default function CardGameDashboard() {
 				setSettings(settingsResponse);
 			}catch(err){console.log(err)}
 		})();
-	}, []);
+	}, [currentUser]);
 
 
 	return (

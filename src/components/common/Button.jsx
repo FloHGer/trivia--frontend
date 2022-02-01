@@ -9,7 +9,7 @@ export default function Button(props) {
 			onClick={props.onClick}
 			type={props.type}
 			style={{
-				maxWidth: '',
+				maxWidth: props.maxWidth || '',
 			}}
 		>
 			{props.title}

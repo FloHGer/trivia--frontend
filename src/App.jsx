@@ -25,7 +25,7 @@ export default function App() {
 
 					<Route path='/login' element={isLoggedIn ? <Navigate to='/dashboard' /> : <LogIn />} />
 
-					<Route path='/dashboard' element={<Dashboard />} />
+					<Route path='/dashboard' element={isLoggedIn ? <Dashboard /> : <Navigate to='/login' />} />
 
 					<Route path='/game' element={<Game />} />
 
