@@ -8,18 +8,15 @@ import Card from '../components/common/Card';
 import classes from './../sass/pages/LogIn.module.scss';
 
 export default function LogIn() {
-	const [email, setEmail] = useState('');
+	const [email, setEmail] = useState();
 	const [btnDisabled, setBtnDisabled] = useState(true);
 
 	const updateInputHandler = event => {
 		setBtnDisabled(true);
+		setEmail(event.value);
 
-		if (
-			event.target.value.match(/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i)
-		)
+		if (event.value.match(/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i))
 			setBtnDisabled(false);
-
-		setEmail(event.target.value);
 	};
 
 	const submitHandler = event => {
@@ -38,7 +35,7 @@ export default function LogIn() {
 				</div>
 				<form onSubmit={submitHandler}>
 					<label htmlFor=''>{'Your email'}</label>
-					<input type='email' name='text' value={email || ''} placeholder='enter your email' onChange={updateInputHandler} />
+					<input type='email' name='text' value={email} placeholder='enter your email' onChange={(e) => updateInputHandler(e)} />
 					<button type='submit' className={classes.btn} disabled={btnDisabled}>
 						{'Log in'}
 					</button>

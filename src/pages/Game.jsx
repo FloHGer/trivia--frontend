@@ -4,18 +4,23 @@ import axios from 'axios';
 import Spinner from '../components/common/Spinner';
 import Category from '../components/Game/GameCategory';
 import Question from '../components/Game/Question';
-import { useCategories, useShowQuestion, useAnswers } from "../context/gameContext";
+import { useCategories, useShowQuestion, useLoading, useAnswers } from "../context/gameContext";
 
 import classes from './../sass/pages/Game.module.scss';
 
 export default function Game() {
 	const [selectedCategories] = useCategories();
 	const [showQuestion] = useShowQuestion();
+	const [isLoaded] = useLoading();
 	const [allAnswers, setAllAnswers] = useAnswers();
 
-	const [isLoading, setIsLoading] = useState(false); // set to true after dev
+	const [isLoading, setIsLoading] = useState(false); // set to true after testing
 	const [score, setScore] = useState(0);
 
+	useEffect(() => {
+		if(isLoaded.length === 6) setIsLoading(false)
+	}, [isLoaded]);
+	
 
 	// calc score
 	useEffect(() => {
@@ -42,7 +47,7 @@ export default function Game() {
 			</div>
 			<div className={classes.GAMECONTAINERCLASS_HERE}>
 				{isLoading && <Spinner />}
-				{/* {showQuestion && <Question question = {showQuestion} />} */}
+				{showQuestion && <Question />}
 				{!isLoading && !showQuestion &&
 					selectedCategories.map((category, i) => (
 						<Category data={category} index={i} key={i}/>
