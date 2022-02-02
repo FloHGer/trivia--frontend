@@ -1,15 +1,23 @@
+import { useEffect, useState } from 'react';
+
 import Answer from './Answer';
 import Card from '../../components/common/Card';
-import FadeOut from '../../components/common/FadeOut';
 import {useShowQuestion} from '../../context/gameContext';
 
 import classes from '../../sass/pages/Question.module.scss';
 
+
 export default function Question() {
 	const [showQuestion] = useShowQuestion();
 
-	const answers = [showQuestion.question.correct_answer, ...showQuestion.question.incorrect_answers];
-	answers.sort(() => (Math.random() > 0.5 ? 1 : -1));
+	const [answers, setAnswers] = useState([]);
+
+	useEffect(() => {
+		const answersArr = [showQuestion.question.correct_answer, ...showQuestion.question.incorrect_answers];
+		answersArr.sort(() => (Math.random() > 0.5 ? 1 : -1));
+		setAnswers(answersArr);
+	}, [showQuestion.question]);
+
 
 	return (
 		<div>

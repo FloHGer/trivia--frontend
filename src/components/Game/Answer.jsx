@@ -9,11 +9,11 @@ export default function Answer({letter, text}) {
 	const [allAnswers, setAllAnswers] = useAnswers();
 
 	const answerHandler = () => {
-		setAllAnswers([...allAnswers, allAnswers[showQuestion.category] = [...allAnswers[showQuestion.category],
-			text === showQuestion.question.correct_answer ? true : false]]);
+		allAnswers[showQuestion.category][showQuestion.index] = showQuestion.question.correct_answer === text ? true : false;
+		setAllAnswers([...allAnswers]);
 		setTimeout(() => {
 			setShowQuestion(null);
-		}, 3000);
+		}, 3);
 	}
 
 
