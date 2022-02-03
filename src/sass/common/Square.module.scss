@@ -1,14 +1,20 @@
 @import "./../config.scss";
 
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2rem;
+}
+
 .square {
-    width: 10rem;
-    height: 10rem;
-    margin: 10%;
+    width: 70%;
+    height: 70%;
 
     background: linear-gradient(
         201.5deg,
         #173650 17.02%,
-        rgba(23, 54, 80, 0) 95.16%
+        rgba(23, 54, 80, .6) 95.16%
     );
     box-shadow: 4px -4px 2rem 2px $color__primary;
     transform: rotate(45deg);
@@ -23,10 +29,10 @@
         transform: rotate(405deg);
         transition: transform 1s ease-in-out;
     }
-}
 
-.square h3 {
-    font-size: 2rem;
-    transform: rotate(-45deg);
-    color: $color__secondary--light;
+    h3 {
+        font-size: 2rem;
+        transform: rotate(-45deg);
+        color: $color__secondary--light;
+    }
 }

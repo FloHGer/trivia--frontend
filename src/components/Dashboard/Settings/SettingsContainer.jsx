@@ -53,8 +53,7 @@ export default function CardGameDashboard() {
 	return (
 		<section className={classes.dashboard}>
 			<div className={classes.dashboard__game}>
-				<Square title='trivia' className={classes.dashboard__square} />
-				{/* <DashboardItem 
+					{/* <DashboardItem 
 					title = {'Game Timer'}
 					type = {'radio'}
 					values = {[
