@@ -14,7 +14,7 @@ html {
 body {
     font-family: $font;
     font-size: 1.6rem;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-image: linear-gradient(
             to right,
@@ -33,5 +33,5 @@ a {
 
 main {
     width: 100%;
-    height: calc(100vh - 4rem);
+    height: 100vh;
 }

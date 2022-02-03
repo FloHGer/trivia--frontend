@@ -1,9 +1,9 @@
 @import "./../config.scss";
 
 .square {
-    width: 12rem;
-    height: 12rem;
-    margin: 1rem;
+    width: 10rem;
+    height: 10rem;
+    margin: 10%;
 
     background: linear-gradient(
         201.5deg,
@@ -26,6 +26,7 @@
 }
 
 .square h3 {
+    font-size: 2rem;
     transform: rotate(-45deg);
     color: $color__secondary--light;
 }

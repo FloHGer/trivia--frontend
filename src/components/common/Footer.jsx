@@ -1,30 +1,19 @@
 
-import Square from "./Square";
-import { Link } from "react-router-dom";
+import Square from './Square';
 
-import classes from "../../sass/common/Footer.module.scss";
+import classes from '../../sass/common/Footer.module.scss';
 
 export default function Footer() {
-    return (
-        <footer className={classes.footer}>
-            <div className={classes.footer__rights}>
-                <h4 className="heading heading__4">
-                    All rights reserved | 2022 Berlin
-                </h4>
-            </div>
+	return (
+		<footer className={classes.footer}>
+			<nav className={classes.footer__nav}>
+					<Square title='Stats' size={'14rem'}/>
+					<Square title='Ranks' size={'14rem'}/>
 
-            <div className={classes.footer__nav}>
-                <Link to="/">
-                    <h4 className="heading heading__4">Home</h4>
-                </Link>
-                <h4 className="heading heading__4">Feedback</h4>
-            </div>
+					<Square title='About us' size={'8rem'} />
 
-            <div className={classes.footer__squares}>
-                <Link to="/about">
-                    <Square title="About us" />{" "}
-                </Link>
-            </div>
-        </footer>
-    );
+					<Square title='Feedback' />
+			</nav>
+		</footer>
+	);
 }

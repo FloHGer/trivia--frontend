@@ -1,11 +1,11 @@
 @import "./../config.scss";
 
 .footer {
-    width: 100vw;
-    height: 4rem;
-    background-color: $color__primary--light;
+    width: 50%;
+    height: 20%;
     position: fixed;
     bottom: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,7 +22,10 @@
     }
 
     &__nav {
+        width: 100%;
         display: flex;
+        align-items: center;
+        justify-content: flex-end;
 
         & h4 {
             margin: 0 2rem;

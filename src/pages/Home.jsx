@@ -1,14 +1,15 @@
 import { useState } from "react";
-// import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
-import Navigation from "../components/common/Navigation";
+// import Navigation from "../components/common/Navigation";
 import Button from "../components/common/Button";
+import Warning from '../components/common/Warning';
 
 import classes from "./../sass/pages/Home.module.scss";
 import styles from "./../sass/common/Button.module.scss";
 
 export default function Home() {
+    const [warning, setWarning] = useState(false);
     const [title] = useState(Math.floor(Math.random() * 7));
     const [title1, setTitle1] = useState(0);
     const [title2, setTitle2] = useState(0);
@@ -16,32 +17,32 @@ export default function Home() {
     const titles = [
         ["drop some knowledge", "Play!", "Log in"],
         ["earn some knowledge", "Just messing around...", "Getting serious, roar!"],
-        ["get the best", "Be sweet! Be cute!", "Be aggressive!"],
+        ["become the best", "Be sweet! Be cute!", "Be aggressive!"],
         ["battle the best", "Flower power", "Kill them all!"],
-        ["waste some time", "Everyone's a winner", "The one and only!"],
+        ["surprise your friends", "Everyone's a winner", "The one and only!"],
         ["waste some time", "Relax, take it easy!", "Under pressure"],
         ["waste some time", "Look at the top", "Be on the top!"],
     ];
 
 
     return (
-        <div>
-            <Navigation />
+        <main>
+            {warning && <Warning setWarning={setWarning} />}
+            {!warning &&
             <div className={classes.container}>
                 <h1 className="heading heading__1">
                     {`Did you come to ${titles[title][0]}?`}
                 </h1>
 
                 <div className={classes.container__buttons}>
-                    <Link to="/warning">
-                        <Button
-                            className={styles.btn__blue}
-                            type="submit"
-                            onMouseEnter={() => setTitle1(Math.floor(Math.random() * 6 + 1))}
-                            onMouseLeave={() => setTitle1(0)}
-                            title={titles[title1][1]}
-                        />
-                    </Link>
+                    <Button
+                        className={styles.btn__blue}
+                        type="submit"
+                        onMouseEnter={() => setTitle1(Math.floor(Math.random() * 6 + 1))}
+                        onMouseLeave={() => setTitle1(0)}
+                        onClick={() => setWarning(true)}
+                        title={titles[title1][1]}
+                    />
                     <Link to="/login">
                         <Button
                             onMouseEnter={() => setTitle2(Math.floor(Math.random() * 6 + 1))}
@@ -51,8 +52,8 @@ export default function Home() {
                         />
                     </Link>
                 </div>
-            </div>
-        </div>
+            </div>}
+        </main>
     );
 }
 

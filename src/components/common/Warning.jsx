@@ -1,20 +1,18 @@
 import { Link } from "react-router-dom";
 
 import { FaTimesCircle } from "react-icons/fa";
-import FadeOut from "../components/common/FadeOut";
-import Card from "../components/common/Card";
-import Button from "./../components/common/Button";
+import FadeOut from "./FadeOut";
+import Card from "./Card";
+import Button from "./Button";
 
-import classes from "./../sass/pages/Warning.module.scss";
-import styles from "./../sass/common/Button.module.scss";
+import classes from "./../../sass/pages/Warning.module.scss";
+import styles from "./../../sass/common/Button.module.scss";
 
-export default function Warning() {
+export default function Warning({setWarning}) {
     return (
         <div className={classes.warning}>
             <Card>
-                <Link to="/">
-                    <FaTimesCircle className={classes.warning__icon} />
-                </Link>
+                <FaTimesCircle className={classes.warning__icon} onClick={() => setWarning(false)} style={{cursor: 'pointer'}}/>
                 <div className={classes.warning__text}>
                     <h2 className="heading heading__2">
                         <span className={classes["warning__span--red"]}>

@@ -2,16 +2,16 @@
 
 import { FaGithub, FaHome, FaEnvelope } from "react-icons/fa";
 
-import classes from "./../../sass/components/Authors/AuthorsItem.module.scss";
+import classes from "../../sass/components/Authors/AuthorsItem.module.scss";
 
-export default function AuthorCard({name, nickname, github, homepage, email}) {
+export default function AuthorCard({name, nickname, src, github, homepage, email}) {
     return (
         <div className={classes.container}>
+            <div className={classes.item}>
             <img className={classes.picture} 
-                src={`../../img/${name.toLowerCase()}.png`}
+                src={src}
                 alt={name}
             />
-            <div className={classes.item}>
                 <div className={classes.item__info}>
                     <h2>{name}</h2>
                     <h4>'{nickname}'</h4>

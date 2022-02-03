@@ -5,8 +5,11 @@ import axios from 'axios';
 import {useAuth} from '../context/loginContext';
 import {useAnswers, useCategories, useQuestions, useShowQuestion} from '../context/gameContext';
 import Button from '../components/common/Button';
+import Square from '../components/common/Square';
 import Question from '../components/Game/Question';
 import Spinner from '../components/common/Spinner';
+
+import classes from '../sass/pages/Game.module.scss';
 
 
 export default function Game() {
@@ -18,6 +21,7 @@ export default function Game() {
   const [showQuestion, setShowQuestion] = useShowQuestion();
 
   const [isLoading, setIsLoading] = useState(true);
+  const [correctCats, setCorrectCats] = useState([]);
   const [score, setScore] = useState(0);
 
 
@@ -92,11 +96,17 @@ export default function Game() {
 
 
   return (
-    <>
-      <div className={'INFO BOX CLASS NAME HERE'}>
-        <p>{score}</p>
+    <main className={classes.container}>
+      <div className={classes.gameInfo}>
+        <p>{`${score} points`}</p>
+        <Button
+          title={'cancel game'}
+          onClick={() => navigate('/dashboard')}
+          className={'cancelGame'}
+          background={'#a10'}
+        />
       </div>
-      <div className={'GAME CONTAINER CLASS NAME HERE'}>
+      <div className={classes.game}>
 				{isLoading && <Spinner />}
         {showQuestion && <Question />}
 {/* game table generation */}
@@ -106,38 +116,44 @@ export default function Game() {
             return (
               <div
                 key={i}
-                className={'CATEGORY CONTAINER CLASS NAME HERE'}
+                className={classes.game__category}
               >
-                <h3>
-                  {category[0].category.startsWith('Entertainment:')
-                    || category[0].category.startsWith('Science:')
-                    ? category[0].category.slice(category[0].category.indexOf(' ') + 1)
-                    : category[0].category}
-                </h3>
-                {questions[i].map((question, j, arr) => {
-                  let disabledState = true;
-                  if((j === 0 && !allAnswers[i].length)
-                  || (j !== 0 && allAnswers[i][j - 1] && allAnswers[i][j] === undefined && allAnswers[i].length < 5))
-                    disabledState = false;
-                    return(
-                    <Button
-                      className={'BUTTON CLASS NAME HERE'}
-                      key={`[${i}][${j}]`}
-                      title={(j + 1) * 100}
-                      maxWidth={'15rem'}
-                      disabled={disabledState}
-                      onClick={() => setShowQuestion({
-                        question,
-                        category: i,
-                        index: j,
-                      })}
-                    />
-                  );
-                })}
+                <div className={classes.game__category__title}>
+                  <h2>
+                    {category[0].category.startsWith('Entertainment:')
+                      || category[0].category.startsWith('Science:')
+                      ? category[0].category.slice(category[0].category.indexOf(' ') + 1)
+                      : category[0].category}
+                  
+                  </h2>
+                  {(correctCats[i] && <h3>{correctCats[i]}</h3>) || <progress value={allAnswers[i].length} max={5} />}
+                </div>
+                <div className={classes.game__category__questions}>
+                  {questions[i].map((question, j, arr) => {
+                    let disabledState = true;
+                    if((j === 0 && !allAnswers[i].length)
+                    || (j !== 0 && allAnswers[i][j - 1] && allAnswers[i][j] === undefined && allAnswers[i].length < 5))
+                      disabledState = false;
+                      return(
+                      <Button
+                        className={'BUTTON CLASS NAME HERE'}
+                        key={`[${i}][${j}]`}
+                        title={(j + 1) * 100}
+                        maxWidth={'15rem'}
+                        disabled={disabledState}
+                        onClick={() => setShowQuestion({
+                          question,
+                          category: i,
+                          index: j,
+                        })}
+                      />
+                    );
+                  })}
+                </div>
               </div>
             );
           })}
       </div>
-    </>
+    </main>
   );
 }

@@ -24,7 +24,7 @@ export default function LogIn() {
 	};
 
 	return (
-		<div>
+		<main>
 			<Card>
 				<Link to='/'>
 					<FaTimesCircle className={classes.login__icon} />
@@ -57,6 +57,6 @@ export default function LogIn() {
 				</div>
 			</Card>
 			<FadeOut />
-		</div>
+		</main>
 	);
 }

@@ -1,14 +1,19 @@
 import AuthorCard from "../components/About/AuthorCard";
 
+import natalia from '../img/natalia.png';
+import flo from '../img/flo.png';
+import tobi from '../img/tobi.png';
+
 import classes from "./../sass/pages/Authors.module.scss";
 
 export default function Authors() {
     return (
-        <div className={classes.container}>
+        <main className={classes.container}>
             <div className={classes.item1}>
                 <AuthorCard
                     name={'Natalia'}
                     nickname={'Bob Ross'}
+                    src={natalia}
                     github={'/diebanz'}
                     homepage={'diebanz.works'}
                     email={'banznatalia@gmail.com'}
@@ -17,7 +22,8 @@ export default function Authors() {
             <div className={classes.item2}>
                 <AuthorCard
                     name={'Flo'}
-                    nickname={''}
+                    nickname={'FloH'}
+                    src={flo}
                     github={'/FloHGer'}
                     homepage={'FlorianHoehle.de'}
                     email={'mail@FlorianHoehle.de'}
@@ -26,12 +32,13 @@ export default function Authors() {
             <div className={classes.item3}>
                 <AuthorCard
                     name={'Tobi'}
-                    nickname={''}
+                    nickname={'TimTom'}
+                    src={tobi}
                     github={'/Tobi-LoFu'}
                     homepage={''}
                     email={''}
                 />
             </div>
-        </div>
+        </main>
     );
 }

@@ -2,6 +2,8 @@
 
 export default function Ranks() {
   return (
-    <h1>{'Ranks'}</h1>
+    <main>
+      <h1>{'Ranks'}</h1>
+    </main>
   );
 }

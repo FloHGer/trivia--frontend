@@ -2,6 +2,8 @@
 
 export default function Feedback() {
   return (
-    <h1>{'Feedback'}</h1>
+    <main>
+      <h1>{'Feedback'}</h1>
+    </main>
   );
 }
