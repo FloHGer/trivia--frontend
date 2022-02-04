@@ -14,7 +14,7 @@
     background: linear-gradient(
         201.5deg,
         #173650 17.02%,
-        rgba(23, 54, 80, .6) 95.16%
+        rgba(23, 54, 80, 0) 95.16%
     );
     box-shadow: 4px -4px 2rem 2px $color__primary;
     transform: rotate(45deg);
@@ -35,4 +35,10 @@
         transform: rotate(-45deg);
         color: $color__secondary--light;
     }
+}
+
+.logout__icon {
+    transform: rotate(-45deg);
+    font-size: 4rem;
+    color: $color__warning;
 }

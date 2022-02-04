@@ -21,7 +21,7 @@ export default function Authors() {
             </div>
             <div className={classes.item2}>
                 <AuthorCard
-                    name={'Flo'}
+                    name={'Florian'}
                     nickname={'FloH'}
                     src={flo}
                     github={'/FloHGer'}
@@ -31,7 +31,7 @@ export default function Authors() {
             </div>
             <div className={classes.item3}>
                 <AuthorCard
-                    name={'Tobi'}
+                    name={'Tobias'}
                     nickname={'TimTom'}
                     src={tobi}
                     github={'/Tobi-LoFu'}

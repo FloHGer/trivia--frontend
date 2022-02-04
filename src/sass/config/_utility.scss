@@ -1,7 +1,7 @@
 @import "./variables";
 
 .line {
-    height: 2px;
+    height: .2rem;
     background-color: $color__primary--light;
 
     &__1 {
@@ -21,6 +21,9 @@
     }
     &__5 {
         width: 5%;
+    }
+    &__6 {
+        width: 2%;
     }
 }
 

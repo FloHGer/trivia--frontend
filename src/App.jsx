@@ -10,7 +10,6 @@ import Ranks from './pages/Ranks';
 import Stats from './pages/Stats';
 import Navigation from './components/common/Navigation';
 import Feedback from './pages/Feedback';
-import Footer from './components/common/Footer';
 import About from './pages/About';
 
 import './sass/app.scss';
@@ -66,7 +65,6 @@ export default function App() {
 
 				<Route path='*' element={<Navigate to={isLoggedIn ? '/dashboard' : '/'} />} />
 			</Routes>
-			{/* <Footer /> */}
 		</Router>
 	);
 }
