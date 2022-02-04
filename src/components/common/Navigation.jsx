@@ -4,7 +4,7 @@ import { useAuth } from "../../context/loginContext";
 import NavItem from './NavItem';
 import Square from './Square';
 
-import classes from '../../sass/common/Navigation.module.scss';
+import classes from './Navigation.module.scss';
 
 
 export default function Navigation({children}) {

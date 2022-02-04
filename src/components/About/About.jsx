@@ -1,10 +1,10 @@
-import AuthorCard from "../components/About/AuthorCard";
+import AuthorCard from "./AuthorCard";
 
-import natalia from '../img/natalia.png';
-import flo from '../img/flo.png';
-import tobi from '../img/tobi.png';
+import natalia from '../../img/natalia.png';
+import flo from '../../img/flo.png';
+import tobi from '../../img/tobi.png';
 
-import classes from "./../sass/pages/Authors.module.scss";
+import classes from "./About.module.scss";
 
 export default function Authors() {
     return (

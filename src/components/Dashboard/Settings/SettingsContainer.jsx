@@ -8,7 +8,7 @@ import Square from '../../common/Square';
 import {useCategories} from '../../../context/gameContext';
 import { useAuth } from '../../../context/loginContext';
 
-import styles from '../../../sass/common/Button.module.scss'
+import styles from '../../common/Button.module.scss'
 import classes from '../../../sass/components/UserProfile/CardGameDashboard.module.scss';
 
 

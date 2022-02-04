@@ -6,7 +6,7 @@ import Card from "./Card";
 import Button from "./Button";
 
 import classes from "./../../sass/pages/Warning.module.scss";
-import styles from "./../../sass/common/Button.module.scss";
+import styles from "./Button.module.scss";
 
 export default function Warning({setWarning}) {
     return (

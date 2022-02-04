@@ -1,4 +1,4 @@
-import classes from '../../sass/common/Button.module.scss';
+import classes from './Button.module.scss';
 
 export default function Button(props) {
 	return (

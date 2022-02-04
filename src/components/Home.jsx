@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import Button from "../components/common/Button";
 import Warning from '../components/common/Warning';
 
-import classes from "./../sass/pages/Home.module.scss";
-import styles from "./../sass/common/Button.module.scss";
+import classes from "./Home.module.scss";
+import styles from "./common/Button.module.scss";
 
 export default function Home() {
     const [warning, setWarning] = useState(false);

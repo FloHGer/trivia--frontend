@@ -1,8 +1,15 @@
-@import "./../config.scss";
+@import "../../sass/config.scss";
 
-.login__square {
-    width: 8rem;
-    height: 8rem;
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2rem;
+}
+
+.square {
+    width: 70%;
+    height: 70%;
 
     background: linear-gradient(
         201.5deg,
@@ -11,31 +18,27 @@
     );
     box-shadow: 4px -4px 2rem 2px $color__primary;
     transform: rotate(45deg);
-    margin: 2rem;
+
     border: 1px solid rgba($color__primary--light, 0.4);
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-
     &:hover {
         transform: rotate(405deg);
         transition: transform 1s ease-in-out;
     }
-}
 
-.login__icon {
-    transform: rotate(-45deg);
-    font-size: 4rem;
-    color: $color__primary--light;
+    h3 {
+        font-size: 2rem;
+        transform: rotate(-45deg);
+        color: $color__secondary--light;
+    }
 }
 
 .logout__icon {
-    transform: rotate(135deg);
+    transform: rotate(-45deg);
     font-size: 4rem;
     color: $color__warning;
 }

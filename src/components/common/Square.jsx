@@ -5,7 +5,7 @@ import { FaSignOutAlt } from "react-icons/fa";
 
 import { useAuth } from "../../context/loginContext";
 
-import classes from '../../sass/common/Square.module.scss';
+import classes from './Square.module.scss';
 
 
 export default function Square({title, target, size, onClick}) {

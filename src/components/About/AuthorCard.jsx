@@ -2,7 +2,7 @@
 
 import { FaGithub, FaHome, FaEnvelope } from "react-icons/fa";
 
-import classes from "../../sass/components/Authors/AuthorsItem.module.scss";
+import classes from "./AuthorCard.module.scss";
 
 export default function AuthorCard({name, nickname, src, github, homepage, email}) {
     return (

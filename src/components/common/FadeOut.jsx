@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import classes from "../../sass/common/FadeOut.module.scss";
+import classes from "./FadeOut.module.scss";
 
 
 export default function FadeOut() {
