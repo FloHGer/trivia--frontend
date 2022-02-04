@@ -4,12 +4,12 @@ import {useAuth} from './context/loginContext';
 
 import Home from './components/Home';
 import Dashboard from './components/Dashboard/Dashboard';
-import LogIn from './pages/LogIn';
-import Game from './pages/Game';
-import Ranks from './pages/Ranks';
-import Stats from './pages/Stats';
+import LogIn from './components/LogIn';
+import Game from './components/Game/Game';
+import Ranks from './components/Ranks';
+import Stats from './components/Stats';
 import Navigation from './components/common/Navigation';
-import Feedback from './pages/Feedback';
+import Feedback from './components/Feedback';
 import About from './components/About/About';
 
 import './sass/app.scss';

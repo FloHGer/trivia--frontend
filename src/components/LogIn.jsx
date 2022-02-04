@@ -5,7 +5,7 @@ import {FaGithub, FaGoogle, FaTimesCircle} from 'react-icons/fa';
 import FadeOut from '../components/common/FadeOut';
 import Card from '../components/common/Card';
 
-import classes from './../sass/pages/LogIn.module.scss';
+import classes from './LogIn.module.scss';
 
 export default function LogIn() {
 	const [email, setEmail] = useState();

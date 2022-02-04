@@ -5,8 +5,8 @@ import FadeOut from "./FadeOut";
 import Card from "./Card";
 import Button from "./Button";
 
-import classes from "./../../sass/pages/Warning.module.scss";
 import styles from "./Button.module.scss";
+import classes from "./Warning.module.scss";
 
 export default function Warning({setWarning}) {
     return (

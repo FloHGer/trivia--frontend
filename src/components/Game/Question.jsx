@@ -4,7 +4,7 @@ import Answer from './Answer';
 import Card from '../../components/common/Card';
 import {useShowQuestion} from '../../context/gameContext';
 
-import classes from '../../sass/pages/Question.module.scss';
+import classes from './Question.module.scss';
 
 
 export default function Question() {

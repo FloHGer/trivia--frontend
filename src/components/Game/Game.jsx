@@ -2,14 +2,14 @@ import {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import {useAuth} from '../context/loginContext';
-import {useAnswers, useCategories, useQuestions, useShowQuestion} from '../context/gameContext';
-import Button from '../components/common/Button';
-import Square from '../components/common/Square';
-import Question from '../components/Game/Question';
-import Spinner from '../components/common/Spinner';
+import {useAuth} from '../../context/loginContext';
+import {useAnswers, useCategories, useQuestions, useShowQuestion} from '../../context/gameContext';
+import Button from '../common/Button';
+import Square from '../common/Square';
+import Spinner from '../common/Spinner';
+import Question from './Question';
 
-import classes from '../sass/pages/Game.module.scss';
+import classes from './Game.module.scss';
 
 
 export default function Game() {
