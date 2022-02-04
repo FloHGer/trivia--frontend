@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { useAuth } from "../../../../context/loginContext";
 import AchievCard from "./AchievCard";
-import classes from "./../../../../sass/components/UserProfile/Card/Data/Achievs.module.scss";
+import classes from "./Achievs.module.scss";
 
 function Achievs() {
     const [currentUser] = useAuth();

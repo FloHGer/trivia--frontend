@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Routes, Navigate} from 'react-router-dom
 import {useAuth} from './context/loginContext';
 
 import Home from './components/Home';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 import LogIn from './pages/LogIn';
 import Game from './pages/Game';
 import Ranks from './pages/Ranks';

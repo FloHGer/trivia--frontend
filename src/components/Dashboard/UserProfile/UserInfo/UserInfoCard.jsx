@@ -7,7 +7,7 @@ import {flags} from '../../../../common/flags.js';
 import { useAuth } from '../../../../context/loginContext.js';
 
 import {FaEdit} from 'react-icons/fa';
-import classes from '../../../../sass/components/UserProfile/Card/CardUser.module.scss';
+import classes from './UserInfoCard.module.scss';
 
 
 export default function CardUserProfileUser() {

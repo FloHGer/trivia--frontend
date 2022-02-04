@@ -9,7 +9,7 @@ import {useCategories} from '../../../context/gameContext';
 import { useAuth } from '../../../context/loginContext';
 
 import styles from '../../common/Button.module.scss'
-import classes from '../../../sass/components/UserProfile/CardGameDashboard.module.scss';
+import classes from './SettingsContainer.module.scss';
 
 
 export default function CardGameDashboard() {

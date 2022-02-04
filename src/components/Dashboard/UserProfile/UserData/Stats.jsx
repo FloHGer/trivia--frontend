@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import { useAuth } from "../../../../context/loginContext";
-import Card from "../../../common/Card";
 
-import classes from "./../../../../sass/components/UserProfile/Card/Data/Stats.module.scss";
+import classes from "./Stats.module.scss";
 
 
 function Stats() {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import classes from "./../../../../sass/components/UserProfile/Card/Data/Ranks.module.scss";
+import classes from "./Ranks.module.scss";
 
 function Ranks() {
     const [data, setData] = useState();
