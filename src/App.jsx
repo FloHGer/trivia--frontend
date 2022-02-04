@@ -12,7 +12,7 @@ import Navigation from './components/common/Navigation';
 import Feedback from './components/Feedback';
 import About from './components/About/About';
 
-import './sass/app.scss';
+import './app.scss';
 
 export default function App() {
 	const [isLoggedIn] = useAuth();

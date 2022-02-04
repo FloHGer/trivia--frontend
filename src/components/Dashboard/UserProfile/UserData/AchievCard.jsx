@@ -4,7 +4,7 @@ import { FaTrophy } from "react-icons/fa";
 import Square from "../../../common/Square";
 
 import classes from "./AchievCard.module.scss";
-import squareClasses from "../../../../sass/components/UserProfile/Card/Data/Achives/AchievCardSquare.module.scss";
+import squareClasses from "./AchievCard2.module.scss";
 
 function AchievCard({ data, title, text, values }) {
     return (

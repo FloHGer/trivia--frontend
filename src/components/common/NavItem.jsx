@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import classes from "./Navigation.module.scss";
+import classes from "./NavItem.module.scss";
 import cn from "classnames";
 
 export default function NavItem({title, target, number}) {
