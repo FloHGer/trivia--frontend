@@ -5,6 +5,7 @@ $color__primary--dark: #173650;
 $color__secondary--light: #dbd3d8;
 $color__secondary--dark: #1d2124;
 
+$color__ok: #080;
 $color__warning: #910a0a;
 
 $color__font: #333;
@@ -17,50 +18,46 @@ $color__bronze: #6a431d;
 $color__silver: #dddddd;
 $color__gold: #ffd700;
 
-$font: "Mulish", sans-serif;
-
-
-
+$font: 'Mulish', sans-serif;
 
 .line {
-  height: .2rem;
-  background-color: $color__primary--light;
+	height: 0.2rem;
+	background-color: $color__primary--light;
 
-  &__1 {
-      width: 80%;
-  }
+	&__1 {
+		width: 80%;
+	}
 
-  &__2 {
-      width: 60%;
-  }
+	&__2 {
+		width: 60%;
+	}
 
-  &__3 {
-      width: 40%;
-  }
+	&__3 {
+		width: 40%;
+	}
 
-  &__4 {
-      width: 20%;
-  }
-  &__5 {
-      width: 5%;
-  }
-  &__6 {
-      width: 2%;
-  }
+	&__4 {
+		width: 20%;
+	}
+	&__5 {
+		width: 5%;
+	}
+	&__6 {
+		width: 2%;
+	}
 }
 
 .diamond {
-  width: 1.5rem;
-  height: 1.5rem;
-  background-color: $color__primary--light;
-  transform: rotate(45deg);
-  margin-right: 1rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	background-color: $color__primary--light;
+	transform: rotate(45deg);
+	margin-right: 1rem;
 
-  &__prime {
-      background-color: $color__primary;
-  }
-  &__secondary {
-      background-color: $color__secondary--light;
-  }
+	&__prime {
+		background-color: $color__primary;
+	}
+	&__secondary {
+		background-color: $color__secondary--light;
+	}
 }
-

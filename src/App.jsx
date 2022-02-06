@@ -20,21 +20,24 @@ export default function App() {
 	return (
 		<Router>
 			<Routes>
-				<Route path='/' element={isLoggedIn
-					? <Navigate to='/dashboard' />
-					: <Navigation>
+				<Route path='/' element={
+					isLoggedIn
+						? <Navigate to='/dashboard' />
+						: <Navigation>
 							<Home />
 						</Navigation>
 				} />
 
-				<Route path='/login' element={isLoggedIn
-					? <Navigate to='/dashboard' />
-					: <LogIn />
+				<Route path='/login' element={
+					isLoggedIn
+						? <Navigate to='/dashboard' />
+						: <LogIn />
 				} />
 
-				<Route path='/dashboard' element={isLoggedIn
-					? <Dashboard />
-					: <Navigate to='/login' />
+				<Route path='/dashboard' element={
+					isLoggedIn
+						? <Dashboard />
+						: <Navigate to='/login' />
 				} />
 
 				<Route path='/game' element={<Game />} />

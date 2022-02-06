@@ -1,5 +1,6 @@
 @import "../../sass/config.scss";
 
+
 .container {
 	display: flex;
 	flex-direction: column;
@@ -34,11 +35,14 @@
 		&__category {
 			display: flex;
 			flex-direction: column;
+			max-width: 15%;
+			height: 100%;
 
 			&__title{
+				height: 20%;
 				padding: 1rem 2rem;
 				border-radius: 1rem;
-				background: $color__secondary--dark;
+				background: #1d2124aa;
 				margin-bottom: 3rem;
 
 				h2, h3{

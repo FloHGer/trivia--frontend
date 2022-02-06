@@ -60,11 +60,11 @@ export default function Game() {
       category.forEach((question, i) => {
         if(question) calcScore += (i + 1) * 100;
         if(question && i === 4 && correctCats.length < 6)
-          correctCats.push(100 + correctCats.length * 100);
+          correctCats.push(1 + correctCats.length);
         if(correctCats.length === 6) correctCats[5] += 11;
       });
     });
-    calcScore += correctCats.reduce((sum, cat) => sum + cat, 0);
+    calcScore += correctCats.reduce((sum, cat) => sum + cat * 100, 0);
     setScore(calcScore);
   }, [allAnswers]);
 
@@ -99,8 +99,10 @@ export default function Game() {
     <main className={classes.container}>
       <div className={classes.gameInfo}>
         <p>{`${score} points`}</p>
-        <Button
-          title={'cancel game'}
+        <Square
+          title={'quit game'}
+          color={'wrong'}
+          size={'15rem'}
           onClick={() => navigate('/dashboard')}
           className={'cancelGame'}
           background={'#a10'}
@@ -111,6 +113,7 @@ export default function Game() {
         {showQuestion && <Question />}
 {/* game table generation */}
         {!isLoading && !showQuestion &&
+// category loop
           questions.map((category, i) => {
 
             return (
@@ -124,22 +127,33 @@ export default function Game() {
                       || category[0].category.startsWith('Science:')
                       ? category[0].category.slice(category[0].category.indexOf(' ') + 1)
                       : category[0].category}
-                  
                   </h2>
-                  {(correctCats[i] && <h3>{correctCats[i]}</h3>) || <progress value={allAnswers[i].length} max={5} />}
+                  {(allAnswers[i][4] && <h3>{correctCats[0]}</h3>) || <progress value={allAnswers[i].length} max={5} />}
+                  {/* {(correctCats[i] && <h3>{correctCats[i]}</h3>) || <progress value={allAnswers[i].length} max={5} />} */}
                 </div>
-                <div className={classes.game__category__questions}>
+                <ul className={classes.game__category__questions}>
+{/* question loop */}
                   {questions[i].map((question, j, arr) => {
                     let disabledState = true;
                     if((j === 0 && !allAnswers[i].length)
                     || (j !== 0 && allAnswers[i][j - 1] && allAnswers[i][j] === undefined && allAnswers[i].length < 5))
                       disabledState = false;
+
                       return(
-                      <Button
-                        className={'BUTTON CLASS NAME HERE'}
+                      <Square
                         key={`[${i}][${j}]`}
                         title={(j + 1) * 100}
-                        maxWidth={'15rem'}
+                        size={'15rem'}
+                        color={
+                          allAnswers[i][j] 
+                            ? 'right'
+                            : (!allAnswers[i].length && !j) || (allAnswers[i].length === j && allAnswers[i][j - 1])
+                              ? 'active'
+                              : allAnswers[i].length > j
+                                ? 'wrong'
+                                : 'inactive'
+                          
+                        }
                         disabled={disabledState}
                         onClick={() => setShowQuestion({
                           question,
@@ -149,7 +163,7 @@ export default function Game() {
                       />
                     );
                   })}
-                </div>
+                </ul>
               </div>
             );
           })}

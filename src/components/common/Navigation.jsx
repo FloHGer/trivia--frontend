@@ -49,6 +49,12 @@ export default function Navigation({children}) {
 								number={'6'}
 							/>
 						}
+
+						<Square
+							title={'LogIn / LogOut'}
+							onClick={'logout'}
+							size={'10rem'}
+						/>
 					</ul>
 				</nav>
 			</header>}
@@ -56,36 +62,38 @@ export default function Navigation({children}) {
 
 			{path === '/dashboard' &&
 			<header className={classes.dashHeader}>
-				<nav className={classes.dashNavigation}>
-					<Square
-						title={'Stats'}
-						target={'/stats'}
-						size={'15rem'}
-					/>
+				<nav>
+					<ul className={classes.dashNavigation}>
+						<Square
+							title={'Stats'}
+							target={'/stats'}
+							size={'15rem'}
+						/>
 
-					<Square
-						title={'Ranks'}
-						target={'/ranks'}
-						size={'15rem'}
-					/>
+						<Square
+							title={'Ranks'}
+							target={'/ranks'}
+							size={'15rem'}
+						/>
 
-					<Square
-						title={'Feedback'}
-						target={'/feedback'}
-						size={'15rem'}
-					/>
+						<Square
+							title={'Feedback'}
+							target={'/feedback'}
+							size={'15rem'}
+						/>
 
-					<Square
-						title={'About us'}
-						target={'/about'}
-						size={'15rem'}
-					/>
+						<Square
+							title={'About us'}
+							target={'/about'}
+							size={'15rem'}
+						/>
 
-					<Square
-						title={'LogOut'}
-						size={'10rem'}
-						onClick={true}
-					/>
+						<Square
+							title={'LogIn / LogOut'}
+							onClick={'logout'}
+							size={'10rem'}
+						/>
+					</ul>
 				</nav>
 			</header>
 			}

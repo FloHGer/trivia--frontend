@@ -22,10 +22,11 @@
 .dashHeader{
     position: fixed;
 		top: 3vh;
-		right: 3vh;
+		right: calc(3vh + 15rem);
 }
 
 .dashNavigation{
 	display: flex;
 	align-items: center;
+    list-style: none;
 }
