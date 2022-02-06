@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import Answer from './Answer';
-import Card from '../../components/common/Card';
+import Card from '../common/Card';
 import {useShowQuestion} from '../../context/gameContext';
 
 import classes from './Question.module.scss';

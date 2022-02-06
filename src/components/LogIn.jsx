@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 import {FaGithub, FaGoogle, FaTimesCircle} from 'react-icons/fa';
 import FadeOut from '../components/common/FadeOut';
-import Card from '../components/common/Card';
+import Card from './common/Card';
 
 import classes from './LogIn.module.scss';
 
