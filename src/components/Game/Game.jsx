@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import he from 'he'
 
 import {useAuth} from '../../context/loginContext';
 import {useAnswers, useCategories, useQuestions, useShowQuestion} from '../../context/gameContext';
@@ -60,7 +61,13 @@ export default function Game() {
             `https://opentdb.com/api.php?amount=1&category=${selectedCategories[i].id}&difficulty=hard`
           )
         ).data.results;
+
         cats[i] = [...easy, ...medium, ...hard];
+        cats[i].forEach(decoding => {
+          decoding.question = he.decode(decoding.question)
+          decoding.correct_answer = he.decode(decoding.correct_answer);
+          decoding.incorrect_answers.forEach(answer => answer = he.decode(answer));
+        })
       }
       setQuestions(cats);
       setIsLoading(false);

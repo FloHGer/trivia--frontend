@@ -2,7 +2,7 @@ import AuthorCard from "./AuthorCard";
 
 import natalia from '../../img/natalia.png';
 import flo from '../../img/flo.png';
-import tobi from '../../img/tobi.png';
+import tobi from '../../img/tobi_sw.jpg';
 
 import classes from "./About.module.scss";
 
@@ -36,7 +36,7 @@ export default function About() {
                     src={tobi}
                     github={'/Tobi-LoFu'}
                     homepage={''}
-                    email={''}
+                    email={'tobler@gmx.com'}
                 />
             </div>
         </main>
