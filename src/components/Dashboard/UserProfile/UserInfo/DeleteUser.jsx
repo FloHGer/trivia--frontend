@@ -5,7 +5,7 @@ import { useAuth } from "../../../../context/loginContext";
 
 import classes from "./DeleteUser.module.scss";
 
-const DeleteUser = ({setIsOpen}) => {
+const DeleteUser = ({ setOpenDeleteModal }) => {
    const [currentUser, setCurrentUser] = useAuth();
    const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ const DeleteUser = ({setIsOpen}) => {
    return (
       <div
          className={classes["modal-overlay"]}
-         onClick={() => setIsOpen(false)}
+         onClick={() => setOpenDeleteModal(false)}
          style={{ border: "3px solid green" }}
       >
          <div className={classes["modal"]}>
@@ -41,7 +41,7 @@ const DeleteUser = ({setIsOpen}) => {
                </button>
                <button
                   className={classes["modal--button"]}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => setOpenDeleteModal(false)}
                >
                   Cancel
                </button>

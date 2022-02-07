@@ -21,6 +21,8 @@ export default function UserInfoCard() {
 	const uploadRef = useRef();
 	const [image, setImage] = useState();
 	const [isOpen, setIsOpen] = useState();
+   const [openDeleteModal, setOpenDeleteModal] = useState();
+
    
 
 	useEffect(() => {
@@ -60,12 +62,12 @@ export default function UserInfoCard() {
 
 	const openImageUpload = e => {
 		e.stopPropagation();
-		setIsOpen(true);
-		if (!isOpen) {
+		// setIsOpen(true);
+		// if (!isOpen) {
 			if (uploadRef.current.style.visibility === 'visible') return (uploadRef.current.style.visibility = 'collapse');
 			selectRef.current.style.visibility = 'collapse';
 			uploadRef.current.style.visibility = 'visible';
-		}
+		// }
 	};
 
    
@@ -165,10 +167,12 @@ export default function UserInfoCard() {
                className={classes["profile__user--trashIcon"]}
                style={{ color: edit ? "red" : "grey" }}
                title={"Delete profile"}
-               onClick={() => setIsOpen(true)}
+               onClick={() => setOpenDeleteModal(true)}
             />
          </div>
-         {isOpen && <DeleteUser setIsOpen={setIsOpen} />}
+         {openDeleteModal && (
+            <DeleteUser setOpenDeleteModal={setOpenDeleteModal} />
+         )}
       </section>
    );
 }
