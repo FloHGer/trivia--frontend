@@ -8,7 +8,7 @@ import Ranks from "./Ranks.jsx";
 import Stats from "./Stats.jsx";
 import Achievs from "./Achievs.jsx";
 
-function CardUserProfileStats() {
+export default function UserDataContainer() {
     const [isActive, setIsActive] = useState("ranks");
 
     return (
@@ -54,4 +54,3 @@ function CardUserProfileStats() {
     );
 }
 
-export default CardUserProfileStats;

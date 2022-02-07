@@ -6,7 +6,7 @@ import tobi from '../../img/tobi.png';
 
 import classes from "./About.module.scss";
 
-export default function Authors() {
+export default function About() {
     return (
         <main className={classes.container}>
             <div className={classes.item1}>
