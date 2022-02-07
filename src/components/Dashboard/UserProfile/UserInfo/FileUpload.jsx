@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../../../context/loginContext";
-// import { blob } from "node:stream/consumers";
 import { RiCloseLine } from "react-icons/ri";
 
 
@@ -24,8 +23,6 @@ const FileUpload = ({ setIsOpen, setImage }) => {
       setIsSelected(true);
       setIsOpen(true);
    };
-
-   // print('Tobi')
 
    const handleSubmission = async (e) => {
        e.preventDefault()

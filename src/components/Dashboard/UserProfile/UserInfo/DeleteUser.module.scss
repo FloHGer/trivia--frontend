@@ -1,0 +1,78 @@
+@import "../../../../sass/config.scss";
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modal {
+  display: block;
+  width: 600px;
+  max-width: 100%;
+  height: 400px;
+  max-height: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2rem;
+//   background: url(../../../../img/delete-icon.png) center / cover no-repeat;
+  box-shadow: 0 8px 32px 0 rgba(179, 182, 228, 0.972);
+  backdrop-filter: blur( 2.5px );
+  -webkit-backdrop-filter: blur( 2.5px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+
+  h2 {
+      width: 70%;
+      text-align: center;
+      margin: 0 auto;
+      padding-top: 6rem;
+      color: rgba($color__primary--light, 0.9);
+      text-shadow: 0 0 10px rgba(3, 3, 3, 0.5), 0 0 15px rgba(3, 3, 3, 0.5);
+      font-size: 4rem;
+      font-weight: bolder;
+      
+  }
+
+  &__button--container {
+      width: 80%;
+      position: absolute;
+      z-index: 101;
+      left: 50%;
+      top: 65%;
+      transform: translate(-45%, -50%);
+  }
+
+  &--button {
+    cursor: pointer;
+    border: 0;
+    width: 20rem;
+    height: 8rem;
+    // padding: 1rem 3rem;
+    margin: 1rem;
+    border-radius: 3rem;
+
+    color: $color__secondary--dark;
+    font-size: clamp(1rem, 3rem, 5rem);
+    font-family: $font;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: $color__secondary--light;
+    box-shadow: -0.5rem 0.5rem 0.2rem rgba($color__primary--dark, 0.9);
+    transition: all 0.2 ease-in-out;
+    
+    &:hover {
+        transform: scale(0.98);
+        padding: 1rem 3rem;
+        background: $color__primary--light;
+    }
+  }
+}
