@@ -35,7 +35,7 @@
             width: 40%;
             height: 30%;
             z-index: 150;
-
+            
             .flagSelection {
                 visibility: collapse;
                 position: relative;
@@ -43,6 +43,7 @@
                 width: 800%;
                 height: 800%;
                 padding: 1rem;
+                border-radius: 10px;
                 overflow-y: scroll;
                 background: rgba($color__primary--dark, 0.6);
 
@@ -67,6 +68,8 @@
             z-index: 1;
             bottom: -110%;
             left: -10%;
+            border-radius: 15px;
+            color: rgba($color__primary--light,1);
             background: rgba($color__primary--dark, 0.6);
 
             // &__modalContent {
