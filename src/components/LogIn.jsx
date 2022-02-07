@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 import {FaGithub, FaGoogle, FaTimesCircle} from 'react-icons/fa';
 import FadeOut from '../components/common/FadeOut';
@@ -8,6 +8,7 @@ import Card from './common/Card';
 import classes from './LogIn.module.scss';
 
 export default function LogIn() {
+	const navigate = useNavigate();
 	const [email, setEmail] = useState();
 	const [btnDisabled, setBtnDisabled] = useState(true);
 
@@ -56,7 +57,7 @@ export default function LogIn() {
 					</button>
 				</div>
 			</Card>
-			<FadeOut />
+			<FadeOut onClick={() => navigate('/')}/>
 		</main>
 	);
 }

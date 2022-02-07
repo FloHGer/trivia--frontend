@@ -1,11 +1,13 @@
 import axios from "axios";
 
 import { useAuth } from "../../../context/loginContext";
-import classes from "./Setting.module.scss";
+import { useAllCategories } from "../../../context/gameContext";
+import classes from "./DashboardItem.module.scss";
 
 
-export default function DashboardItem({title, values, type, categories}) {
+export default function DashboardItem({title, values, type}) {
     const [currentUser] = useAuth();
+    const [allCategories] = useAllCategories();
 
     const changeHandler = async (target, value, i) => {
         if(type === 'radio') value.change(value.name);
@@ -42,7 +44,7 @@ export default function DashboardItem({title, values, type, categories}) {
                 if(type === 'select') return (
                     <select key={`${value.name}${i}`} onChange={e => changeHandler(e.target, value, i)} 
                     className={classes["dashboard__item--select"]}>
-                        {categories.map(category => (
+                        {allCategories.map(category => (
                             <option value={category.name} key={category.id}>{category.name} </option>
                         ))}
                     </select>

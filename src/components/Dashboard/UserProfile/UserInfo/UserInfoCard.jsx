@@ -29,7 +29,6 @@ export default function UserInfoCard() {
 		(async () => {
 			const response = (await axios.get(`${process.env.REACT_APP_BACKEND}/user/${currentUser}`)).data;
 			if (response.message === 'success') {
-				console.log(response);
 				setData(response.payload);
 				setUsername(response.payload.username);
 				setEmail(response.payload.email ? response.payload.email : 'enter your email');

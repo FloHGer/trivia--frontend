@@ -15,7 +15,7 @@ import classes from './Game.module.scss';
 export default function Game() {
   const navigate = useNavigate();
   const [currentUser] = useAuth();
-	const [selectedCategories] = useCategories();
+	const [selectedCategories, setSelectedCategories] = useCategories();
   const [questions, setQuestions] = useQuestions();
   const [allAnswers, setAllAnswers] = useAnswers();
   const [showQuestion, setShowQuestion] = useShowQuestion();
@@ -24,6 +24,21 @@ export default function Game() {
   const [correctCats, setCorrectCats] = useState([]);
   const [score, setScore] = useState(0);
 
+  // quit game
+  const quit = () => {
+    setSelectedCategories([]);
+    setQuestions([
+      [false, false, false, false, false],
+      [false, false, false, false, false],
+      [false, false, false, false, false],
+      [false, false, false, false, false],
+      [false, false, false, false, false],
+      [false, false, false, false, false],
+    ]);
+    setAllAnswers([[], [], [], [], [], []]);
+    setShowQuestion(null);
+    navigate('/');
+  }
 
   // fetch questions
   useEffect(() => { 
@@ -99,11 +114,12 @@ export default function Game() {
     <main className={classes.container}>
       <div className={classes.gameInfo}>
         <p>{`${score} points`}</p>
+        {currentUser && <p>{currentUser}</p>}
         <Square
           title={'quit game'}
           color={'wrong'}
           size={'15rem'}
-          onClick={() => navigate('/dashboard')}
+          onClick={quit}
           className={'cancelGame'}
           background={'#a10'}
         />
@@ -143,7 +159,7 @@ export default function Game() {
                       <Square
                         key={`[${i}][${j}]`}
                         title={(j + 1) * 100}
-                        size={'15rem'}
+                        size={'12rem'}
                         color={
                           allAnswers[i][j] 
                             ? 'right'
