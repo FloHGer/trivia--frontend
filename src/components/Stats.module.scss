@@ -1,0 +1,45 @@
+@import "../sass/config.scss";
+
+
+main{
+  padding: 5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  section{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .statCard{
+      width: calc(100% / 3 - 6vw);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: $color__primary--dark;
+      border-radius: 1rem;
+      margin: 1vw;
+      padding: 2rem;
+
+      .valueCard{
+        width: 30%;
+        background: $color__primary;
+        color: $color__primary--dark;
+        border-radius: .5rem;
+        padding: 1rem 2rem;
+        margin-top: 2rem;
+
+        p{
+          text-align: center;
+          font-size: 2rem;
+          font-weight: 900;
+        }
+      }
+    }
+  }
+
+  
+}

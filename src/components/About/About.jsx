@@ -35,7 +35,7 @@ export default function About() {
                     nickname={'TimTom'}
                     src={tobi}
                     github={'/Tobi-LoFu'}
-                    homepage={''}
+                    // homepage={''}
                     email={'tobler@gmx.com'}
                 />
             </div>

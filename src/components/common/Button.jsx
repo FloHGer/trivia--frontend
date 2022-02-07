@@ -12,6 +12,7 @@ export default function Button(props) {
 			style={{
 				maxHeight: props.maxHeight || '',
 				maxWidth: props.maxWidth || '',
+				fontSize: props.fontSize || '',
 				color: props.color || '',
 				background: props.background || '',
 			}}
@@ -20,15 +21,3 @@ export default function Button(props) {
 		</button>
 	);
 }
-
-
-// {finalScreen &&
-// 	<Card>
-// 		<h2>{'Congratulations:'}</h2>
-// 		<p>{`You got ${score} points`}</p>
-// 		<Button 
-// 			title={'CLOSE'}
-// 			onClick={quit}
-// 		/>
-// 	</Card>
-// }

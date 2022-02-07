@@ -37,10 +37,12 @@ export default function Game({children}) {
 				categoryResponse.forEach(
 					category =>
 						(category.name =
-							category.name.startsWith('Entertainment:')
-							|| category.name.startsWith('Science:')
-								? category.name.slice(category.name.indexOf(' ') + 1)
-								: category.name)
+							category.name.startsWith('Entertainment: Japanese')
+								? category.name.slice(24)
+								: category.name.startsWith('Entertainment:')
+									|| category.name.startsWith('Science:')
+										? category.name.slice(category.name.indexOf(' ') + 1)
+										: category.name)
 				);
 				setAllCategories(categoryResponse);
 			} catch (err) {console.log(err);}

@@ -10,6 +10,8 @@
 
 	.gameInfo {
 		display: flex;
+		justify-content: space-between;
+		align-items: center;
 		align-self: flex-end;
 		margin: 3vh;
 		p {
@@ -70,6 +72,10 @@
 				progress::-webkit-progress-value{
 					background: #f00;
 				}
+
+				.bonus{
+					color: $color__ok;
+				}
 			}
 
 			&__questions {
@@ -80,9 +86,27 @@
 		}
 	}
 
-	.gameInfo {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+}
+
+.finalScreen{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	*{
+		margin-bottom: 2rem;
 	}
+
+	h2{
+		font-size: 4rem;
+		color: $color__gold;
+	}
+	p{
+		font-size: 3rem;
+		color: $color__primary--dark;
+		
+	}
+}
+.finalSpan{
+	color: $color__gold;
 }

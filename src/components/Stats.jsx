@@ -3,6 +3,9 @@ import axios from "axios";
 
 import Card from "./common/Card";
 
+import classes from './Stats.module.scss';
+
+
 export default function Stats() {
   const [data, setData] = useState();
 
@@ -17,23 +20,53 @@ export default function Stats() {
 
   return (
     <main>
-      <h1>{'Server wide statistics'}</h1>
-      {data && <>
-      {/* <Card>
-      </Card> */}
-        <h2>{'Games played'}</h2>
-        <p>{data.gamesPlayed}</p>
-        <h2>{'Categories completed'}</h2>
-        <p>{data.completedCategories}</p>
-        <h2>{'Highscore'}</h2>
-        <p>{data.score.high}</p>
-        <h2>{'Total score'}</h2>
-        <p>{data.score.total}</p>
-        <h2>{'Correct answers'}</h2>
-        <p>{data.answers.correct}</p>
-        <h2>{'Total answers'}</h2>
-        <p>{data.answers.total}</p>
-      </>}
+      <h1 className={'heading heading__1'}>{'Server wide statistics'}</h1>
+      {data &&
+      <section>
+
+        <Card className={classes.statCard}>
+          <h2 className={'heading heading__2'}>{'Games played'}</h2>
+          <Card className={classes.valueCard}>
+            <p>{data.gamesPlayed}</p>
+          </Card>
+        </Card>
+
+        <Card className={classes.statCard}>
+          <h2 className={'heading heading__2'}>{'Highscore'}</h2>
+          <Card className={classes.valueCard}>
+            <p>{data.score.high}</p>
+          </Card>
+        </Card>
+
+        <Card className={classes.statCard}>
+          <h2 className={'heading heading__2'}>{'Total score'}</h2>
+          <Card className={classes.valueCard}>
+            <p>{data.score.total}</p>
+          </Card>
+        </Card>
+
+        <Card className={classes.statCard}>
+          <h2 className={'heading heading__2'}>{'Total answers'}</h2>
+          <Card className={classes.valueCard}>
+            <p>{data.answers.total}</p>
+          </Card>
+        </Card>
+
+        <Card className={classes.statCard}>
+          <h2 className={'heading heading__2'}>{'Correct answers'}</h2>
+          <Card className={classes.valueCard}>
+            <p>{data.answers.correct}</p>
+          </Card>
+        </Card>
+
+        <Card className={classes.statCard}>
+          <h2 className={'heading heading__2'}>{'Categories completed'}</h2>
+          <Card className={classes.valueCard}>
+            <p>{data.completedCategories}</p>
+          </Card>
+        </Card>
+
+      </section>}
     </main>
   );
 }

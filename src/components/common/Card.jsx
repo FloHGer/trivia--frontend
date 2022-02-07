@@ -2,7 +2,16 @@
 
 import classes from "./Card.module.scss";
 
-export default function Card({ classname, children }) {
-    return <div className={classes.card}>{children}</div>;
+export default function Card(props) {
+    return (
+        <div
+            className={props.className || classes.card}
+            style={{
+                maxWidth: props.maxWidth || '',
+            }}        
+        >
+            {props.children}
+        </div>
+        );
 }
 

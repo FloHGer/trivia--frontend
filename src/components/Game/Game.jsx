@@ -5,6 +5,7 @@ import he from 'he'
 
 import {useAuth} from '../../context/loginContext';
 import {useAnswers, useCategories, useQuestions, useShowQuestion} from '../../context/gameContext';
+import Card from '../common/Card';
 import Button from '../common/Button';
 import Square from '../common/Square';
 import Spinner from '../common/Spinner';
@@ -25,9 +26,11 @@ export default function Game() {
   const [isLoading, setIsLoading] = useState(true);
   const [correctCats, setCorrectCats] = useState([]);
   const [score, setScore] = useState(0);
+  const [finalScreen, setFinalScreen] = useState(false);
 
   // quit game
   const quit = () => {
+    setFinalScreen(false);
     setSelectedCategories([]);
     setQuestions([
       [false, false, false, false, false],
@@ -99,7 +102,7 @@ export default function Game() {
     })
     console.log(counter)
     if(!currentUser && counter === 6) setTimeout(() => {
-      return quit();
+      return setFinalScreen(true);
     }, 3000);
 
     if(currentUser && counter === 6){
@@ -141,6 +144,21 @@ export default function Game() {
         />
       </div>
       <div className={classes.game}>
+      {finalScreen &&
+        <Card maxWidth={'30%'}>
+          <div className={classes.finalScreen}>
+            <h2>{'Congratulations:'}</h2>
+            <p>{`You got ${score} points!`}</p>
+            <Button
+              title={'CLOSE'}
+              onClick={quit}
+              fontSize={'3rem'}
+              maxHeight={'5rem'}
+              maxWidth={'20rem'}
+            />
+          </div>
+        </Card>
+      }
 				{isLoading && <Spinner />}
         {showQuestion && <Question />}
 {/* game table generation */}
@@ -154,13 +172,17 @@ export default function Game() {
                 className={classes.game__category}
               >
                 <div className={classes.game__category__title}>
+                  {/* shorten long category titles */}
                   <h2>
-                    {category[0].category.startsWith('Entertainment:')
+                    {category[0].category.startsWith('Entertainment: Japanese')
+                    ? category[0].category.slice(24)
+                    : category[0].category.startsWith('Entertainment:')
                       || category[0].category.startsWith('Science:')
                         ? category[0].category.slice(category[0].category.indexOf(' ') + 1)
-                        : category[0].category}
+                        : category[0].category
+                    }
                   </h2>
-                  {(allAnswers[i][4] && <h3>+bonus</h3>) || <Progress value={allAnswers[i].length} max={5} />}
+                  {(allAnswers[i][4] && <h3 className={classes.bonus}>+bonus</h3>) || <Progress value={allAnswers[i].length} max={5} />}
                   {/* {(correctCats[i] && <h3>{correctCats[i]}</h3>) || <progress value={allAnswers[i].length} max={5} />} */}
                 </div>
                 <ul className={classes.game__category__questions}>
