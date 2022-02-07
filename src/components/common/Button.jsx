@@ -1,4 +1,4 @@
-import classes from '../../sass/common/Button.module.scss';
+import classes from './Button.module.scss';
 
 export default function Button(props) {
 	return (
@@ -10,7 +10,10 @@ export default function Button(props) {
 			type={props.type}
 			disabled={props.disabled}
 			style={{
+				maxHeight: props.maxHeight || '',
 				maxWidth: props.maxWidth || '',
+				color: props.color || '',
+				background: props.background || '',
 			}}
 		>
 			{props.title}

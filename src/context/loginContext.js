@@ -5,17 +5,17 @@ const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 export default function Auth({children}) {
-	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [currentUser, setCurrentUser] = useState(false);
 
 	useEffect(() => {
 		(async () => {
 			try {
 				const res = await axios.get(`${process.env.REACT_APP_BACKEND}/auth/check`, {withCredentials: true});
-				if (res.data.message === 'success') setIsLoggedIn(res.data.payload);
-				if (res.data.message !== 'success') setIsLoggedIn(false);
+				if (res.data.message === 'success') setCurrentUser(res.data.payload);
+				if (res.data.message !== 'success') setCurrentUser(false);
 			} catch (err) {console.error(err)}
 		})();
-	}, [isLoggedIn]);
+	}, [currentUser]);
 
-	return <AuthContext.Provider value={[isLoggedIn, setIsLoggedIn]}>{children}</AuthContext.Provider>;
+	return <AuthContext.Provider value={[currentUser, setCurrentUser]}>{children}</AuthContext.Provider>;
 }

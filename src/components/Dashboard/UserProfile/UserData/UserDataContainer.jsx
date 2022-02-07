@@ -3,7 +3,7 @@ import { useState } from "react";
 
 // import Achievements from "./../../../pages/Achievements";
 
-import classes from "../../../../sass/components/UserProfile/Card/CardStats.module.scss";
+import classes from "./UserDataContainer.module.scss";
 import Ranks from "./Ranks.jsx";
 import Stats from "./Stats.jsx";
 import Achievs from "./Achievs.jsx";

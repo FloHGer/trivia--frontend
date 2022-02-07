@@ -1,58 +1,103 @@
-import { Link } from "react-router-dom";
+import {useLocation} from 'react-router-dom';
 
-import classes from "../../sass/components/Navigation.module.scss";
-import cn from "classnames";
+import { useAuth } from "../../context/loginContext";
+import NavItem from './NavItem';
+import Square from './Square';
 
-export default function Navigation() {
-    return (
-        <div className={classes.navi}>
-            <div className={classes.navigation}>
-                <ul className={classes.navigation__list}>
-                    <li className={classes["navigation__list--item"]}>
-                        <div className="line line__1"></div>
-                        <div className="diamond"></div>
-                        <Link to="/stats">
-                            <h2
-                                className={cn(
-                                    classes["navigation__list--link"],
-                                    "heading heading__2"
-                                )}
-                            >
-                                {'Statistics'}
-                            </h2>
-                        </Link>
-                    </li>
-                    <li className={classes["navigation__list--item"]}>
-                        <div className="line line__2"></div>
-                        <div className="diamond"></div>
-                        <Link to="/ranks">
-                            <h2
-                                className={cn(
-                                    classes["navigation__list--link"],
-                                    "heading heading__2"
-                                )}
-                            >
-                                {'Rankings'}
-                            </h2>
-                        </Link>
-                    </li>
-                    <li className={classes["navigation__list--item"]}>
-                        <div className="line line__3"></div>
-                        <div className="diamond"></div>
-                        <Link to="/">
-                            <h2
-                                className={cn(
-                                    classes["navigation__list--link"],
-                                    "heading heading__2"
-                                )}
-                            >
-                                {'BLANK'}
-                            </h2>
-                        </Link>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    );
+import classes from './Navigation.module.scss';
+
+
+export default function Navigation({children}) {
+	const [currentUser] = useAuth();
+	const path = useLocation().pathname;
+
+
+	return (
+		<>
+			{path !== '/dashboard' &&
+			<header className={classes.header}>
+				<nav className={classes.navigation}>
+					<ul className={classes.navigation__list}>
+						<NavItem
+							title={'Statistics'}
+							target={'/stats'}
+							number={'1'}
+						/>
+
+						<NavItem
+							title={'Rankings'}
+							target={'/ranks'}
+							number={'2'}
+						/>
+
+						<NavItem
+							title={'Feedback'}
+							target={'/feedback'}
+							number={'3'}
+						/>
+
+						<NavItem
+							title={'About us'}
+							target={'/about'}
+							number={'4'}
+						/>
+
+						{path !== '/' &&
+							<NavItem
+								title={currentUser ? 'Dashboard' : 'Home'}
+								target={currentUser ? '/dashboard' : '/'}
+								number={'6'}
+							/>
+						}
+
+						<Square
+							title={'LogIn / LogOut'}
+							onClick={'logout'}
+							size={'10rem'}
+						/>
+					</ul>
+				</nav>
+			</header>}
+
+
+			{path === '/dashboard' &&
+			<header className={classes.dashHeader}>
+				<nav>
+					<ul className={classes.dashNavigation}>
+						<Square
+							title={'Stats'}
+							target={'/stats'}
+							size={'15rem'}
+						/>
+
+						<Square
+							title={'Ranks'}
+							target={'/ranks'}
+							size={'15rem'}
+						/>
+
+						<Square
+							title={'Feedback'}
+							target={'/feedback'}
+							size={'15rem'}
+						/>
+
+						<Square
+							title={'About us'}
+							target={'/about'}
+							size={'15rem'}
+						/>
+
+						<Square
+							title={'LogIn / LogOut'}
+							onClick={'logout'}
+							size={'10rem'}
+						/>
+					</ul>
+				</nav>
+			</header>
+			}
+			{children}
+		</>
+	);
 }
-

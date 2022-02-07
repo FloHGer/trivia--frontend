@@ -2,7 +2,7 @@
 import CardUserProfileStats from "./UserData/UserDataContainer";
 import CardUserProfileUser from "./UserInfo/UserInfoCard";
 
-import classes from "../../../sass/components/UserProfile/CardUserProfile.module.scss";
+import classes from "./UserProfileContainer.module.scss";
 
 export default function CardUserProfile() {
     return (

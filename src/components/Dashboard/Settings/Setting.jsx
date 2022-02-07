@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { useAuth } from "../../../context/loginContext";
-import classes from "./../../../sass/components/UserProfile/Dashboard/DashboardItem.module.scss";
+import classes from "./Setting.module.scss";
 
 
 export default function DashboardItem({title, values, type, categories}) {

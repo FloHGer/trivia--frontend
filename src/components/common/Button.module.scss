@@ -1,0 +1,34 @@
+@import "../../sass/config.scss";
+
+.btn {
+    cursor: pointer;
+    border: 0;
+    width: 40rem;
+    height: 10rem;
+    // padding: 1rem 3rem;
+    margin: 1rem;
+    border-radius: 3rem;
+
+    color: $color__secondary--dark;
+    font-size: clamp(1rem, 3rem, 5rem);
+    font-family: $font;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: $color__secondary--light;
+    box-shadow: -0.5rem 0.5rem 0.2rem rgba($color__primary--dark, 0.9);
+    transition: all 0.2 ease-in-out;
+    
+    &:hover {
+        transform: scale(0.98);
+        padding: 1rem 3rem;
+    }
+
+    &__blue {
+        background: $color__primary--light;
+
+        &:hover{
+            background: $color__primary--light;
+        }
+    }
+
+}

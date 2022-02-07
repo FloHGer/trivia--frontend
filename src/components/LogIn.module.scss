@@ -1,0 +1,128 @@
+@import "../sass/config.scss";
+
+.login {
+    &__text {
+        width: 80%;
+        margin: 0 auto;
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__icon {
+        font-size: 3rem;
+        color: $color__secondary--dark;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
+}
+
+.break {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    color: $color__secondary--light;
+    font-size: 2rem;
+}
+
+form {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+
+    label {
+        font-size: 3rem;
+        text-transform: uppercase;
+        color: $color__secondary--dark;
+        margin-bottom: 2rem;
+    }
+
+    input {
+        width: 100%;
+        border: 0;
+        padding: 2rem;
+        color: $color__secondary--light;
+        font-size: 2.5rem;
+        border-bottom: 2px solid transparent;
+
+        background: #1d2124;
+        box-shadow: 2px 2px 10px #173650;
+        border-radius: 10px;
+
+        &:focus {
+            outline: none;
+            border-bottom: 2px solid $color__secondary--light;
+        }
+    }
+}
+
+.btn {
+    cursor: pointer;
+    margin: 3rem auto;
+    padding: 2rem;
+    display: block;
+    width: 50%;
+    border: 0;
+    border-radius: 1rem;
+    background-color: $color__secondary--light;
+    color: $color__secondary--dark;
+    font-size: 3rem;
+    text-transform: uppercase;
+    box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        transform: scale(0.98);
+    }
+
+    &:disabled {
+        background-color: #cccccc;
+        color: #333;
+        cursor: auto;
+    }
+
+    &:disabled:hover {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.login__socials {
+    width: 70%;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    font-size: 8rem;
+    color: $color__secondary--dark;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    &--google,
+    &--github {
+        cursor: pointer;
+        display: block;
+        border: 0;
+        padding: 2rem 3rem;
+        width: 25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $color__secondary--light;
+        box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.3);
+        border-radius: 2rem;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            transform: scale(0.98);
+        }
+    }
+
+    &--icon {
+        font-size: 5rem;
+    }
+}

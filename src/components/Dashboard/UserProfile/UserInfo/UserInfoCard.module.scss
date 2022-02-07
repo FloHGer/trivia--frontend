@@ -1,0 +1,132 @@
+@import "../../../../sass/config.scss";
+
+.profile__user {
+    background-color: rgba($color__primary, 0.5);
+    padding: 3rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-radius: 1rem;
+
+    &--piccontainer,
+    &--namecontainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    &--pic {
+        width: 16rem;
+        height: 16rem;
+        border-radius: 50%;
+        position: relative;
+        // background-color: #fff;
+        // background-position: center;
+        // background-size: cover;
+        // background-repeat: no-repeat;
+        box-shadow: 0.2rem 0.2rem 0.2rem $color__primary--dark;
+
+        &__flag {
+            position: absolute;
+            bottom: -10%;
+            left: -10%;
+            width: 40%;
+            height: 30%;
+            z-index: 150;
+            
+            .flagSelection {
+                visibility: collapse;
+                position: relative;
+                bottom: -110%;
+                width: 800%;
+                height: 800%;
+                padding: 1rem;
+                border-radius: 10px;
+                overflow-y: scroll;
+                background: rgba($color__primary--dark, 0.6);
+
+                label {
+                    background: none;
+                    padding: 0.5rem;
+                    input {
+                        appearance: none;
+                        width: 10%;
+                        height: 10%;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        &__modal {
+            visibility: collapse;
+            width: 300%;
+            height: 200%;
+            position: relative;
+            z-index: 1;
+            bottom: -110%;
+            left: -10%;
+            border-radius: 15px;
+            color: rgba($color__primary--light,1);
+            background: rgba($color__primary--dark, 0.6);
+
+            // &__modalContent {
+            // 	background-color: $color__secondary--light;
+            // 	margin: auto;
+            // 	padding: 20px;
+            // 	border: 1px solid #888;
+            // 	width: 80%;
+            // }
+        }
+    }
+
+    &--year,
+    &--recentachiev,
+    &--currentrank {
+        text-align: center;
+        color: #fff;
+        font-size: 2rem;
+        background-color: rgba($color__grey--dark, 0.4);
+        padding: 1.5rem;
+        margin-top: 1rem;
+        border-radius: 1rem;
+        box-shadow: 0.2rem 0.2rem 0.2rem $color__primary--dark;
+    }
+
+    &--namecontainer {
+        width: 60%;
+        align-items: stretch;
+    }
+
+    &--name,
+    &--email {
+        width: 100%;
+        background-color: rgba($color__secondary--light, 0.8);
+        color: $color__primary--dark;
+        font-size: 2.2rem;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 1rem;
+        box-shadow: 0.2rem 0.2rem 0.2rem $color__primary--dark;
+
+        & input {
+            padding: 1rem;
+            border: none;
+            background-color: transparent;
+            font-size: 2rem;
+            color: $color__primary--dark;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    &--icon {
+        color: $color__secondary--light;
+        font-size: 2.5rem;
+        cursor: pointer;
+    }
+}

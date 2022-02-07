@@ -1,0 +1,46 @@
+@import "../../sass/config.scss";
+
+.warning {
+    &__text {
+        padding: 3rem;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        & p {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: $color__primary--dark;
+        }
+    }
+
+    &__icon {
+        font-size: 3rem;
+        color: $color__secondary--dark;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
+
+    &__span {
+        text-decoration-line: line-through;
+        text-transform: uppercase;
+
+        &--red {
+            color: $color__warning;
+        }
+        &--gold {
+            color: gold;
+            text-decoration-line: line-through;
+            text-transform: uppercase;
+        }
+    }
+
+    & h3 {
+        margin-bottom: 2rem;
+    }
+}

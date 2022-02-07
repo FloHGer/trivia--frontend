@@ -2,7 +2,7 @@
 import { useShowQuestion } from '../../context/gameContext';
 import { useAnswers } from '../../context/gameContext';
 
-import classes from './../../sass/components/Question/QuestionAnswer.module.scss';
+import classes from './Answer.module.scss';
 
 export default function Answer({letter, text}) {
 	const [showQuestion, setShowQuestion] = useShowQuestion();

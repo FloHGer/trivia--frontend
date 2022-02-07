@@ -1,0 +1,14 @@
+@import "../../sass/config.scss";
+
+.user {
+    display: flex;
+    margin: auto;
+    width: 90%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    .settingsContainer{
+        width: 50%;
+    }
+}

@@ -1,0 +1,53 @@
+@import "../../../../sass/config.scss";
+
+.profile__stats {
+    text-align: center;
+    height: 65%;
+
+    &--titles {
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        height: 5rem;
+    }
+
+    &--paragraph {
+        cursor: pointer;
+        width: 33%;
+        padding: 1rem;
+        font-size: 2rem;
+        letter-spacing: 2px;
+        color: $color__secondary--dark;
+        background-color: $color__primary;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+
+        &:hover {
+            background-color: $color__primary--light;
+            color: $color__primary--dark;
+            font-weight: 700;
+        }
+    }
+
+    &--data {
+        height: 100%;
+        padding: 2rem 1rem;
+        background-color: $color__primary--light;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        overflow-y: auto;
+    }
+}
+
+.active {
+    cursor: pointer;
+    width: 33%;
+    padding: 1rem;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    color: $color__secondary--dark;
+    background-color: $color__primary--light;
+    font-weight: 700;
+}

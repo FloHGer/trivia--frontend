@@ -1,0 +1,29 @@
+@import "../../sass/config.scss";
+
+.answer {
+    width: 49%;
+    background: $color__primary--dark;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.75);
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    position: relative;
+
+    &__letter {
+        position: absolute;
+        top: 2.7rem;
+        left: 4.2rem;
+
+        color: #fff;
+        font-size: 5rem;
+        font-weight: 700;
+        z-index: 50;
+    }
+
+    &__text {
+        margin-left: 4rem;
+        color: $color__primary--light;
+    }
+}

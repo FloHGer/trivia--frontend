@@ -1,0 +1,87 @@
+@import "../../sass/config.scss";
+
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2rem;
+    background: #0000;
+    border: none;
+    cursor: pointer;
+}
+
+.square {
+    width: 70%;
+    height: 70%;
+
+    background: linear-gradient(
+        -110deg,
+        #000d 10%,
+        #0008 30%,
+        $color__primary--dark 60%,
+        $color__primary 100%
+    );
+    box-shadow: 4px -4px 2rem 2px $color__primary;
+    transform: rotate(45deg);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        transform: rotate(405deg);
+        transition: transform 1s ease-in-out;
+    }
+
+    h3 {
+        font-size: 2rem;
+        font-weight: 900;
+        transform: rotate(-45deg);
+        color: $color__secondary--light;
+    }
+}
+
+.logout__icon {
+    transform: rotate(-45deg);
+    font-size: 4rem;
+    color: $color__warning;
+}
+.login__icon {
+    transform: rotate(-45deg);
+    font-size: 4rem;
+    color: $color__primary;
+}
+
+.logSquare{
+    position: fixed;
+    top: calc(3vh + 2.5rem);
+    right: calc(3vh + 2.5rem);
+    height: 10rem;
+    width: 10rem;
+}
+
+// game
+.inactive{
+    box-shadow: none;
+}
+.active{
+    box-shadow: 4px -4px 2rem 2px $color__gold;
+
+    h3{
+        color: $color__gold;
+    }
+}
+.wrong{
+    box-shadow: 4px -4px 2rem 2px $color__warning;
+
+    h3{
+        color: $color__warning;
+    }
+}
+.right{
+    box-shadow: 4px -4px 2rem 2px $color__ok;
+
+    h3{
+        color: $color__ok;
+    }
+}
