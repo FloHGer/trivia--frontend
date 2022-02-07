@@ -9,6 +9,7 @@ import Button from '../common/Button';
 import Square from '../common/Square';
 import Spinner from '../common/Spinner';
 import Question from './Question';
+import Progress from '../common/Progress';
 
 import classes from './Game.module.scss';
 
@@ -91,30 +92,38 @@ export default function Game() {
   }, [allAnswers]);
 
   // post game data
-  // useEffect(() => {
+  useEffect(() => {
+    let counter = 0;
+    allAnswers.forEach(category => {
+      if(category.length === 5 || (category.length && !category[category.length - 1])) counter++;
+    })
+    console.log(counter)
+    if(!currentUser && counter === 6) setTimeout(() => {
+      return quit();
+    }, 3000);
 
-  //   if(1 + 1 === 3){ // useful conditions here
-  //     const results = allAnswers.map((category, i, arr) => {
-  //       return {
-  //         name: selectedCategories[i].name,
-  //         answers: arr,
-  //       }
-  //     });
-  //     (async() => {
-  //       const res = await axios.post(`${process.env.REACT_APP_BACKEND}/user/${currentUser}/games`,
-  //         {
-  //           score,
-  //           categories: results,
-  //         }
-  //       );
-  //       if(res.data.message === 'game posted') {
-  //         // reset context states here
-  //         return navigate('/dashboard');
-  //       }
-  //       return 'error'; // design error page first
-  //     })()
-  //   }
-  // }, [score, currentUser]);
+    if(currentUser && counter === 6){
+      const results = allAnswers.map((category, i, arr) => {
+        return {
+          name: selectedCategories[i].name,
+          answers: arr,
+        }
+      });
+      console.log(results)
+      (async() => {
+        const res = await axios.post(`${process.env.REACT_APP_BACKEND}/user/${currentUser}/games`,
+          {
+            score,
+            categories: results,
+          }
+        );
+        if(res.data.message === 'game posted') {
+          return quit();
+        }
+        return 'error'; // design error popup
+      })()
+    }
+  }, [score, currentUser, allAnswers, selectedCategories]);
 
 
   return (
@@ -148,10 +157,10 @@ export default function Game() {
                   <h2>
                     {category[0].category.startsWith('Entertainment:')
                       || category[0].category.startsWith('Science:')
-                      ? category[0].category.slice(category[0].category.indexOf(' ') + 1)
-                      : category[0].category}
+                        ? category[0].category.slice(category[0].category.indexOf(' ') + 1)
+                        : category[0].category}
                   </h2>
-                  {(allAnswers[i][4] && <h3>{correctCats[0]}</h3>) || <progress value={allAnswers[i].length} max={5} />}
+                  {(allAnswers[i][4] && <h3>+bonus</h3>) || <Progress value={allAnswers[i].length} max={5} />}
                   {/* {(correctCats[i] && <h3>{correctCats[i]}</h3>) || <progress value={allAnswers[i].length} max={5} />} */}
                 </div>
                 <ul className={classes.game__category__questions}>
@@ -166,7 +175,7 @@ export default function Game() {
                       <Square
                         key={`[${i}][${j}]`}
                         title={(j + 1) * 100}
-                        size={'12rem'}
+                        size={'10vh'}
                         color={
                           allAnswers[i][j] 
                             ? 'right'

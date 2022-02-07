@@ -15,6 +15,9 @@ export default function Warning({setWarning}) {
 	const [allCategories] = useAllCategories();
 	const [selectedCategories, setSelectedCategories] = useCategories();
 
+	// document.onkeydown = (k) => k.key === 'Escape' ? setWarning(false) : null;
+
+
 	return (
 		<div className={classes.warning}>
 			<Card>
