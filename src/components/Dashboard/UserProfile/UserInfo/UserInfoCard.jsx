@@ -62,12 +62,12 @@ export default function UserInfoCard() {
 
 	const openImageUpload = e => {
 		e.stopPropagation();
-		// setIsOpen(true);
 		// if (!isOpen) {
-			if (uploadRef.current.style.visibility === 'visible') return (uploadRef.current.style.visibility = 'collapse');
+         if (uploadRef.current.style.visibility === 'visible') return (uploadRef.current.style.visibility = 'collapse');
 			selectRef.current.style.visibility = 'collapse';
 			uploadRef.current.style.visibility = 'visible';
 		// }
+      // setIsOpen(true);
 	};
 
    
