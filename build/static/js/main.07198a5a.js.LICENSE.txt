@@ -10,6 +10,8 @@ object-assign
   http://jedwatson.github.io/classnames
 */
 
+/*! https://mths.be/he v1.2.0 by @mathias | MIT license */
+
 /**
  * React Router DOM v6.2.1
  *

@@ -8,7 +8,7 @@ export default function Dashboard() {
 	return (
 		<>
 			<Navigation />
-			<main>
+			<main className={classes.main}>
 				<div className={classes.user}>
 					<ProfileContainer />
 					<SettingsContainer />

@@ -98,21 +98,21 @@ export default function Game() {
   useEffect(() => {
     let counter = 0;
     allAnswers.forEach(category => {
-      if(category.length === 5 || (category.length && !category[category.length - 1])) counter++;
+      if(category.length === 5
+      || (category.length && !category[category.length - 1])) counter++;
     })
-    console.log(counter)
+    // guest user
     if(!currentUser && counter === 6) setTimeout(() => {
       return setFinalScreen(true);
     }, 3000);
-
+    // known user
     if(currentUser && counter === 6){
-      const results = allAnswers.map((category, i, arr) => {
+      const results = allAnswers.map((category, i) => {
         return {
           name: selectedCategories[i].name,
-          answers: arr,
+          answers: category,
         }
       });
-      console.log(results)
       (async() => {
         const res = await axios.post(`${process.env.REACT_APP_BACKEND}/user/${currentUser}/games`,
           {
@@ -121,7 +121,7 @@ export default function Game() {
           }
         );
         if(res.data.message === 'game posted') {
-          return quit();
+          return setFinalScreen(true);
         }
         return 'error'; // design error popup
       })()
@@ -144,25 +144,25 @@ export default function Game() {
         />
       </div>
       <div className={classes.game}>
-      {finalScreen &&
-        <Card maxWidth={'30%'}>
-          <div className={classes.finalScreen}>
-            <h2>{'Congratulations:'}</h2>
-            <p>{`You got ${score} points!`}</p>
-            <Button
-              title={'CLOSE'}
-              onClick={quit}
-              fontSize={'3rem'}
-              maxHeight={'5rem'}
-              maxWidth={'20rem'}
-            />
-          </div>
-        </Card>
-      }
+        {finalScreen &&
+          <Card maxWidth={'30%'}>
+            <div className={classes.finalScreen}>
+              <h2>{'Congratulations:'}</h2>
+              <p>{`You got ${score} points!`}</p>
+              <Button
+                title={'CLOSE'}
+                onClick={quit}
+                fontSize={'3rem'}
+                maxHeight={'5rem'}
+                maxWidth={'20rem'}
+              />
+            </div>
+          </Card>
+        }
 				{isLoading && <Spinner />}
         {showQuestion && <Question />}
 {/* game table generation */}
-        {!isLoading && !showQuestion &&
+        {!isLoading &&
 // category loop
           questions.map((category, i) => {
 
