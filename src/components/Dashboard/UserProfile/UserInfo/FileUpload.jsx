@@ -1,9 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../../../context/loginContext";
-// import { blob } from "node:stream/consumers";
 import { RiCloseLine } from "react-icons/ri";
-
 
 const FileUpload = ({ setIsOpen, setImage }) => {
    const [currentUser] = useAuth();
@@ -20,15 +18,14 @@ const FileUpload = ({ setIsOpen, setImage }) => {
          });
          setFile(e.target.files[0]);
       }
-      
+
       setIsSelected(true);
       setIsOpen(true);
    };
 
-
    const handleSubmission = async (e) => {
-      e.preventDefault()
-   
+      e.preventDefault();
+
       const formData = new FormData();
       formData.append("userImg", file);
       console.log("file", file);
@@ -37,20 +34,26 @@ const FileUpload = ({ setIsOpen, setImage }) => {
          const newImage = await axios.post(
             `${process.env.REACT_APP_BACKEND}/user/${currentUser}/upload`,
             formData,
-            {headers: {"Content-Type": "multipart/form-data",},}
+            {
+               headers: {
+                  "Content-Type": "multipart/form-data",
+               },
+            }
          );
          console.log(newImage);
-         if (newImage.data.message !== "profile image uploaded") console.log(newImage.data.message);
+         if (newImage.data.message !== "profile image uploaded")
+            console.log(newImage.data.message);
          setImage(newImage);
          setIsOpen(false);
-      } catch (err) {console.log(err);}
-            
+      } catch (err) {
+         console.log(err);
+      }
+
       setImage(file);
       console.log("Modal", file);
       setIsOpen(true);
       // closeModal()
    };
-
 
    return (
       <>
@@ -67,17 +70,13 @@ const FileUpload = ({ setIsOpen, setImage }) => {
 
                {/* CONTENT */}
                <div>
-                  <input
-                     type="file"
-                     name="file"
-                     onChange={changeHandler}
-                  />
+                  <input type="file" name="file" onChange={changeHandler} />
                   {isSelected ? (
                      <div>
                         <img
                            src={preview.preview}
                            alt="profile-pic"
-                           style={{ width: "150px", maxHeight: "200px"}}
+                           style={{ width: "150px", maxHeight: "200px" }}
                         />
                      </div>
                   ) : null}
