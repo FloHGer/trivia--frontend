@@ -19,7 +19,7 @@ export default function Stats() {
   
 
   return (
-    <main>
+    <main className={classes.main}>
       <h1 className={'heading heading__1'}>{'Server wide statistics'}</h1>
       {data &&
       <section>

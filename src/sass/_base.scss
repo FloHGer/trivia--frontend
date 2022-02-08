@@ -28,16 +28,16 @@ body {
     background-size: cover;
 }
 
-#root{
-    height: 100%;
-    width: 100%;
-}
 
 a {
     text-decoration: none;
     color: $color__primary--dark;
 }
 
+#root {
+    width: 100%;
+    height: 100%;
+}
 main {
     width: 100%;
     height: 100%;

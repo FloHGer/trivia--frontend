@@ -4,12 +4,13 @@ import axios from "axios";
 export const validation = async(target, currentUser, setCurrentUser) => {
   try{
     if(target.name === 'username'
-    && target.value.length < 2) return;
+    && (target.value.length < 2
+    || target.value.includes(' '))) return;
 
     if(target.name === 'email'
     && !target.value
       .match(/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i)
-      ) return console.log('fail');
+      ) return;
     const response = await axios.patch(`${process.env.REACT_APP_BACKEND}/user/${currentUser}`, {
       updates:{
         [target.name === 'username' ? 'username' : 'email']: target.value,

@@ -4,6 +4,8 @@ import axios from 'axios';
 import Card from './common/Card';
 import Button from './common/Button';
 
+import classes from "./Feedback.module.scss";
+
 
 export default function Feedback() {
   const [rating, setRating] = useState(0);
@@ -20,18 +22,26 @@ export default function Feedback() {
 
 
   return (
-    <main>
-      <h1>{'Feedback'}</h1>
-      <Card>
+    <main className={classes.main}>
+      <h1 className={'heading heading__1'}>{'Feedback'}</h1>
+      <Card maxWidth={'40%'}>
         <form onSubmit={e => submitHandler(e)}>
-          {ratingData.map((rating, i) => (
-            <label key={i} >
-              <p>{i + 1}</p>
-              <input type='radio' name={'rating'} value={i + 1} onChange={e => setRating(e.target)} />
-            </label>
-          ))}
+          <div className={classes.ratingContainer}>
+            {ratingData.map((rating, i) => (
+              <label key={i} >
+                {i + 1}
+                <input type='radio' name={'rating'} value={i + 1} onChange={e => setRating(e.target)} />
+              </label>
+            ))}
+          </div>
           <textarea onChange={e => setMessage(e.target.value)} />
-          <input type='submit' value={'submit'} />
+          <Button
+            type={'submit'}
+            title={'submit'}
+            maxWidth={'20%'}
+            maxHeight={'5rem'}
+            fontSize={'2rem'}
+          />
         </form>
       </Card>
     </main>

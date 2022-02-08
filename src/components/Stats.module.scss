@@ -1,8 +1,8 @@
 @import "../sass/config.scss";
 
 
-main{
-  padding: 5rem;
+.main{
+  padding: 5%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -40,6 +40,4 @@ main{
       }
     }
   }
-
-  
 }

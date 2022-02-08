@@ -45,7 +45,7 @@ export default function UserInfoCard() {
 		try {
 			selectRef.current.style.visibility = 'collapse';
 			const update = (await axios.patch(`${process.env.REACT_APP_BACKEND}/user/${currentUser}`, {updates: {nat: key}})).data.message;
-			if (update === 'success') return setNat(data.nat);
+			if (update === 'user updated') return setNat(data.nat);
 		} catch (err) {}
 	};
 
