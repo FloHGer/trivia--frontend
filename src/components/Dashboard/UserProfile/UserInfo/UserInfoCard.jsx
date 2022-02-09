@@ -1,98 +1,98 @@
-import {useState, useEffect, useRef} from 'react';
-import axios from 'axios';
+import { useState, useEffect, useRef } from "react";
+import axios from "axios";
 
-import FileUpload from './FileUpload';
-import {validation} from '../../../../common/inputValidation.js';
-import {flags} from '../../../../common/flags.js';
-import {useAuth} from '../../../../context/loginContext.js';
+import FileUpload from "./FileUpload";
+import { validation } from "../../../../common/inputValidation.js";
+import { flags } from "../../../../common/flags.js";
+import { useAuth } from "../../../../context/loginContext.js";
 
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
-import classes from './UserInfoCard.module.scss';
-import DeleteUser from './DeleteUser';
+import classes from "./UserInfoCard.module.scss";
+import DeleteUser from "./DeleteUser";
 
 export default function UserInfoCard() {
-	const [currentUser, setCurrentUser] = useAuth();
-	const [data, setData] = useState();
-	const [nat, setNat] = useState();
-	const [username, setUsername] = useState();
-	const [email, setEmail] = useState();
-	const [edit, setEdit] = useState(false);
-	const selectRef = useRef();
-	const uploadRef = useRef();
-	const [image, setImage] = useState();
-	const [isOpen, setIsOpen] = useState();
+   const [currentUser, setCurrentUser] = useAuth();
+   const [data, setData] = useState();
+   const [nat, setNat] = useState();
+   const [username, setUsername] = useState();
+   const [email, setEmail] = useState();
+   const [edit, setEdit] = useState(false);
+   const selectRef = useRef();
+   const uploadRef = useRef();
+   const [image, setImage] = useState();
+   const [flagsModal, setFlagsModal] = useState(false);
+   const [imageModal, setImageModal] = useState(false);
    const [openDeleteModal, setOpenDeleteModal] = useState();
 
-   
+   useEffect(() => {
+      setEdit(false);
+   }, []);
 
-	useEffect(() => {
-		setEdit(false);
-	}, []);
+   useEffect(() => {
+      (async () => {
+         console.log("lalla");
+         const response = (
+            await axios.get(
+               `${process.env.REACT_APP_BACKEND}/user/${currentUser}`
+            )
+         ).data;
+         
+         if (response.message === "success") {
+            setData(response.payload);
+            setUsername(response.payload.username);
+            setEmail(
+               response.payload.email
+                  ? response.payload.email
+                  : "enter your email"
+            );
+            setImage(response.payload.img);
+         }
+      })();
+   }, [currentUser, nat, imageModal]);
 
-	useEffect(() => {
-		(async () => {
-			const response = (await axios.get(`${process.env.REACT_APP_BACKEND}/user/${currentUser}`)).data;
-			if (response.message === 'success') {
-				setData(response.payload);
-				setUsername(response.payload.username);
-				setEmail(response.payload.email ? response.payload.email : 'enter your email');
-				setImage(response.payload.img);
-			}
-		})();
-	}, [currentUser, nat, image]);
+   const inputChangeHandler = ({ name, value }) => {
+      name === "username" ? setUsername(value) : setEmail(value);
+   };
 
-	const inputChangeHandler = ({name, value}) => {
-		name === 'username' ? setUsername(value) : setEmail(value);
-	};
+   const flagChangeHandler = async (key) => {
+      try {
+         setFlagsModal(false);
+         const update = (
+            await axios.patch(
+               `${process.env.REACT_APP_BACKEND}/user/${currentUser}`,
+               { updates: { nat: key } }
+            )
+         ).data.message;
+         if (update === "user updated") return setNat(data.nat);
+      } catch (err) {}
+   };
 
-	const flagChangeHandler = async key => {
-		try {
-			selectRef.current.style.visibility = 'collapse';
-			const update = (await axios.patch(`${process.env.REACT_APP_BACKEND}/user/${currentUser}`, {updates: {nat: key}})).data.message;
-			if (update === 'user updated') return setNat(data.nat);
-		} catch (err) {}
-	};
+   const openFlagsHandler = (e) => {
+      e.stopPropagation();
+      setImageModal(false);
+      setFlagsModal(!flagsModal);
+   };
 
-	const openFlagsHandler = e => {
-		e.stopPropagation();
-		if (selectRef.current.style.visibility === 'visible') return (selectRef.current.style.visibility = 'collapse');
-		uploadRef.current.style.visibility = 'collapse';
-		selectRef.current.style.visibility = 'visible';
-	};
+   const openImageUpload = (e) => {
+      e.stopPropagation();
+      setFlagsModal(false);
+      setImageModal(!imageModal);
+   };
 
-	const openImageUpload = e => {
-		e.stopPropagation();
-		// if (!isOpen) {
-         if (uploadRef.current.style.visibility === 'visible') return (uploadRef.current.style.visibility = 'collapse');
-			selectRef.current.style.visibility = 'collapse';
-			uploadRef.current.style.visibility = 'visible';
-		// }
-      // setIsOpen(true);
-	};
-
-   
-
-	return (
+   return (
       <section className={classes.profile__user}>
          <div className={classes["profile__user--piccontainer"]}>
             {/* PIC */}
-            <div
+            <img
+               src={image || ""}
+               alt={currentUser}
                className={classes["profile__user--pic"]}
                style={{
                   cursor: edit ? "pointer" : "default",
                   pointerEvents: edit ? "auto" : "none",
-                  background: `url(${image || ""}) center / cover no-repeat`,
                }}
                onClick={(e) => openImageUpload(e)}
-            >
-               <div
-                  className={classes["profile__user--pic__modal"]}
-                  ref={uploadRef}
-               >
-                  {isOpen && (
-                     <FileUpload setImage={setImage} setIsOpen={setIsOpen} />
-                  )}
-               </div>
+            />
                {/* FLAGS */}
                <div
                   className={classes["profile__user--pic__flag"]}
@@ -105,24 +105,26 @@ export default function UserInfoCard() {
                   }}
                   onClick={(e) => openFlagsHandler(e)}
                >
-                  <div className={classes.flagSelection} ref={selectRef}>
-                     {Object.keys(flags).map((flag, i) => (
-                        <label key={flag}>
-                           <input
-                              type="radio"
-                              name="nation"
-                              value={flag}
-                              onChange={() => flagChangeHandler(flag)}
-                              title={flags[flag].name}
-                              style={{
-                                 background: `url(${flags[flag].url.small}) center / cover no-repeat`,
-                              }}
-                           />
-                        </label>
-                     ))}
-                  </div>
+                  {flagsModal && (
+                     <div className={classes.flagSelection}>
+                        {Object.keys(flags).map((flag, i) => (
+                           <label key={flag}>
+                              <input
+                                 type="radio"
+                                 name="nation"
+                                 value={flag}
+                                 onChange={() => flagChangeHandler(flag)}
+                                 title={flags[flag].name}
+                                 style={{
+                                    background: `url(${flags[flag].url.small}) center / cover no-repeat`,
+                                 }}
+                              />
+                           </label>
+                        ))}
+                     </div>
+                  )}
                </div>
-            </div>
+            {/* </img> */}
          </div>
          {/* INPUTS */}
          <div className={classes["profile__user--namecontainer"]}>
@@ -167,8 +169,8 @@ export default function UserInfoCard() {
                className={classes["profile__user--trashIcon"]}
                style={{
                   color: edit ? "red" : "grey",
-                  cursor: edit ? 'pointer' : 'default',
-                  pointerEvents: edit ? 'auto' : 'none',
+                  cursor: edit ? "pointer" : "default",
+                  pointerEvents: edit ? "auto" : "none",
                }}
                title={"Delete profile"}
                onClick={() => setOpenDeleteModal(true)}
@@ -176,6 +178,13 @@ export default function UserInfoCard() {
          </div>
          {openDeleteModal && (
             <DeleteUser setOpenDeleteModal={setOpenDeleteModal} />
+         )}
+         {imageModal && (
+            <FileUpload
+               className={classes["profile__user--pic__modal"]}
+               setImage={setImage}
+               setImageModal={setImageModal}
+            />
          )}
       </section>
    );
