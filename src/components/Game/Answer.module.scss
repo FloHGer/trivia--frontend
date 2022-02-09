@@ -9,11 +9,16 @@
     display: flex;
     justify-content: stretch;
     align-items: center;
+    cursor: pointer;
+    transition: transform .3s, background .5s;
 
-    &__letter {
-        color: #fff;
-        font-size: 5rem;
-        font-weight: 900;
+    &:hover{
+        transform: scale(0.98);
+        background: $color__gold--dark;
+        
+        .answer__text{
+            color: $color__font;
+        }
     }
 
     &__text {

@@ -1,14 +1,16 @@
-@import "./../../config.scss";
+@import "../../sass/config.scss";
+
+
 .container {
     padding: 3rem;
+    position: relative;
+    margin-left: 3%;
 }
 
 .logo {
-    position: relative;
 
     &__title {
         font-size: 5rem;
-        position: absolute;
         top: 5rem;
         left: 5rem;
         display: flex;

@@ -9,11 +9,11 @@ import Card from '../common/Card';
 import Button from '../common/Button';
 import Square from '../common/Square';
 import Spinner from '../common/Spinner';
-import Question from './Question';
 import Progress from '../common/Progress';
+import Logo from './Logo';
+import Question from './Question';
 
 import classes from './Game.module.scss';
-
 
 export default function Game() {
   const navigate = useNavigate();
@@ -130,19 +130,24 @@ export default function Game() {
 
 
   return (
-    <main className={classes.container}>
+    <>
+    <header className={classes.header}>
+      <Logo />
       <div className={classes.gameInfo}>
-        <p>{`${score} points`}</p>
-        {currentUser && <p>{currentUser}</p>}
-        <Square
-          title={'quit game'}
-          color={'wrong'}
-          size={'15rem'}
-          onClick={quit}
-          className={'cancelGame'}
-          background={'#a10'}
-        />
-      </div>
+          <p>{`${score} points`}</p>
+          {(currentUser && <p>{currentUser}</p>) || <p>{'Quick Game'}</p>}
+          <Square
+            title={'quit game'}
+            color={'wrong'}
+            size={'15rem'}
+            onClick={quit}
+            className={'cancelGame'}
+            background={'#a10'}
+          />
+        </div>
+    </header>
+    <main className={classes.container}>
+      
       <div className={classes.game}>
         {finalScreen &&
           <Card maxWidth={'30%'}>
@@ -223,5 +228,6 @@ export default function Game() {
           })}
       </div>
     </main>
+    </>
   );
 }

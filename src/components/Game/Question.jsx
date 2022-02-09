@@ -37,41 +37,39 @@ export default function Question() {
 
 	return (
 		<FadeOut>
-			<div>
-				<Card>
-					<h2 className={classes.question}>{showQuestion.question.question}</h2>
-					<div className={classes.answers}>
+			<Card>
+				<h2 className={classes.question}>{showQuestion.question.question}</h2>
+				<div className={classes.answers}>
+					<Answer
+						letter='A'
+						text={answers[0]}
+						answerHandler={answerHandler}
+						background={colors[0]}
+					/>
+					<Answer
+						letter='B'
+						text={answers[1]}
+						answerHandler={answerHandler}
+						background={colors[1]}
+					/>
+				</div>
+				{showQuestion.question.type !== 'boolean' &&
+					<div className={classes.answers} >
 						<Answer
-							letter='A'
-							text={answers[0]}
+							letter='C'
+							text={answers[2]}
 							answerHandler={answerHandler}
-							background={colors[0]}
+							background={colors[2]}
 						/>
 						<Answer
-							letter='B'
-							text={answers[1]}
+							letter='D'
+							text={answers[3]}
 							answerHandler={answerHandler}
-							background={colors[1]}
+							background={colors[3]}
 						/>
 					</div>
-					{showQuestion.question.type !== 'boolean' &&
-						<div className={classes.answers} >
-							<Answer
-								letter='C'
-								text={answers[2]}
-								answerHandler={answerHandler}
-								background={colors[2]}
-							/>
-							<Answer
-								letter='D'
-								text={answers[3]}
-								answerHandler={answerHandler}
-								background={colors[3]}
-							/>
-						</div>
-					}
-				</Card>
-			</div>
+				}
+			</Card>
 		</FadeOut>
 	);
 }

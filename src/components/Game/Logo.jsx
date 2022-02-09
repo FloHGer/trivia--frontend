@@ -1,7 +1,7 @@
 import React from "react";
 
-import Square from "./../../common/Square";
-import classes from "./../../sass/components/Game/LogoTrivia.module.scss";
+import Square from "../common/Square";
+import classes from "./Logo.module.scss";
 
 function LogoTrivia() {
     return (
