@@ -1,34 +1,8 @@
-@import "../sass/config.scss";
-
-
-.main{
-  padding: 5%;
-
-  h1{
-    margin-bottom: 5vh;
-  }
-
-  .listContainer{
-    width: 90%;
-    margin: auto;
-    display: flex;
-    justify-content: space-evenly;
-
-    .highScore{
-      background: $color__primary;
-      border-radius: 1rem;
-      padding: 2%;
-      width: 30%;
-
-    }
-  }
-}
-
-
+@import "../../sass/config.scss";
 
 .rank{
-  margin: .5vh;
-  padding: .5vh;
+  margin: .5rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
   color: $color__primary;

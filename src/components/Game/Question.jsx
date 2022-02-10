@@ -13,8 +13,10 @@ export default function Question() {
 	const [allAnswers, setAllAnswers] = useAnswers();
 	const [answers, setAnswers] = useState([]);
 	const [colors, setColors] = useState(['', '', '', '']);
+	const [locked, setLocked] = useState(false);
 
 	const answerHandler = (text) => {
+		setLocked(true);
 		allAnswers[showQuestion.category][showQuestion.index] = showQuestion.question.correct_answer === text ? true : false;
 		setAllAnswers([...allAnswers]);
 
@@ -45,12 +47,14 @@ export default function Question() {
 						text={answers[0]}
 						answerHandler={answerHandler}
 						background={colors[0]}
+						disabled={locked}
 					/>
 					<Answer
 						letter='B'
 						text={answers[1]}
 						answerHandler={answerHandler}
 						background={colors[1]}
+						disabled={locked}
 					/>
 				</div>
 				{showQuestion.question.type !== 'boolean' &&
@@ -60,12 +64,14 @@ export default function Question() {
 							text={answers[2]}
 							answerHandler={answerHandler}
 							background={colors[2]}
+							disabled={locked}
 						/>
 						<Answer
 							letter='D'
 							text={answers[3]}
 							answerHandler={answerHandler}
 							background={colors[3]}
+							disabled={locked}
 						/>
 					</div>
 				}

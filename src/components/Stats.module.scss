@@ -23,15 +23,19 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: $color__primary--dark;
+      background: $color__primary;
       border-radius: 1rem;
       margin: 1vw;
       padding: 2rem;
 
+      h2{
+        color: $color__primary--dark;
+      }
+
       .valueCard{
         width: 30%;
-        background: $color__primary;
-        color: $color__primary--dark;
+        background: $color__primary--dark;
+        color: $color__primary;
         border-radius: .5rem;
         padding: 1rem 2rem;
         margin-top: 2rem;

@@ -6,7 +6,7 @@ import Home from './components/Home';
 import Dashboard from './components/Dashboard/Dashboard';
 import LogIn from './components/LogIn';
 import Game from './components/Game/Game';
-import Ranks from './components/Ranks';
+import Ranks from './components/Ranks/Ranks';
 import Stats from './components/Stats';
 import Navigation from './components/common/Navigation';
 import Feedback from './components/Feedback';
