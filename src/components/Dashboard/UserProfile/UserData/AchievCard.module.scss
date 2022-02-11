@@ -1,20 +1,32 @@
 @import "../../../../sass/config.scss";
 
+
 .card {
     position: relative;
     z-index: 0;
-}
-
-.card {
     width: 90%;
     margin: 1rem auto;
     padding: 2rem;
     background-color: rgba($color__primary--dark, 0.5);
-    box-shadow: inset 5px 5px 1rem #0b2235, inset -5px -5px 1rem #163e61;
+    box-shadow:  inset -5px -5px 1rem #163e61;
     border-radius: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &__unlocked{
+        position: relative;
+        z-index: 0;
+        width: 90%;
+        margin: 1rem auto;
+        padding: 2rem;
+        background-color: rgba($color__primary--light, 0.5);
+        box-shadow: inset .5rem .5rem 2rem #163e61;
+        border-radius: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
     &__container {
         width: 20%;
@@ -51,11 +63,12 @@
             padding: 0.2rem;
             font-size: 1.8rem;
             font-weight: 400;
-            color: $color__secondary--light;
+            color: $color__secondary--dark;
         }
 
         &--todo {
             background-color: rgba($color__primary--dark, 0.5);
+            color: #fff;
             border-radius: 1rem;
             font-size: 1.5rem;
             font-weight: 400;
@@ -82,30 +95,4 @@
     color: #fff;
     position: absolute;
     top: 1.7rem;
-}
-
-
-.square {
-    transform: rotate(45deg);
-    width: 8rem;
-    height: 8rem;
-    background-color: #17365080;
-    border: 1px solid #17365080;
-    box-sizing: border-box;
-    box-shadow: inset -3px -3px 7px #255680, inset 4px 4px 5px #0e2537;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &::before {
-        content: "";
-        position: absolute;
-        top: -0.6rem;
-        left: -0.6rem;
-        margin: 1.2rem;
-        background-color: #1d2124;
-        border: 3px solid $color__grey--light;
-        width: 6rem;
-        height: 6rem;
-    }
 }

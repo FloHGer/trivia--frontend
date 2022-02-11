@@ -8,37 +8,34 @@ import classes from "./About.module.scss";
 
 export default function About() {
     return (
-        <main className={classes.container}>
-            <div className={classes.item1}>
-                <AuthorCard
-                    name={'Natalia'}
-                    nickname={'Bob Ross'}
-                    src={natalia}
-                    github={'/diebanz'}
-                    homepage={'diebanz.works'}
-                    email={'banznatalia@gmail.com'}
-                />
-            </div>
-            <div className={classes.item2}>
-                <AuthorCard
-                    name={'Florian'}
-                    nickname={'FloH'}
-                    src={flo}
-                    github={'/FloHGer'}
-                    homepage={'FlorianHoehle.de'}
-                    email={'mail@FlorianHoehle.de'}
-                />
-            </div>
-            <div className={classes.item3}>
-                <AuthorCard
-                    name={'Tobias'}
-                    nickname={'TimTom'}
-                    src={tobi}
-                    github={'/Tobi-LoFu'}
-                    // homepage={''}
-                    email={'tobler@gmx.com'}
-                />
-            </div>
+        <main className={classes.main}>
+            <AuthorCard
+                className={classes.item1}
+                name={'Natalia'}
+                nickname={'Bob Ross'}
+                src={natalia}
+                github={'/diebanz'}
+                email={'banznatalia@gmail.com'}
+                homepage={'diebanz.works'}
+            />
+            <AuthorCard
+                className={classes.item2}
+                name={'Florian'}
+                nickname={'FloH'}
+                src={flo}
+                github={'/FloHGer'}
+                email={'mail@FlorianHoehle.de'}
+                homepage={'FlorianHoehle.de'}
+            />
+            <AuthorCard
+                className={classes.item3}
+                name={'Tobias'}
+                nickname={'TimTom'}
+                src={tobi}
+                github={'/Tobi-LoFu'}
+                email={'tobler@gmx.com'}
+                // homepage={''}
+            />
         </main>
     );
 }

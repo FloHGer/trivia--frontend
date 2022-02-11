@@ -1,5 +1,4 @@
 import React from "react";
-import { FaTrophy } from "react-icons/fa";
 
 import Square from "../../../common/Square";
 
@@ -7,7 +6,7 @@ import classes from "./AchievCard.module.scss";
 
 function AchievCard({ data, title, text, values }) {
     return (
-        <div className={classes.card}>
+        <div className={data.unlocked.length ? classes.card__unlocked : classes.card}>
             {/* <div
                 className={classes.card__unlocked}
                 style={{
@@ -20,7 +19,7 @@ function AchievCard({ data, title, text, values }) {
                 }}
             ></div> */}
             <Square
-                title={'???'}
+                title={`trophy__${data.unlocked.length}`}
                 size={'10rem'}
             />
             <div className={classes.card__data}>

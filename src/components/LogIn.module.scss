@@ -2,13 +2,22 @@
 
 .login {
     &__text {
-        width: 80%;
+        width: 100%;
         margin: 0 auto;
         padding: 3rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        h3{
+            color: $color__secondary--dark;
+        }
+
+        p{
+            font-size: 3rem;
+            color: $color__secondary--light;
+        }
     }
 
     &__icon {
@@ -25,7 +34,7 @@
     margin: 0 auto;
     text-align: center;
     color: $color__secondary--light;
-    font-size: 2rem;
+    font-size: 4rem;
 }
 
 form {
@@ -36,27 +45,27 @@ form {
     flex-direction: column;
 
     label {
-        font-size: 3rem;
+        font-size: 2.5rem;
         text-transform: uppercase;
         color: $color__secondary--dark;
-        margin-bottom: 2rem;
     }
 
     input {
         width: 100%;
+        margin: 1rem 0 2rem;
         border: 0;
         padding: 2rem;
-        color: $color__secondary--light;
+        color: $color__secondary--dark;
         font-size: 2.5rem;
-        border-bottom: 2px solid transparent;
+        border-bottom: .2rem solid transparent;
 
-        background: #1d2124;
-        box-shadow: 2px 2px 10px #173650;
-        border-radius: 10px;
+        background: $color__secondary--light;
+        box-shadow: .2rem .2rem 1rem #173650;
+        border-radius: 1rem;
 
         &:focus {
             outline: none;
-            border-bottom: 2px solid $color__secondary--light;
+            box-shadow: .2rem .2rem 1rem $color__secondary--light;
         }
     }
 }
@@ -74,15 +83,15 @@ form {
     font-size: 3rem;
     text-transform: uppercase;
     box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.3);
-    transition: all 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, background 1s, color 1s;
 
     &:hover {
         transform: scale(0.98);
     }
 
     &:disabled {
-        background-color: #cccccc;
-        color: #333;
+        background-color: $color__grey--dark;
+        color: $color__grey--mid;
         cursor: auto;
     }
 
@@ -115,7 +124,7 @@ form {
         background: $color__secondary--light;
         box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.3);
         border-radius: 2rem;
-        transition: all 0.2s ease-in-out;
+        transition: transform 0.2s ease-in-out;
 
         &:hover {
             transform: scale(0.98);

@@ -1,0 +1,36 @@
+@import "../../sass/config.scss";
+
+.rank{
+  margin: .5rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  color: $color__primary;
+  background: $color__primary--dark;
+  border-radius: 1rem;
+
+  *{
+    margin: 0 2rem;
+  }
+
+  .image{
+    width: 3vh;
+    height: 3vh;
+    border-radius: 50%;
+  }
+
+  .flag{
+    height: 1.5vh;
+  }
+
+  .name{
+    width: 15%;
+  }
+
+  .value{
+    margin-left: auto;
+    width: 10%;
+    text-align: right;
+  }
+
+}
