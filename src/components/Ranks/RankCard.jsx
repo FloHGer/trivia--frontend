@@ -5,7 +5,7 @@ import {flags} from '../../common/flags.js';
 import classes from './RankCard.module.scss';
 
 
-export default function RankCard({className, type}) {
+export default function RankCard({type}) {
   const [ranking, setRanking] = useState([]);
 
   useEffect(() => {
