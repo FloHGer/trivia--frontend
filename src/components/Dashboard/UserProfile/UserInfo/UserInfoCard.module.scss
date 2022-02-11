@@ -27,24 +27,96 @@
       // background-size: cover;
       // background-repeat: no-repeat;
       box-shadow: 0.2rem 0.2rem 0.2rem $color__primary--dark;
+      
+      
+      &__modal {
+         position: absolute;
+         top: 30.5%;
+         left: 6.5%;
+         width: 32%;
+         padding: 3rem;
+         background: rgba($color__primary--dark, 0.6);
+         backdrop-filter: blur( 2.5px );
+         border-radius: 1rem;
+         z-index: 50;
+         display: flex;
+         flex-direction: column;
+
+         h2 {
+            width: 90%;
+            text-align: center;
+            margin: 0 auto;
+            margin-bottom: 1rem;
+            color: rgba($color__primary--light, 0.9);
+            text-shadow: 0 0 10px rgba(3, 3, 3, 0.5), 0 0 15px rgba(3, 3, 3, 0.5);
+            font-size: 3.2rem;
+            font-weight: bolder;
+         }  
+         
+         input[type=file] {
+            display: none;
+         } 
+
+         &--customButton {
+            cursor: pointer;
+            border: 0;
+            width: 60%;
+            // height: 40%;
+            padding: 2rem;
+            margin: 2rem auto;
+            border-radius: 2rem;
+            text-align: center;
+            color: $color__secondary--dark;
+            font-size: 2.5rem;
+            font-family: $font;
+            text-transform: uppercase;
+            font-weight: 700;
+            background: $color__secondary--light;
+            box-shadow: -0.5rem 0.5rem 0.2rem rgba($color__primary--dark, 0.9);
+            transition: all 0.2 ease-in-out;
+
+            &:hover {
+               transform: scale(0.98);
+            }
+         }
+
+         &__button--container {
+            width: 80%;
+            margin: 2rem auto;
+            display: flex;
+            justify-content: space-evenly;
+         }    
+      }
+
+      &__img {
+         display: block;
+         width: 16rem;
+         height: 16rem;
+         border-radius: 50%;
+         margin: 0 auto;
+         margin-top: 1.5rem;
+         box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.507);
+      }
 
       &__flag {
          position: absolute;
          top: 26%;
-         left: 7%;
-         width: 5%;
-         height: 6%;
+         left:6%;
+         width: 4%;
+         height: 4%;
          z-index: 15;
 
          .flagSelection {
             position: relative;
-            bottom: -100%;
+            bottom: -110%;
+            left: 10%;
             width: 800%;
             height: 800%;
             padding: 1rem;
             border-radius: 10px;
             overflow-y: scroll;
             background: rgba($color__primary--dark, 0.6);
+            backdrop-filter: blur( 2.5px );
 
             label {
                background: none;
@@ -57,26 +129,6 @@
                }
             }
          }
-      }
-
-      &__modal {
-         width: 100%;
-         height: 100%;
-         position: relative;
-         z-index: 1;
-         bottom: -110%;
-         left: -10%;
-         border-radius: 15px;
-         color: rgba($color__primary--light, 1);
-         background: rgba($color__primary--dark, 0.6);
-
-         // &__modalContent {
-         // 	background-color: $color__secondary--light;
-         // 	margin: auto;
-         // 	padding: 20px;
-         // 	border: 1px solid #888;
-         // 	width: 80%;
-         // }
       }
    }
 

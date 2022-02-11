@@ -23,18 +23,18 @@
   top: 50%;
   transform: translate(-50%, -50%);
   border-radius: 2rem;
-  box-shadow: 0 8px 32px 0 rgba(179, 182, 228, 0.972);
+  
   backdrop-filter: blur( 2.5px );
   -webkit-backdrop-filter: blur( 2.5px );
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.1);
 
   h2 {
       width: 70%;
       text-align: center;
       margin: 0 auto;
-      padding-top: 6rem;
+      padding-top: 7rem;
       color: rgba($color__primary--light, 0.9);
       text-shadow: 0 0 10px rgba(3, 3, 3, 0.5), 0 0 15px rgba(3, 3, 3, 0.5);
       font-size: 4rem;
@@ -44,11 +44,10 @@
 
   &__button--container {
       width: 80%;
-      position: absolute;
       z-index: 101;
-      left: 50%;
-      top: 65%;
-      transform: translate(-45%, -50%);
+      margin: 5rem auto;
+      display: flex;
+      justify-content: space-evenly;
   }
 
   &--button {

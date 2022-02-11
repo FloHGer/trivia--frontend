@@ -30,24 +30,23 @@ export default function UserInfoCard() {
 
    useEffect(() => {
       (async () => {
-         console.log("lalla");
          const response = (
             await axios.get(
                `${process.env.REACT_APP_BACKEND}/user/${currentUser}`
-            )
-         ).data;
-         
-         if (response.message === "success") {
-            setData(response.payload);
-            setUsername(response.payload.username);
-            setEmail(
-               response.payload.email
-                  ? response.payload.email
-                  : "enter your email"
-            );
-            setImage(response.payload.img);
-         }
-      })();
+               )
+               ).data;
+               console.log(response.payload);
+               if (response.message === "success") {
+                  setData(response.payload);
+                  setUsername(response.payload.username);
+                  setEmail(
+                     response.payload.email
+                     ? response.payload.email
+                     : "enter your email"
+                     );
+                     setImage(response.payload.img);
+               }
+            })();
    }, [currentUser, nat, imageModal]);
 
    const inputChangeHandler = ({ name, value }) => {
@@ -81,50 +80,58 @@ export default function UserInfoCard() {
 
    return (
       <section className={classes.profile__user}>
+         {/* PIC */}
          <div className={classes["profile__user--piccontainer"]}>
-            {/* PIC */}
-            <img
-               src={image || ""}
-               alt={currentUser}
-               className={classes["profile__user--pic"]}
-               style={{
-                  cursor: edit ? "pointer" : "default",
-                  pointerEvents: edit ? "auto" : "none",
-               }}
-               onClick={(e) => openImageUpload(e)}
-            />
-               {/* FLAGS */}
-               <div
-                  className={classes["profile__user--pic__flag"]}
+            <div>
+               <img
+                  src={image || ""}
+                  alt={currentUser}
+                  className={classes["profile__user--pic"]}
                   style={{
                      cursor: edit ? "pointer" : "default",
                      pointerEvents: edit ? "auto" : "none",
-                     background: `url('https://flagcdn.com/64x48/${
-                        (data && data.nat) || "un"
-                     }.png') center / cover no-repeat`,
                   }}
-                  onClick={(e) => openFlagsHandler(e)}
-               >
-                  {flagsModal && (
-                     <div className={classes.flagSelection}>
-                        {Object.keys(flags).map((flag, i) => (
-                           <label key={flag}>
-                              <input
-                                 type="radio"
-                                 name="nation"
-                                 value={flag}
-                                 onChange={() => flagChangeHandler(flag)}
-                                 title={flags[flag].name}
-                                 style={{
-                                    background: `url(${flags[flag].url.small}) center / cover no-repeat`,
-                                 }}
-                              />
-                           </label>
-                        ))}
-                     </div>
-                  )}
-               </div>
-            {/* </img> */}
+                  onClick={(e) => openImageUpload(e)}
+                  />
+            </div>
+            {imageModal && (
+               <FileUpload
+               setImage={setImage}
+               setImageModal={setImageModal}
+               />
+            )}
+
+            {/* FLAGS */}
+            <div
+               className={classes["profile__user--pic__flag"]}
+               style={{
+                  cursor: edit ? "pointer" : "default",
+                  pointerEvents: edit ? "auto" : "none",
+                  background: `url('https://flagcdn.com/64x48/${
+                     (data && data.nat) || "un"
+                  }.png') center / contain no-repeat`,
+               }}
+               onClick={(e) => openFlagsHandler(e)}
+            >
+               {flagsModal && (
+                  <div className={classes.flagSelection}>
+                     {Object.keys(flags).map((flag, i) => (
+                        <label key={flag}>
+                           <input
+                              type="radio"
+                              name="nation"
+                              value={flag}
+                              onChange={() => flagChangeHandler(flag)}
+                              title={flags[flag].name}
+                              style={{
+                                 background: `url(${flags[flag].url.small}) center / contain no-repeat`,
+                              }}
+                           />
+                        </label>
+                     ))}
+                  </div>
+               )}
+            </div>
          </div>
          {/* INPUTS */}
          <div className={classes["profile__user--namecontainer"]}>
@@ -177,13 +184,8 @@ export default function UserInfoCard() {
             />
          </div>
          {openDeleteModal && (
-            <DeleteUser setOpenDeleteModal={setOpenDeleteModal} />
-         )}
-         {imageModal && (
-            <FileUpload
-               className={classes["profile__user--pic__modal"]}
-               setImage={setImage}
-               setImageModal={setImageModal}
+            <DeleteUser
+               setOpenDeleteModal={setOpenDeleteModal}
             />
          )}
       </section>

@@ -15,6 +15,7 @@
     "classnames": "^2.3.1",
     "codecs": "^3.0.0",
     "flaticon": "^0.1.0",
+    "form-data": "^4.0.0",
     "framer-motion": "^5.5.7",
     "he": "^1.2.0",
     "react": "^17.0.2",
