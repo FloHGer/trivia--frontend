@@ -5,7 +5,7 @@ import he from 'he'
 
 import {useAuth} from '../../context/loginContext';
 import {useAnswers, useCategories, useQuestions, useShowQuestion} from '../../context/gameContext';
-import Card from '../common/Card';
+import FeedbackCard from '../common/FeedbackCard';
 import Button from '../common/Button';
 import Square from '../common/Square';
 import Spinner from '../common/Spinner';
@@ -121,7 +121,7 @@ export default function Game() {
           }
         );
         if(res.data.message === 'game posted') {
-          return setFinalScreen(true);
+          return setFinalScreen(res.data.payload.achievs);
         }
         return 'error'; // design error popup
       })()
@@ -150,19 +150,14 @@ export default function Game() {
       
       <div className={classes.game}>
         {finalScreen &&
-          <Card maxWidth={'30%'}>
-            <div className={classes.finalScreen}>
-              <h2>{'Congratulations:'}</h2>
-              <p>{`You got ${score} points!`}</p>
-              <Button
-                title={'CLOSE'}
-                onClick={quit}
-                fontSize={'3rem'}
-                maxHeight={'5rem'}
-                maxWidth={'20rem'}
-              />
-            </div>
-          </Card>
+          <FeedbackCard
+            title={'Congratulations!'}
+            text={`You got ${score} points!`}
+            achievs={finalScreen}
+            link={'/'}
+            width={'40%'}
+            heigh={'40%'}
+          />
         }
 				{isLoading && <Spinner />}
         {showQuestion && <Question />}
