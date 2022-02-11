@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
+import { FaSignInAlt, FaSignOutAlt, FaTrophy } from "react-icons/fa";
 
 import { useAuth } from "../../context/loginContext";
 
@@ -45,12 +45,20 @@ export default function Square({title, target, size, onClick, color, disabled}) 
 							: onClick
 						}
 				>
-					<div className={`${classes.square} ${classes[color]}`} title={title}>
+					<div className={`${classes.square} ${classes[color]}`}>
 						{title === 'LogIn / LogOut'
 							? currentUser
 								? <FaSignOutAlt className={classes.logout__icon} />
 								: <FaSignInAlt className={classes.login__icon} />
-							: <h3 className='heading heading__3'>{title}</h3>
+							: title === 'trophy__0'
+								? <FaTrophy className={classes.trophy} />
+								: title === 'trophy__1'
+									? <FaTrophy className={classes.trophy__bronze} />
+									: title === 'trophy__2'
+										? <FaTrophy className={classes.trophy__silver} />
+										: title === 'trophy__3'
+											? <FaTrophy className={classes.trophy__gold} />
+											: <h3 className='heading heading__3'>{title}</h3>
 						}
 					</div>
 				</button>

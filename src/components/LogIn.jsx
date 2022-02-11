@@ -52,7 +52,7 @@ export default function LogIn() {
 
 	return (
 		<main>
-			{feedback && <FeedbackCard title={feedback} text={'check your emails to log in'} link={'/'} />}
+			{feedback && <FeedbackCard title={feedback} text={'check your emails to log in'} onClick={() => navigate('/')} />}
 			<Card>
 				<Link to='/'>
 					<FaTimesCircle className={classes.login__icon} />

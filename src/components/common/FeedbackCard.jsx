@@ -1,25 +1,22 @@
-import { Link, useNavigate } from 'react-router-dom';
 
 import Button from './Button';
 
 import classes from './FeedbackCard.module.scss';
 
 
-export default function FeedbackCard({title, text, link, achievs, width, height}) {
-  const navigate = useNavigate();
+export default function FeedbackCard({title, text, achievs = [], onClick}) {
 
 
   return (
     <div
     className={classes.card}
     style={{
-      width: width || '',
-      height: height || '',
+      height: achievs.length ? `${30 + (achievs.length -1) * 10}%` : '30%',
     }}
     >
       <h3 className={'heading heading__2'}>{title}</h3>
       {text && <p>{text}</p>}
-      {achievs && achievs.map(achiev => (
+      {achievs.map(achiev => (
         <>
           <h4 className={'heading heading__4'}>NEW Achievement unlocked:</h4>
           <p>{achiev}</p>
@@ -27,7 +24,7 @@ export default function FeedbackCard({title, text, link, achievs, width, height}
       ))}
         <Button
           title={'OK'}
-          onClick={() => navigate(link)}
+          onClick={onClick}
           maxWidth={'12rem'}
           maxHeight={'5rem'}
         />

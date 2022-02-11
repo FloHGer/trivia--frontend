@@ -6,7 +6,6 @@ import he from 'he'
 import {useAuth} from '../../context/loginContext';
 import {useAnswers, useCategories, useQuestions, useShowQuestion} from '../../context/gameContext';
 import FeedbackCard from '../common/FeedbackCard';
-import Button from '../common/Button';
 import Square from '../common/Square';
 import Spinner from '../common/Spinner';
 import Progress from '../common/Progress';
@@ -154,9 +153,9 @@ export default function Game() {
             title={'Congratulations!'}
             text={`You got ${score} points!`}
             achievs={finalScreen}
-            link={'/'}
             width={'40%'}
             heigh={'40%'}
+            onClick={quit}
           />
         }
 				{isLoading && <Spinner />}

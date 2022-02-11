@@ -51,6 +51,27 @@
     font-size: 4rem;
     color: $color__primary;
 }
+.trophy{
+    transform: rotate(-45deg);
+    font-size: 4rem;
+    color: $color__primary--dark;
+
+    &__bronze{
+        transform: rotate(-45deg);
+        font-size: 4rem;
+        color: $color__bronze;
+    }
+    &__silver{
+        transform: rotate(-45deg);
+        font-size: 4rem;
+        color: $color__silver;
+    }
+    &__gold{
+        transform: rotate(-45deg);
+        font-size: 4rem;
+        color: $color__gold;
+    }
+}
 
 .logSquare{
     position: fixed;
