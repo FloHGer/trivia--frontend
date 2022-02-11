@@ -12,7 +12,9 @@ export default function RankCard({className, type}) {
     (async() => {
       try{
         const response = await axios.get(`${process.env.REACT_APP_BACKEND}/ranks/${type}`);
-        if(response) setRanking(response.data.payload);
+        if(response) {
+          setRanking(response.data.payload.slice(0, 5));
+        }
       }catch(err){console.log(err)}
     })();
   }, [type]);

@@ -8,7 +8,7 @@ export default function FadeOut({onClick, children}) {
 	return (
 		<div
 			className={classes.fadeOut}
-			onClick={onClick ? navigate('/') : null}
+			onClick={onClick ? () => navigate('/') : null}
 		>
 			{children}
 		</div>
