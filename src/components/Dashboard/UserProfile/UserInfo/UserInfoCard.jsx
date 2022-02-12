@@ -35,7 +35,7 @@ export default function UserInfoCard() {
                `${process.env.REACT_APP_BACKEND}/user/${currentUser}`
                )
                ).data;
-               console.log(response.payload);
+               console.log(currentUser, response.payload);
                if (response.message === "success") {
                   setData(response.payload);
                   setUsername(response.payload.username);
@@ -44,7 +44,7 @@ export default function UserInfoCard() {
                      ? response.payload.email
                      : "enter your email"
                      );
-                     setImage(response.payload.img);
+                  setImage(response.payload.img);
                }
             })();
    }, [currentUser, nat, imageModal]);

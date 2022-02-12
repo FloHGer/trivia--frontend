@@ -12,6 +12,7 @@ export default function Button(props) {
          style={{
             maxHeight: props.maxHeight || "",
             maxWidth: props.maxWidth || "",
+            margin: props.margin || '',
             fontSize: props.fontSize || "",
             color: props.color || "",
             background: props.background || "",

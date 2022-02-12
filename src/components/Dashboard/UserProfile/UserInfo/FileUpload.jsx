@@ -50,63 +50,90 @@ const FileUpload = ({ setImageModal, setImage }) => {
       }
    };
 
+   const deleteImage = async (key) => {
+      try {
+         const deleteImg = await axios.get(
+             `${process.env.REACT_APP_BACKEND}/user/${currentUser}/upload`
+         );
+         console.log(deleteImg)
+         if (deleteImg.data.message !== "Profile image deleted")
+             console.log(deleteImg.data.message);
+         setImage(`${process.env.REACT_APP_BACKEND}/default.png`);
+         setImageModal(false);
+         console.log(`${process.env.REACT_APP_BACKEND}/default.png`);
+      } catch (err) {
+          console.log(err);
+      }
+   }
 
    return (
-      <>
-         {/* <FadeOut ></FadeOut> */}
-         <Card className={classes["profile__user--pic__modal"]}>
-            <h2>Wanna change the picture?</h2>
-            {/* CONTENT */}
+       <>
+           {/* <FadeOut ></FadeOut> */}
+           <Card className={classes["profile__user--pic__modal"]}>
+               <h2>Wanna change the picture?</h2>
+               {/* CONTENT */}
 
-            <label
-               htmlFor="file"
-               className={classes["profile__user--pic__modal--customButton"]}
-            >
-               <input
-                  type="file"
-                  name="file"
-                  id="file"
-                  onChange={changeHandler}
-               />
-               select your file
-            </label>
-            {preview && (
-               <div>
-                  <img
-                     src={preview.preview}
-                     alt="profile-pic"
-                     className={classes["profile__user--pic__img"]}
-                  />
+               <label
+                   htmlFor="file"
+                   className={
+                       classes["profile__user--pic__modal--customButton"]
+                   }
+               >
+                   <input
+                       type="file"
+                       name="file"
+                       id="file"
+                       onChange={changeHandler}
+                   />
+                   select your file
+               </label>
+               {preview && (
+                   <div>
+                       <img
+                           src={preview.preview}
+                           alt="profile-pic"
+                           className={classes["profile__user--pic__img"]}
+                       />
+                   </div>
+               )}
+
+               {/* SUBMIT / CANCEL BUTTONS */}
+               <div
+                   className={
+                       classes["profile__user--pic__modal__button--container"]
+                   }
+               >
+                   <Button
+                       className={styles.btn__blue}
+                       maxWidth="15rem"
+                       maxHeight="6rem"
+                       fontSize="2rem"
+                       borderRadius="1.5rem"
+                       title="Submit"
+                       onClick={handleSubmission}
+                   ></Button>
+                   <Button
+                       className={styles.btn__blue}
+                       maxWidth="15rem"
+                       maxHeight="6rem"
+                       fontSize="2rem"
+                       borderRadius="1.5rem"
+                       title="cancel"
+                       onClick={() => setImageModal(false)}
+                   ></Button>
                </div>
-            )}
-
-            {/* SUBMIT / CANCEL BUTTONS */}
-            <div
-               className={
-                  classes["profile__user--pic__modal__button--container"]
-               }
-            >
                <Button
-                  className={styles.btn__blue}
-                  maxWidth="15rem"
-                  maxHeight="6rem"
-                  fontSize="2rem"
-                  borderRadius="1.5rem"
-                  title="Submit"
-                  onClick={handleSubmission}
+                   className={styles.btn__red}
+                   maxWidth="60%"
+                   maxHeight="6rem"
+                   margin="1.5rem auto"
+                   fontSize="2rem"
+                   borderRadius="1.5rem"
+                   title="delete Image"
+                   onClick={deleteImage}
                ></Button>
-               <Button
-                  className={styles.btn__blue}
-                  maxWidth="15rem"
-                  maxHeight="6rem"
-                  fontSize="2rem"
-                  borderRadius="1.5rem"
-                  title="cancel"
-                  onClick={() => setImageModal(false)}
-               ></Button>
-            </div>
-         </Card>
-      </>
+           </Card>
+       </>
    );
 };
 
