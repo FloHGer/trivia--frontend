@@ -7,29 +7,20 @@ import classes from "./AchievCard.module.scss";
 function AchievCard({ data, title, text, values }) {
     return (
         <div className={data.unlocked.length ? classes.card__unlocked : classes.card}>
-            {/* <div
-                className={classes.card__unlocked}
-                style={{
-                    width: `${
-                        100 -
-                        (data.next * 100) /
-                            (values[data.unlocked.length] -
-                                values[data.unlocked.length - 1])
-                    }%`,
-                }}
-            ></div> */}
-            <Square
-                title={`trophy__${data.unlocked.length}`}
-                size={'10rem'}
-            />
-            <div className={classes.card__data}>
-                <div className={classes.card__date}>
+            <div className={classes.left}>
+                <Square
+                    title={'trophy'}
+                    level={data.unlocked.length / values.length}
+                    size={'10rem'}
+                />
+                <div className={classes.left__date}>
                     {(data.unlocked.length && (
                         <p>{data.unlocked[data.unlocked.length - 1]}</p>
                     )) ||
                         ""}
                 </div>
-
+            </div>
+            <div className={classes.card__data}>
                 <div className={classes.card__text}>
                     <h2 className={classes["card__data--title"]}>{title}</h2>
                     <h3 className={classes["card__data--condition"]}>

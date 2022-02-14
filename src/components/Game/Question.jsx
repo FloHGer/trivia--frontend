@@ -27,7 +27,7 @@ export default function Question() {
 
 		setTimeout(() => {
 			setShowQuestion(null);
-		}, 3000);
+		}, 3);
 	}
 
 	useEffect(() => {

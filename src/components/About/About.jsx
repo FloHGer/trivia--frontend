@@ -2,7 +2,7 @@ import AuthorCard from "./AuthorCard";
 
 import natalia from '../../img/natalia.png';
 import flo from '../../img/flo.png';
-import tobi from '../../img/tobi_sw.jpg';
+import tobi from '../../img/tobi.png';
 
 import classes from "./About.module.scss";
 
