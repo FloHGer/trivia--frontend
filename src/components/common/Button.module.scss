@@ -13,7 +13,7 @@
     text-transform: uppercase;
     font-weight: 700;
     background: $color__secondary--light;
-    box-shadow: -.5rem .5rem .2rem rgba($color__primary--dark, 0.9);
+    box-shadow: .3rem .3rem .5rem rgba($color__primary--dark, 0.9);
     transition: transform .2s, background 1s;
     
     &:hover {

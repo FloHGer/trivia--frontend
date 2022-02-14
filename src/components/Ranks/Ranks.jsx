@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 
 import RankCard from './RankCard.jsx';
 
@@ -15,11 +13,9 @@ export default function Ranks() {
       <h1 className={'heading heading__1'}>{'RANKINGS'}</h1>
       <section className={classes.listContainer}>
         <RankCard 
-          className={classes.scoreCard}
           type={'highscore'}
         />
         <RankCard 
-          className={classes.scoreCard}
           type={'totalscore'}
         />
       </section>

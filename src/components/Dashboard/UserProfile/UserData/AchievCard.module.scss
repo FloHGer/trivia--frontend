@@ -7,8 +7,8 @@
     width: 90%;
     margin: 1rem auto;
     padding: 2rem;
-    background-color: rgba($color__primary--dark, 0.5);
-    box-shadow:  inset -5px -5px 1rem #163e61;
+    background-color: rgba($color__primary--dark, .5);
+    box-shadow: .1rem .1rem .1rem $color__primary--dark;
     border-radius: 1rem;
     display: flex;
     justify-content: space-between;
@@ -20,21 +20,13 @@
         width: 90%;
         margin: 1rem auto;
         padding: 2rem;
-        background-color: rgba($color__primary--light, 0.5);
-        box-shadow: inset .5rem .5rem 2rem #163e61;
+        background-color: rgba($color__primary, .5);
+        box-shadow: 5px 5px 2rem $color__primary--dark;
+        
         border-radius: 1rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
-
-    &__container {
-        width: 20%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
     }
 
     &__text {
@@ -89,10 +81,15 @@
     }
 }
 
-.icon {
-    z-index: 100;
-    font-size: 5rem;
-    color: #fff;
-    position: absolute;
-    top: 1.7rem;
+.left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__date{
+        margin-left: 2rem;
+        color: $color__primary--dark;
+        font-weight: 900;
+    }
 }

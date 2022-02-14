@@ -12,14 +12,14 @@ import styles from '../../common/Button.module.scss'
 import classes from './SettingsContainer.module.scss';
 
 
-export default function CardGameDashboard() {
+export default function SettingsContainer() {
 	const navigate = useNavigate();
 	const [currentUser] = useAuth();
 	const [allCategories] = useAllCategories();
 	const [selectedCategories, setSelectedCategories] = useCategories();
 	
-	const [gameMode, setGameMode] = useState(false);
-	const [settings, setSettings] = useState();
+	const [settings, setSettings] = useState('');
+	const [gameMode, setGameMode] = useState(settings.gamemode || 'quick');
 
 	// const categorySelection = () => {
 	// 	const quickCategories = [...selectedCategories];
@@ -35,7 +35,7 @@ export default function CardGameDashboard() {
 		(async () => {
 			try{
 				const settingsResponse = (await axios.get(`${process.env.REACT_APP_BACKEND}/user/${currentUser}`))
-				setSettings(settingsResponse);
+				setSettings(settingsResponse.data.payload.options);
 			}catch(err){console.log(err)}
 		})();
 	}, [currentUser]);
@@ -44,29 +44,12 @@ export default function CardGameDashboard() {
 	return (
 		<section className={classes.dashboard}>
 			<div className={classes.dashboard__game}>
-					{/* <DashboardItem 
-					title = {'Game Timer'}
-					type = {'radio'}
-					values = {[
-						{name: 'off'},
-						{name: '10min'},
-						{name: '20min'},
-						{name: '30min'},
-					]}
-				/>
-				<DashboardItem 
-					title = {'Question Timer'}
-					type = {'radio'}
-					values = {[
-						{name: 'on'},
-						{name: 'off'}
-					]}
-				/> */}
+
 				<DashboardItem
 					title={{name: 'Game Mode', shortName: 'gameMode'}}
 					values={[
-						{name: 'quick', tooltip: 'get random categories', change: setGameMode},
-						{name: 'custom', tooltip: 'choose your own categories', change: setGameMode},
+						{name: 'quick', tooltip: 'get random categories', change: () => setGameMode('quick')},
+						{name: 'custom', tooltip: 'choose your own categories', change: () => setGameMode('custom')},
 						// {name: 'fun', change: setGameMode},
 					]}
 					type ={'radio'}

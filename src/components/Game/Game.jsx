@@ -22,8 +22,7 @@ export default function Game() {
   const [allAnswers, setAllAnswers] = useAnswers();
   const [showQuestion, setShowQuestion] = useShowQuestion();
 
-  const [isLoading, setIsLoading] = useState(true);
-  const [correctCats, setCorrectCats] = useState([]);
+  const [isLoading, setIsLoading] = useState(31);
   const [score, setScore] = useState(0);
   const [finalScreen, setFinalScreen] = useState(false);
 
@@ -47,6 +46,7 @@ export default function Game() {
   // fetch questions
   useEffect(() => { 
     let cats = [];
+    let loadingCounter = isLoading;
     (async () => {
       for (let i = 0; i < selectedCategories.length; i++) {
         const easy = (
@@ -54,26 +54,33 @@ export default function Game() {
             `https://opentdb.com/api.php?amount=2&category=${selectedCategories[i].id}&difficulty=easy`
           )
         ).data.results;
+        loadingCounter -= 2;
+        setIsLoading(loadingCounter);
         const medium = (
           await axios(
             `https://opentdb.com/api.php?amount=2&category=${selectedCategories[i].id}&difficulty=medium`
           )
         ).data.results;
+        loadingCounter -= 2;
+        setIsLoading(loadingCounter);
         const hard = (
           await axios(
             `https://opentdb.com/api.php?amount=1&category=${selectedCategories[i].id}&difficulty=hard`
           )
         ).data.results;
+        loadingCounter -= 1;
+        setIsLoading(loadingCounter);
 
         cats[i] = [...easy, ...medium, ...hard];
         cats[i].forEach(decoding => {
-          decoding.question = he.decode(decoding.question)
+          decoding.question = he.decode(decoding.question);
           decoding.correct_answer = he.decode(decoding.correct_answer);
           decoding.incorrect_answers.forEach(answer => answer = he.decode(answer));
-        })
+        });
       }
       setQuestions(cats);
-      setIsLoading(false);
+      loadingCounter -= 1;
+      setIsLoading(loadingCounter);
     })();
   }, [selectedCategories, setQuestions]);
 
@@ -101,9 +108,9 @@ export default function Game() {
       || (category.length && !category[category.length - 1])) counter++;
     })
     // guest user
-    if(!currentUser && counter === 6) setTimeout(() => {
-      return setFinalScreen(true);
-    }, 3000);
+    if(!currentUser && counter === 6) return setTimeout(() => {
+      return setFinalScreen([]);
+    }, 1000);
     // known user
     if(currentUser && counter === 6){
       const results = allAnswers.map((category, i) => {
@@ -119,9 +126,9 @@ export default function Game() {
             categories: results,
           }
         );
-        if(res.data.message === 'game posted') {
+        if(res.data.message === 'game posted') return setTimeout(() => {          
           return setFinalScreen(res.data.payload.achievs);
-        }
+        }, 1000);
         return 'error'; // design error popup
       })()
     }
@@ -158,7 +165,7 @@ export default function Game() {
             onClick={quit}
           />
         }
-				{isLoading && <Spinner />}
+				{isLoading && <Spinner isLoading={isLoading - 1} />}
         {showQuestion && <Question />}
 {/* game table generation */}
         {!isLoading &&
@@ -172,15 +179,17 @@ export default function Game() {
               >
                 <div className={classes.game__category__title}>
                   {/* shorten long category titles */}
-                  <h2>
-                    {category[0].category.startsWith('Entertainment: Japanese')
-                    ? category[0].category.slice(24)
-                    : category[0].category.startsWith('Entertainment:')
-                      || category[0].category.startsWith('Science:')
-                        ? category[0].category.slice(category[0].category.indexOf(' ') + 1)
-                        : category[0].category
-                    }
-                  </h2>
+                  <div className={classes.titleHeading}>
+                    <h2>
+                      {category[0].category.startsWith('Entertainment: Japanese')
+                      ? category[0].category.slice(24)
+                      : category[0].category.startsWith('Entertainment:')
+                        || category[0].category.startsWith('Science:')
+                          ? category[0].category.slice(category[0].category.indexOf(' ') + 1)
+                          : category[0].category
+                      }
+                    </h2>
+                  </div>
                   {(allAnswers[i][4] && <h3 className={classes.bonus}>+bonus</h3>) || <Progress value={allAnswers[i].length} max={5} />}
                   {/* {(correctCats[i] && <h3>{correctCats[i]}</h3>) || <progress value={allAnswers[i].length} max={5} />} */}
                 </div>

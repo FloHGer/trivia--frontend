@@ -175,9 +175,7 @@ export default function UserInfoCard() {
             <FaTrashAlt
                className={classes["profile__user--trashIcon"]}
                style={{
-                  color: edit ? "red" : "grey",
-                  cursor: edit ? "pointer" : "default",
-                  pointerEvents: edit ? "auto" : "none",
+                  visibility: edit ? "visible" : "hidden",
                }}
                title={"Delete profile"}
                onClick={() => setOpenDeleteModal(true)}

@@ -13,18 +13,5 @@
     margin: auto;
     display: flex;
     justify-content: space-evenly;
-
-    .scoreCard{
-      background: $color__primary;
-      border-radius: 1rem;
-      margin: 0 1%;
-      padding: 1%;
-      width: 30%;
-
-      h2{
-        color: $color__primary--dark;
-        padding: 1rem;
-      }
-    }
   }
 }

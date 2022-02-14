@@ -8,7 +8,7 @@ import { useAuth } from "../../context/loginContext";
 import classes from './Square.module.scss';
 
 
-export default function Square({title, target, size, onClick, color, disabled}) {
+export default function Square({title, target, size, onClick, color, disabled, level}) {
 	const [currentUser, setCurrentUser] = useAuth();
 	const navigate = useNavigate();
 
@@ -24,7 +24,6 @@ export default function Square({title, target, size, onClick, color, disabled}) 
 		condition
 			? <Link to={to}>{children}</Link>
 			: <>{children}</>
-
 
 
 	return (
@@ -50,13 +49,13 @@ export default function Square({title, target, size, onClick, color, disabled}) 
 							? currentUser
 								? <FaSignOutAlt className={classes.logout__icon} />
 								: <FaSignInAlt className={classes.login__icon} />
-							: title === 'trophy__0'
+							: title === 'trophy' && !level
 								? <FaTrophy className={classes.trophy} />
-								: title === 'trophy__1'
+								: title === 'trophy' && level < 0.5
 									? <FaTrophy className={classes.trophy__bronze} />
-									: title === 'trophy__2'
+									: title === 'trophy' && level < 1
 										? <FaTrophy className={classes.trophy__silver} />
-										: title === 'trophy__3'
+										: title === 'trophy' && level === 1
 											? <FaTrophy className={classes.trophy__gold} />
 											: <h3 className='heading heading__3'>{title}</h3>
 						}
