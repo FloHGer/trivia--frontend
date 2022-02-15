@@ -80,20 +80,20 @@ export default function UserInfoCard() {
 
    return (
        <section className={classes.profile__user}>
-           {response && (
+           {response && 
                <FeedbackCard
                    title={"SUCCESS"}
                    text={response}
                    onClick={() => setResponse(null)}
                />
-           )}
+           }
            {/* PIC */}
            <div className={classes["profile__user--piccontainer"]}>
                <img
                    key={Date.now()}
                    src={image || ""}
                    alt={currentUser}
-                  //  referrerpolicy="no-referrer"
+                   referrerPolicy="no-referrer"
                    className={classes["profile__user--pic"]}
                    style={{
                        cursor: edit ? "pointer" : "default",
