@@ -93,7 +93,7 @@ export default function UserInfoCard() {
                    key={Date.now()}
                    src={image || ""}
                    alt={currentUser}
-                   referrerpolicy="no-referrer"
+                  //  referrerpolicy="no-referrer"
                    className={classes["profile__user--pic"]}
                    style={{
                        cursor: edit ? "pointer" : "default",

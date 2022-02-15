@@ -75,7 +75,7 @@ export default function Game() {
         cats[i].forEach(decoding => {
           decoding.question = he.decode(decoding.question);
           decoding.correct_answer = he.decode(decoding.correct_answer);
-          decoding.incorrect_answers.forEach(answer => answer = he.decode(answer));
+          decoding.incorrect_answers = decoding.incorrect_answers.map(answer => answer = he.decode(answer));
         });
       }
       setQuestions(cats);
@@ -93,10 +93,11 @@ export default function Game() {
         if(question) calcScore += (i + 1) * 100;
         if(question && i === 4 && correctCats.length < 6)
           correctCats.push(1 + correctCats.length);
-        if(correctCats.length === 6) correctCats[5] += 11;
+        // if(correctCats.length === 6) correctCats[5] += 11;
       });
     });
     calcScore += correctCats.reduce((sum, cat) => sum + cat * 100, 0);
+    if(correctCats.length === 6) calcScore += 11
     setScore(calcScore);
   }, [allAnswers]);
 
@@ -132,7 +133,7 @@ export default function Game() {
         return 'error'; // design error popup
       })()
     }
-  }, [score, currentUser, allAnswers, selectedCategories]);
+  }, [score, currentUser, selectedCategories]);
 
 
   return (
