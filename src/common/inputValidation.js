@@ -3,7 +3,6 @@ import axios from "axios";
 
 export const validation = async(target, currentUser, setCurrentUser, setResponse) => {
   try{
-    console.log('input 1');
     if(target.name === 'username'
     && (target.value.length < 2
     || target.value.includes(' '))) return;
@@ -19,7 +18,6 @@ export const validation = async(target, currentUser, setCurrentUser, setResponse
       }
     });
     if (response.data.message !== "user updated") return;
-    console.log('inputVal');
     setResponse(`${target.name} updated!`)
     if(target.name === 'username') setCurrentUser(target.value)
   }catch(err){console.log(err)}

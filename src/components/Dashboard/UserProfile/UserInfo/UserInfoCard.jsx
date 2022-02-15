@@ -35,7 +35,6 @@ export default function UserInfoCard() {
                `${process.env.REACT_APP_BACKEND}/user/${currentUser}`
                )
                ).data;
-               console.log(currentUser, response.payload);
                if (response.message === "success") {
                   setData(response.payload);
                   setUsername(response.payload.username);
@@ -166,7 +165,7 @@ export default function UserInfoCard() {
                        type="text"
                        name="email"
                        value={email || ""}
-                       readOnly={edit ? false : true}
+                       readOnly={edit ? true : true}
                        onChange={(e) => inputChangeHandler(e.target)}
                        onBlur={(e) =>
                            edit
