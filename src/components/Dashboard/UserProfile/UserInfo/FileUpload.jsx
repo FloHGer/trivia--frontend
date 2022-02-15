@@ -106,18 +106,18 @@ const FileUpload = ({ setImageModal, setImage }) => {
                    <Button
                        className={styles.btn__blue}
                        maxWidth="15rem"
-                       maxHeight="6rem"
+                       maxHeight="5rem"
                        fontSize="2rem"
-                       borderRadius="1.5rem"
+                       borderRadius="1rem"
                        title="Submit"
                        onClick={handleSubmission}
                    ></Button>
                    <Button
                        className={styles.btn__blue}
                        maxWidth="15rem"
-                       maxHeight="6rem"
+                       maxHeight="5rem"
                        fontSize="2rem"
-                       borderRadius="1.5rem"
+                       borderRadius="1rem"
                        title="cancel"
                        onClick={() => setImageModal(false)}
                    ></Button>
@@ -125,10 +125,10 @@ const FileUpload = ({ setImageModal, setImage }) => {
                <Button
                    className={styles.btn__red}
                    maxWidth="60%"
-                   maxHeight="6rem"
+                   maxHeight="5rem"
                    margin="1.5rem auto"
                    fontSize="2rem"
-                   borderRadius="1.5rem"
+                   borderRadius="1rem"
                    title="delete Image"
                    onClick={deleteImage}
                ></Button>

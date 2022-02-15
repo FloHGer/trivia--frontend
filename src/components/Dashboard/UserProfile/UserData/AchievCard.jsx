@@ -36,7 +36,8 @@ function AchievCard({ data, title, text, values }) {
                             <div
                                 className={classes.card__progression}
                                 style={{
-                                    width: `${
+                                    width: values.length === 6 ? 0
+                                    : `${
                                         ((values[data.unlocked.length] -
                                             data.next) *
                                             100) /

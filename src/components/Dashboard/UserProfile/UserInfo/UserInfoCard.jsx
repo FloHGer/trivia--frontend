@@ -1,24 +1,24 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 import FileUpload from "./FileUpload";
 import { validation } from "../../../../common/inputValidation.js";
 import { flags } from "../../../../common/flags.js";
 import { useAuth } from "../../../../context/loginContext.js";
+import FeedbackCard from '../../../common/FeedbackCard';
+import DeleteUser from "./DeleteUser";
 
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import classes from "./UserInfoCard.module.scss";
-import DeleteUser from "./DeleteUser";
 
 export default function UserInfoCard() {
    const [currentUser, setCurrentUser] = useAuth();
+   const [response, setResponse] = useState(null);
    const [data, setData] = useState();
    const [nat, setNat] = useState();
    const [username, setUsername] = useState();
    const [email, setEmail] = useState();
    const [edit, setEdit] = useState(false);
-   const selectRef = useRef();
-   const uploadRef = useRef();
    const [image, setImage] = useState();
    const [flagsModal, setFlagsModal] = useState(false);
    const [imageModal, setImageModal] = useState(false);
@@ -80,10 +80,13 @@ export default function UserInfoCard() {
 
    return (
       <section className={classes.profile__user}>
+         {response &&
+            <FeedbackCard title={'SUCCESS'} text={response} onClick={() => setResponse(null)}/>
+         }
          {/* PIC */}
          <div className={classes["profile__user--piccontainer"]}>
-            <div>
                <img
+                  key={Date.now()}
                   src={image || ""}
                   alt={currentUser}
                   className={classes["profile__user--pic"]}
@@ -93,7 +96,6 @@ export default function UserInfoCard() {
                   }}
                   onClick={(e) => openImageUpload(e)}
                   />
-            </div>
             {imageModal && (
                <FileUpload
                setImage={setImage}
@@ -144,7 +146,7 @@ export default function UserInfoCard() {
                   onChange={(e) => inputChangeHandler(e.target)}
                   onBlur={(e) =>
                      edit
-                        ? validation(e.target, currentUser, setCurrentUser)
+                        ? validation(e.target, currentUser, setCurrentUser, setResponse)
                         : null
                   }
                />
@@ -158,7 +160,7 @@ export default function UserInfoCard() {
                   onChange={(e) => inputChangeHandler(e.target)}
                   onBlur={(e) =>
                      edit
-                        ? validation(e.target, currentUser, setCurrentUser)
+                        ? validation(e.target, currentUser, setCurrentUser, setResponse)
                         : null
                   }
                />

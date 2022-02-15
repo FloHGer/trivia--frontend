@@ -13,27 +13,22 @@
    &--namecontainer {
       display: flex;
       flex-direction: column;
-      align-items: center;
       padding: 1rem;
+      position: relative;
    }
 
    &--pic {
       width: 16rem;
       height: 16rem;
       border-radius: 50%;
-      position: relative;
-      // background-color: #fff;
-      // background-position: center;
-      // background-size: cover;
-      // background-repeat: no-repeat;
       box-shadow: 0.2rem 0.2rem 0.2rem $color__primary--dark;
       
       
       &__modal {
          position: absolute;
-         top: 30.5%;
-         left: 6.5%;
-         width: 32%;
+         top: 102%;
+         left: -3%;
+         width: 300%;
          padding: 3rem;
          background: rgba($color__primary--dark, 0.6);
          backdrop-filter: blur( 2.5px );
@@ -61,13 +56,12 @@
             cursor: pointer;
             border: 0;
             width: 60%;
-            // height: 40%;
-            padding: 2rem;
+            padding: 1rem;
             margin: 2rem auto;
-            border-radius: 2rem;
+            border-radius: 1rem;
             text-align: center;
             color: $color__secondary--dark;
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-family: $font;
             text-transform: uppercase;
             font-weight: 700;
@@ -93,23 +87,21 @@
          width: 16rem;
          height: 16rem;
          border-radius: 50%;
-         margin: 0 auto;
-         margin-top: 1.5rem;
+         margin: 1.5rem auto 0;
          box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.507);
       }
 
       &__flag {
          position: absolute;
-         top: 26%;
-         left:6%;
-         width: 4%;
-         height: 4%;
+         top: 70%;
+         left: -3%;
+         width: 33%;
+         height: 33%;
          z-index: 15;
 
          .flagSelection {
-            position: relative;
-            bottom: -110%;
-            left: 10%;
+            position: absolute;
+            top: 100%;
             width: 800%;
             height: 800%;
             padding: 1rem;
