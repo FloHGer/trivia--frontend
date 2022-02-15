@@ -27,7 +27,7 @@ const FileUpload = ({ setImageModal, setImage }) => {
       e.preventDefault();
 
       const formData = new FormData();
-      formData.append("userImg", file, file.lastModified );
+      formData.append("userImg", file);
       console.log(formData);
       try {
          const response = await axios.post(
