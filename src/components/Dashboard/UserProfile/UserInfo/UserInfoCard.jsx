@@ -79,115 +79,128 @@ export default function UserInfoCard() {
    };
 
    return (
-      <section className={classes.profile__user}>
-         {response &&
-            <FeedbackCard title={'SUCCESS'} text={response} onClick={() => setResponse(null)}/>
-         }
-         {/* PIC */}
-         <div className={classes["profile__user--piccontainer"]}>
+       <section className={classes.profile__user}>
+           {response && (
+               <FeedbackCard
+                   title={"SUCCESS"}
+                   text={response}
+                   onClick={() => setResponse(null)}
+               />
+           )}
+           {/* PIC */}
+           <div className={classes["profile__user--piccontainer"]}>
                <img
-                  key={Date.now()}
-                  src={image || ""}
-                  alt={currentUser}
-                  className={classes["profile__user--pic"]}
-                  style={{
-                     cursor: edit ? "pointer" : "default",
-                     pointerEvents: edit ? "auto" : "none",
-                  }}
-                  onClick={(e) => openImageUpload(e)}
-                  />
-            {imageModal && (
-               <FileUpload
-               setImage={setImage}
-               setImageModal={setImageModal}
+                   key={Date.now()}
+                   src={image || ""}
+                   alt={currentUser}
+                   referrerpolicy="no-referrer"
+                   className={classes["profile__user--pic"]}
+                   style={{
+                       cursor: edit ? "pointer" : "default",
+                       pointerEvents: edit ? "auto" : "none",
+                   }}
+                   onClick={(e) => openImageUpload(e)}
                />
-            )}
-
-            {/* FLAGS */}
-            <div
-               className={classes["profile__user--pic__flag"]}
-               style={{
-                  cursor: edit ? "pointer" : "default",
-                  pointerEvents: edit ? "auto" : "none",
-                  background: `url('https://flagcdn.com/64x48/${
-                     (data && data.nat) || "un"
-                  }.png') center / contain no-repeat`,
-               }}
-               onClick={(e) => openFlagsHandler(e)}
-            >
-               {flagsModal && (
-                  <div className={classes.flagSelection}>
-                     {Object.keys(flags).map((flag, i) => (
-                        <label key={flag}>
-                           <input
-                              type="radio"
-                              name="nation"
-                              value={flag}
-                              onChange={() => flagChangeHandler(flag)}
-                              title={flags[flag].name}
-                              style={{
-                                 background: `url(${flags[flag].url.small}) center / contain no-repeat`,
-                              }}
-                           />
-                        </label>
-                     ))}
-                  </div>
+               {imageModal && (
+                   <FileUpload
+                       setImage={setImage}
+                       setImageModal={setImageModal}
+                   />
                )}
-            </div>
-         </div>
-         {/* INPUTS */}
-         <div className={classes["profile__user--namecontainer"]}>
-            <div className={classes["profile__user--name"]}>
-               <input
-                  type="text"
-                  name="username"
-                  value={username || ""}
-                  readOnly={edit ? false : true}
-                  onChange={(e) => inputChangeHandler(e.target)}
-                  onBlur={(e) =>
-                     edit
-                        ? validation(e.target, currentUser, setCurrentUser, setResponse)
-                        : null
-                  }
-               />
-            </div>
-            <div className={classes["profile__user--email"]}>
-               <input
-                  type="text"
-                  name="email"
-                  value={email || ""}
-                  readOnly={edit ? false : true}
-                  onChange={(e) => inputChangeHandler(e.target)}
-                  onBlur={(e) =>
-                     edit
-                        ? validation(e.target, currentUser, setCurrentUser, setResponse)
-                        : null
-                  }
-               />
-            </div>
-         </div>
-         <div className={classes["profile__user--iconcontainer"]}>
-            <FaEdit
-               className={classes["profile__user--editIcon"]}
-               style={{ color: edit ? "lime" : "red" }}
-               title={"Edit profile"}
-               onClick={() => setEdit(!edit)}
-            />
 
-            <FaTrashAlt
-               className={classes["profile__user--trashIcon"]}
-               style={{
-                  visibility: edit ? "visible" : "hidden",
-               }}
-               title={"Delete profile"}
-               onClick={() => setOpenDeleteModal(true)}
-            />
-         </div>
-         {openDeleteModal && (
-            <DeleteUser
-               setOpenDeleteModal={setOpenDeleteModal}
-            />
-         )}
-      </section>
+               {/* FLAGS */}
+               <div
+                   className={classes["profile__user--pic__flag"]}
+                   style={{
+                       cursor: edit ? "pointer" : "default",
+                       pointerEvents: edit ? "auto" : "none",
+                       background: `url('https://flagcdn.com/64x48/${
+                           (data && data.nat) || "un"
+                       }.png') center / contain no-repeat`,
+                   }}
+                   onClick={(e) => openFlagsHandler(e)}
+               >
+                   {flagsModal && (
+                       <div className={classes.flagSelection}>
+                           {Object.keys(flags).map((flag, i) => (
+                               <label key={flag}>
+                                   <input
+                                       type="radio"
+                                       name="nation"
+                                       value={flag}
+                                       onChange={() => flagChangeHandler(flag)}
+                                       title={flags[flag].name}
+                                       style={{
+                                           background: `url(${flags[flag].url.small}) center / contain no-repeat`,
+                                       }}
+                                   />
+                               </label>
+                           ))}
+                       </div>
+                   )}
+               </div>
+           </div>
+           {/* INPUTS */}
+           <div className={classes["profile__user--namecontainer"]}>
+               <div className={classes["profile__user--name"]}>
+                   <input
+                       type="text"
+                       name="username"
+                       value={username || ""}
+                       readOnly={edit ? false : true}
+                       onChange={(e) => inputChangeHandler(e.target)}
+                       onBlur={(e) =>
+                           edit
+                               ? validation(
+                                     e.target,
+                                     currentUser,
+                                     setCurrentUser,
+                                     setResponse
+                                 )
+                               : null
+                       }
+                   />
+               </div>
+               <div className={classes["profile__user--email"]}>
+                   <input
+                       type="text"
+                       name="email"
+                       value={email || ""}
+                       readOnly={edit ? false : true}
+                       onChange={(e) => inputChangeHandler(e.target)}
+                       onBlur={(e) =>
+                           edit
+                               ? validation(
+                                     e.target,
+                                     currentUser,
+                                     setCurrentUser,
+                                     setResponse
+                                 )
+                               : null
+                       }
+                   />
+               </div>
+           </div>
+           <div className={classes["profile__user--iconcontainer"]}>
+               <FaEdit
+                   className={classes["profile__user--editIcon"]}
+                   style={{ color: edit ? "lime" : "red" }}
+                   title={"Edit profile"}
+                   onClick={() => setEdit(!edit)}
+               />
+
+               <FaTrashAlt
+                   className={classes["profile__user--trashIcon"]}
+                   style={{
+                       visibility: edit ? "visible" : "hidden",
+                   }}
+                   title={"Delete profile"}
+                   onClick={() => setOpenDeleteModal(true)}
+               />
+           </div>
+           {openDeleteModal && (
+               <DeleteUser setOpenDeleteModal={setOpenDeleteModal} />
+           )}
+       </section>
    );
 }
