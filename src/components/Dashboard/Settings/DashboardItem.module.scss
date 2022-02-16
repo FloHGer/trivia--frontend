@@ -11,6 +11,7 @@
         padding: 1rem;
         display: flex;
         flex-direction: column;
+        width: 30%;
     }
 
     &--category,
@@ -53,7 +54,7 @@
     }
 }
 
-.valueContainer{
+.elementsContainer{
     width: 75%;
     display: flex;
     justify-content: space-evenly;

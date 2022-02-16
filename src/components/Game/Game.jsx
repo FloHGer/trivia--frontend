@@ -25,11 +25,19 @@ export default function Game() {
   const [isLoading, setIsLoading] = useState(31);
   const [score, setScore] = useState(0);
   const [finalScreen, setFinalScreen] = useState(false);
+  const [bonus, setBonus] = useState([0, 0, 0, 0, 0, 0]);
 
   // quit game
   const quit = () => {
     setFinalScreen(false);
-    setSelectedCategories([]);
+    setSelectedCategories([
+      'choose',
+      'choose',
+      'choose',
+      'choose',
+      'choose',
+      'choose',
+    ]);
     setQuestions([
       [false, false, false, false, false],
       [false, false, false, false, false],
@@ -42,6 +50,63 @@ export default function Game() {
     setShowQuestion(null);
     navigate('/');
   }
+
+  
+
+  // post game data
+  const postGame = () => {
+    let counter = 0;
+    allAnswers.forEach(category => {
+      if(category.length === 5
+      || (category.length && !category[category.length - 1])) counter++;
+    })
+    // guest user
+    if(!currentUser && counter === 6) return setTimeout(() => {
+      return setFinalScreen([]);
+    }, 1000);
+    // known user
+    if(currentUser && counter === 6){
+      const results = allAnswers.map((category, i) => {
+        return {
+          name: selectedCategories[i].name,
+          answers: category,
+        }
+      });
+      (async() => {
+        const res = await axios.post(`${process.env.REACT_APP_BACKEND}/user/${currentUser}/games`,
+          {
+            score,
+            categories: results,
+          }
+        );
+        if(res.data.message === 'game posted') return setTimeout(() => {          
+          return setFinalScreen(res.data.payload.achievs);
+        }, 1000);
+        return 'error';
+      })()
+    }
+  }
+
+  // calc score
+  useEffect(() => {
+    let calcScore = 0;
+    allAnswers.forEach((category, i) => {
+      category.forEach((question, j) => {
+        if(question) calcScore += (j + 1) * 100;
+        if(question && j === 4){
+          if(bonus.filter(value => value > 0).length === 5 && bonus[i] === 0)
+            bonus[i] = 11 + ((1 + bonus.filter(value => value > 0).length) * 100);
+            setBonus(bonus);
+          if(bonus.filter(value => value > 0).length < 5 && bonus[i] === 0)
+            bonus[i] = (1 + bonus.filter(value => value > 0).length) * 100;
+            setBonus(bonus);
+        }
+      });
+    });
+    calcScore += bonus.reduce((sum, value) => sum + value, 0);
+    setScore(calcScore);
+    postGame();
+  }, [allAnswers]);
 
   // fetch questions
   useEffect(() => { 
@@ -84,57 +149,6 @@ export default function Game() {
     })();
   }, [selectedCategories, setQuestions]);
 
-  // calc score
-  useEffect(() => {
-    let calcScore = 0;
-    const correctCats = [];
-    allAnswers.forEach(category => {
-      category.forEach((question, i) => {
-        if(question) calcScore += (i + 1) * 100;
-        if(question && i === 4 && correctCats.length < 6)
-          correctCats.push(1 + correctCats.length);
-        // if(correctCats.length === 6) correctCats[5] += 11;
-      });
-    });
-    calcScore += correctCats.reduce((sum, cat) => sum + cat * 100, 0);
-    if(correctCats.length === 6) calcScore += 11
-    setScore(calcScore);
-  }, [allAnswers]);
-
-  // post game data
-  useEffect(() => {
-    let counter = 0;
-    allAnswers.forEach(category => {
-      if(category.length === 5
-      || (category.length && !category[category.length - 1])) counter++;
-    })
-    // guest user
-    if(!currentUser && counter === 6) return setTimeout(() => {
-      return setFinalScreen([]);
-    }, 1000);
-    // known user
-    if(currentUser && counter === 6){
-      const results = allAnswers.map((category, i) => {
-        return {
-          name: selectedCategories[i].name,
-          answers: category,
-        }
-      });
-      (async() => {
-        const res = await axios.post(`${process.env.REACT_APP_BACKEND}/user/${currentUser}/games`,
-          {
-            score,
-            categories: results,
-          }
-        );
-        if(res.data.message === 'game posted') return setTimeout(() => {          
-          return setFinalScreen(res.data.payload.achievs);
-        }, 1000);
-        return 'error'; // design error popup
-      })()
-    }
-  }, [score, currentUser, selectedCategories]);
-
 
   return (
     <>
@@ -162,7 +176,7 @@ export default function Game() {
             text={`You got ${score} points!`}
             achievs={finalScreen}
             width={'40%'}
-            heigh={'40%'}
+            height={'40%'}
             onClick={quit}
           />
         }
@@ -191,8 +205,8 @@ export default function Game() {
                       }
                     </h2>
                   </div>
-                  {(allAnswers[i][4] && <h3 className={classes.bonus}>+bonus</h3>) || <Progress value={allAnswers[i].length} max={5} />}
-                  {/* {(correctCats[i] && <h3>{correctCats[i]}</h3>) || <progress value={allAnswers[i].length} max={5} />} */}
+                  {/* {(allAnswers[i][4] && <h3 className={classes.bonus}>+bonus</h3>) || <Progress value={allAnswers[i].length} max={5} />} */}
+                  {(bonus[i] && <h3 className={classes.bonus}>{`+${bonus[i]}`}</h3>) || <Progress value={allAnswers[i].length} max={5} />}
                 </div>
                 <ul className={classes.game__category__questions}>
 {/* question loop */}

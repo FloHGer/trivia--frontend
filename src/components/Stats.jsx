@@ -13,7 +13,6 @@ export default function Stats() {
     (async() => {
       const res = await axios.get(`${process.env.REACT_APP_BACKEND}/stats`)
       if(res.data.message === 'success') setData(res.data.payload);
-      console.log(data)
     })()
   }, []);
   

@@ -25,7 +25,7 @@ export default function RankCard({type}) {
       <h2 className={'heading heading__2'}>{type.toUpperCase()}</h2>
       <div className={classes.list}>
         {ranking.map((rank, i) => (
-          <div className={classes.rank}>
+          <div key={i} className={classes.rank}>
             <h3>{i + 1}</h3>
             <img className={classes.image} src={rank.img} alt={rank.username} />
             <img className={classes.flag} src={flags[rank.nat].url.small} alt='flag' />

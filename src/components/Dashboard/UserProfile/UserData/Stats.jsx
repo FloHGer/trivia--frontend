@@ -15,7 +15,6 @@ function Stats() {
             const response = await axios.get(
                 `${process.env.REACT_APP_BACKEND}/user/${currentUser}/stats`
             );
-            console.log(response.data);
             if (response.data.message === "success")
                 setData(response.data.payload);
         })();
