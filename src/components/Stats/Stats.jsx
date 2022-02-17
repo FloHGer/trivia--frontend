@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import Card from "./common/Card";
+import Card from "../common/Card";
 
 import classes from './Stats.module.scss';
 

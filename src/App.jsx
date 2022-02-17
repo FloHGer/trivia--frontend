@@ -2,14 +2,14 @@ import {BrowserRouter as Router, Route, Routes, Navigate} from 'react-router-dom
 
 import {useAuth} from './context/loginContext';
 
-import Home from './components/Home';
+import Home from './components/Home/Home';
 import Dashboard from './components/Dashboard/Dashboard';
-import LogIn from './components/LogIn';
+import LogIn from './components/LogIn/LogIn';
 import Game from './components/Game/Game';
 import Ranks from './components/Ranks/Ranks';
-import Stats from './components/Stats';
+import Stats from './components/Stats/Stats';
 import Navigation from './components/common/Navigation';
-import Feedback from './components/Feedback';
+import Feedback from './components/Feedback/Feedback';
 import About from './components/About/About';
 
 import './app.scss';

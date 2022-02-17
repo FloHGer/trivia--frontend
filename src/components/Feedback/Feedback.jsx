@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import Button from './common/Button';
-import FeedbackCard from './common/FeedbackCard';
+import Button from '../common/Button';
+import FeedbackCard from '../common/FeedbackCard';
 
 import classes from "./Feedback.module.scss";
 
