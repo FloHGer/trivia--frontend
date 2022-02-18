@@ -61,17 +61,18 @@
         &--todo {
             background-color: rgba($color__primary--dark, 0.5);
             color: #fff;
+            border: 1px solid rgba($color__primary--dark, 0.5);
             border-radius: 1rem;
             font-size: 1.5rem;
             font-weight: 400;
             position: relative;
+            overflow: hidden;
         }
     }
 
     &__progression {
-        border: 1px solid rgba($color__primary--dark, 0.5);
+        border-right: 1px solid rgba($color__primary--dark, 0.5);
         background-color: rgba($color__primary--light, 0.5);
-        border-radius: 1rem;
         padding: 0.2rem;
         position: absolute;
         top: 0;
