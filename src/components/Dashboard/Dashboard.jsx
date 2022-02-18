@@ -1,5 +1,5 @@
 import Navigation from '../common/Navigation';
-import ProfileContainer from '../Dashboard/UserProfile/UserProfileContainer';
+import UserProfileContainer from '../Dashboard/UserProfile/UserProfileContainer';
 import SettingsContainer from '../Dashboard/Settings/SettingsContainer';
 
 import classes from './Dashboard.module.scss';
@@ -10,7 +10,7 @@ export default function Dashboard() {
 			<Navigation />
 			<main className={classes.main}>
 				<div className={classes.user}>
-					<ProfileContainer />
+					<UserProfileContainer />
 					<SettingsContainer />
 				</div>
 			</main>

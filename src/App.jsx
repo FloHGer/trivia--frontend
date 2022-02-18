@@ -44,7 +44,7 @@ export default function App() {
 
 				<Route path='/ranks' element={
 					<Navigation>
-						<Ranks />}
+						<Ranks />
 					</Navigation>
 				} />
 
