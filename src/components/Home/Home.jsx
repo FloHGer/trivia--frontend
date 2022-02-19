@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 // import Navigation from "../components/common/Navigation";
-import Button from "../components/common/Button";
-import Warning from '../components/common/Warning';
+import Button from "../common/Button";
+import Warning from '../common/Warning';
 
 import classes from "./Home.module.scss";
-import styles from "./common/Button.module.scss";
+import styles from "../common/Button.module.scss";
 
 export default function Home() {
     const [warning, setWarning] = useState(false);
