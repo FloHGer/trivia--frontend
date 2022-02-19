@@ -1,18 +1,7 @@
 @import "../../../../sass/config.scss";
 
 
-// .modal-overlay {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   z-index: 50;
-//   background: rgba(0, 0, 0, 0.4);
-// }
-
 .modal {
-  display: block;
   width: 600px;
   max-width: 100%;
   height: 400px;
@@ -22,22 +11,24 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 2rem;
-  
+  border-radius: 1.5rem;
   backdrop-filter: blur( 2.5px );
   -webkit-backdrop-filter: blur( 2.5px );
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
   background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 
   h2 {
       width: 70%;
       text-align: center;
       margin: 0 auto;
-      padding-top: 7rem;
+      // padding-top: 7rem;
       color: rgba($color__primary--light, 0.9);
       text-shadow: 0 0 10px rgba(3, 3, 3, 0.5), 0 0 15px rgba(3, 3, 3, 0.5);
-      font-size: 4rem;
+      font-size: 3.5rem;
       font-weight: bolder;
       
   }
@@ -45,7 +36,7 @@
   &__button--container {
       width: 80%;
       z-index: 101;
-      margin: 5rem auto;
+      margin: 0 auto;
       display: flex;
       justify-content: space-evenly;
   }
@@ -73,5 +64,20 @@
         padding: 1rem 3rem;
         background: $color__primary--light;
     }
+  }
+
+  &__finalScreen {
+
+    h2 {
+      padding: 2rem;
+      color: $color__secondary--light;
+      text-shadow: 0 0 10px rgba(221, 221, 221, 0.5), 0 0 15px rgba(24, 24, 24, 0.5);
+
+      & span {
+        font-size: 5rem;
+        color: $color__primary--light;
+      }
+    }
+    
   }
 }
