@@ -1,4 +1,4 @@
-import {useLocation} from 'react-router-dom';
+import {useLocation, Link } from 'react-router-dom';
 
 import { useAuth } from "../../context/loginContext";
 import NavItem from './NavItem';
@@ -64,35 +64,53 @@ export default function Navigation({children}) {
 			<header className={classes.dashHeader}>
 				<nav>
 					<ul className={classes.dashNavigation}>
-						<Square
-							title={'Stats'}
-							target={'/stats'}
-							size={'15rem'}
-						/>
+						<li>
+							<Link to={'/stats'}>
+								<Square
+									title={'Stats'}
+									target={'/stats'}
+									size={'15rem'}
+								/>
+							</Link>
+						</li>
 
-						<Square
-							title={'Ranks'}
-							target={'/ranks'}
-							size={'15rem'}
-						/>
+						<li>
+							<Link to={'/ranks'}>
+								<Square
+									title={'Ranks'}
+									target={'/ranks'}
+									size={'15rem'}
+								/>
+							</Link>
+						</li>
 
-						<Square
-							title={'Feedback'}
-							target={'/feedback'}
-							size={'15rem'}
-						/>
+						<li>
+							<Link to={'/feedback'}>
+								<Square
+									title={'Feedback'}
+									target={'/feedback'}
+									size={'15rem'}
+								/>
+							</Link>
+						</li>
 
-						<Square
-							title={'About us'}
-							target={'/about'}
-							size={'15rem'}
-						/>
+						<li>
+							<Link to={'/about'}>
+								<Square
+									title={'About us'}
+									target={'/about'}
+									size={'15rem'}
+								/>
+							</Link>
+						</li>
 
-						<Square
-							title={'LogIn / LogOut'}
-							onClick={'logout'}
-							size={'10rem'}
-						/>
+						<li>
+							<Square
+								title={'LogIn / LogOut'}
+								onClick={'logout'}
+								size={'10rem'}
+							/>
+						</li>
 					</ul>
 				</nav>
 			</header>
