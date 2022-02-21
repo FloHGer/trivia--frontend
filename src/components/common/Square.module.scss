@@ -7,7 +7,6 @@
     margin-left: 2rem;
     background: #0000;
     border: none;
-    cursor: pointer;
 }
 
 .square {
@@ -23,15 +22,11 @@
     );
     box-shadow: 4px -4px 2rem 2px $color__primary--medium;
     transform: rotate(45deg);
+    cursor: pointer;
 
     display: flex;
     justify-content: center;
     align-items: center;
-
-    // &:hover {
-    //     transform: rotate(405deg);
-    //     transition: transform 1s ease-in-out;
-    // }
 
     h3 {
         font-size: 2rem;
@@ -39,11 +34,6 @@
         transform: rotate(-45deg);
         color: $color__secondary--light;
     }
-}
-
-.animation:hover {
-    transform: rotate(405deg);
-    transition: transform 1s ease-in-out;
 }
 
 .logout__icon {
@@ -89,6 +79,7 @@
 // game
 .inactive{
     box-shadow: none;
+    cursor: default;
 }
 .active{
     box-shadow: 4px -4px 2rem 2px $color__gold;
@@ -99,6 +90,7 @@
 }
 .wrong{
     box-shadow: 4px -4px 2rem 2px $color__warning;
+    cursor: default;
 
     h3{
         color: $color__warning;
@@ -106,8 +98,15 @@
 }
 .right{
     box-shadow: 4px -4px 2rem 2px $color__ok;
+    cursor: default;
 
     h3{
         color: $color__ok;
     }
+}
+
+.animation:hover {
+    transform: rotate(405deg);
+    transition: transform 1s ease-in-out;
+    cursor: pointer;
 }

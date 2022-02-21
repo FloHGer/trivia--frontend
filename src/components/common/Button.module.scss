@@ -21,6 +21,12 @@
         background: $color__primary--light;
     }
 
+    &:disabled {
+        background-color: $color__grey--dark;
+        color: $color__grey--mid;
+        cursor: auto;
+    }
+
     &__blue {
         background: $color__primary--light;
 

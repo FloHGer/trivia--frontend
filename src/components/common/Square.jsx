@@ -9,7 +9,8 @@ import classes from "./Square.module.scss";
 export default function Square({
 	children,
     title,
-	color,
+	answerState,
+    color,
     size,
     onClick,
     disabled,
@@ -49,7 +50,11 @@ export default function Square({
                     }
                 >
                     <div
-                        className={`${classes.square} ${classes.animation} ${classes[color]}`}
+                        className={`
+                            ${classes.square}
+                            ${answerState ? classes[answerState] : classes[color]}
+                            ${answerState === 'active' || !answerState ? classes.animation : null}
+                        `}
                     >
                         {title === "LogIn / LogOut" ? (
                             currentUser ? (
@@ -70,7 +75,7 @@ export default function Square({
                     style={{ width: size, height: size }}
                     className={classes.box}
                 >
-                    <div className={`${classes.square} ${classes[color]}`}>
+                    <div className={`${classes.square} ${answerState ? classes[answerState] : classes[color]}`}>
                         {title === "trophy" && !level ? (
                             <FaTrophy className={classes.trophy} />
                         ) : title === "trophy" && level < 0.5 ? (

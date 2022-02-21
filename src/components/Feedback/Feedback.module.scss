@@ -26,6 +26,7 @@
         width: 100%;
         display: flex;
         justify-content: center;
+        margin-bottom: 4rem;
   
         label{
           // border: 2px solid lime;
@@ -37,7 +38,7 @@
           border-radius: 1rem;
           color: $color__primary--light;
           font-weight: 900;
-          transition: transform .5s, color .2s;
+          transition: transform .5s, color .3s;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -61,7 +62,6 @@
               
               border: 2px solid rgb(4, 0, 255);
               background: rgb(255, 0, 0);
-             
             }
           }
         }

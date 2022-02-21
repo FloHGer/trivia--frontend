@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import Button from '../common/Button';
 import FeedbackCard from '../common/FeedbackCard';
-import Square from "../../components/common/Square";
+import Square from "../common/Square";
 
 import classes from "./Feedback.module.scss";
 
@@ -18,7 +18,6 @@ export default function Feedback() {
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        console.log(rating);
         const response = await axios.post(
             `${process.env.REACT_APP_BACKEND}/feedback`,
             { feedback: { value: rating, message } }
@@ -26,12 +25,6 @@ export default function Feedback() {
         if (response.data.message === "success") setFeedback(true);
     };
 
-    // const ratingHandler = (e) => {
-    //     setRating(e.target.value);
-    //     console.log('Innerhalb',rating);
-    // }
-
-    console.log("Rating:", rating);
 
     return (
         <main className={classes.main}>
@@ -48,28 +41,25 @@ export default function Feedback() {
                     <div 
                     className={classes.ratingContainer}
                     >
-                        {ratingData.map((value, i) => {
-                            console.log("Value",typeof value, "Rating:", typeof rating);
-                            return( 
+                        {ratingData.map((value, i) => (
                             <Square
                                 key={i}
                                 size={"8rem"}
-                                color={value === parseInt(rating) ? "active" : null}
-                                // color = "active"
+                                color={value === parseInt(rating) ? 'active' : null}
                             >
                                 <label
-                                      className={classes.label}
+                                    className={classes.label}
                                 >
                                     <p>{i + 1}</p>
                                     <input
-                                        type="radio"
+                                        type={"radio"}
                                         name={"rating"}
                                         value={i + 1}
                                         onChange={(e) => setRating(e.target.value)}
                                     />
                                 </label>
                             </Square>
-                        )})}
+                        ))}
                     </div>
                     <textarea
                         onChange={(e) => setMessage(e.target.value)}
