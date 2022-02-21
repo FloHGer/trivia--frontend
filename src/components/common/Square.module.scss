@@ -21,17 +21,17 @@
         #349bbd88 60%,
         $color__primary 100%
     );
-    box-shadow: 4px -4px 2rem 2px $color__primary;
+    box-shadow: 4px -4px 2rem 2px $color__primary--medium;
     transform: rotate(45deg);
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    &:hover {
-        transform: rotate(405deg);
-        transition: transform 1s ease-in-out;
-    }
+    // &:hover {
+    //     transform: rotate(405deg);
+    //     transition: transform 1s ease-in-out;
+    // }
 
     h3 {
         font-size: 2rem;
@@ -39,6 +39,11 @@
         transform: rotate(-45deg);
         color: $color__secondary--light;
     }
+}
+
+.animation:hover {
+    transform: rotate(405deg);
+    transition: transform 1s ease-in-out;
 }
 
 .logout__icon {
@@ -88,7 +93,7 @@
 .active{
     box-shadow: 4px -4px 2rem 2px $color__gold;
 
-    h3{
+    h3, p {
         color: $color__gold;
     }
 }

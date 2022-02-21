@@ -13,109 +13,115 @@ export default function Navigation({children}) {
 
 
 	return (
-		<>
-			{path !== '/dashboard' &&
-			<header className={classes.header}>
-				<nav className={classes.navigation}>
-					<ul className={classes.navigation__list}>
-						<NavItem
-							title={'Statistics'}
-							target={'/stats'}
-							number={'1'}
-						/>
+        <>
+            {path !== "/dashboard" && (
+                <header className={classes.header}>
+                    <nav className={classes.navigation}>
+                        <ul className={classes.navigation__list}>
+                            <NavItem
+                                title={"Statistics"}
+                                target={"/stats"}
+                                number={"1"}
+                            />
 
-						<NavItem
-							title={'Rankings'}
-							target={'/ranks'}
-							number={'2'}
-						/>
+                            <NavItem
+                                title={"Rankings"}
+                                target={"/ranks"}
+                                number={"2"}
+                            />
 
-						<NavItem
-							title={'Feedback'}
-							target={'/feedback'}
-							number={'3'}
-						/>
+                            <NavItem
+                                title={"Feedback"}
+                                target={"/feedback"}
+                                number={"3"}
+                            />
 
-						<NavItem
-							title={'About us'}
-							target={'/about'}
-							number={'4'}
-						/>
+                            <NavItem
+                                title={"About us"}
+                                target={"/about"}
+                                number={"4"}
+                            />
 
-						{path !== '/' &&
-							<NavItem
-								title={currentUser ? 'Dashboard' : 'Home'}
-								target={currentUser ? '/dashboard' : '/'}
-								number={'6'}
-							/>
-						}
+                            {path !== "/" && (
+                                <NavItem
+                                    title={currentUser ? "Dashboard" : "Home"}
+                                    target={currentUser ? "/dashboard" : "/"}
+                                    number={"6"}
+                                />
+                            )}
 
-						<Square
-							title={'LogIn / LogOut'}
-							onClick={'logout'}
-							size={'10rem'}
-						/>
-					</ul>
-				</nav>
-			</header>}
+                            <Square	
+								button = {true}
+                                title={"LogIn / LogOut"}
+                                onClick={"logout"}
+                                size={"10rem"}
+                            />
+                        </ul>
+                    </nav>
+                </header>
+            )}
 
+            {path === "/dashboard" && (
+                <header className={classes.dashHeader}>
+                    <nav>
+                        <ul className={classes.dashNavigation}>
+                            <li>
+                                <Link to={"/stats"}>
+                                    <Square	
+										button = {true}
+                                        title={"Stats"}
+                                        target={"/stats"}
+                                        size={"15rem"}
+                                    />
+                                </Link>
+                            </li>
 
-			{path === '/dashboard' &&
-			<header className={classes.dashHeader}>
-				<nav>
-					<ul className={classes.dashNavigation}>
-						<li>
-							<Link to={'/stats'}>
-								<Square
-									title={'Stats'}
-									target={'/stats'}
-									size={'15rem'}
-								/>
-							</Link>
-						</li>
+                            <li>
+                                <Link to={"/ranks"}>
+                                    <Square	
+										button = {true}
+                                        title={"Ranks"}
+                                        target={"/ranks"}
+                                        size={"15rem"}
+                                    />
+                                </Link>
+                            </li>
 
-						<li>
-							<Link to={'/ranks'}>
-								<Square
-									title={'Ranks'}
-									target={'/ranks'}
-									size={'15rem'}
-								/>
-							</Link>
-						</li>
+                            <li>
+                                <Link to={"/feedback"}>
+                                    <Square	
+										button = {true}
+                                        title={"Feedback"}
+                                        target={"/feedback"}
+                                        size={"15rem"}
+                                    />
+                                </Link>
+                            </li>
 
-						<li>
-							<Link to={'/feedback'}>
-								<Square
-									title={'Feedback'}
-									target={'/feedback'}
-									size={'15rem'}
-								/>
-							</Link>
-						</li>
+                            <li>
+                                <Link to={"/about"}>
+                                    <Square	
+										button = {true}
+                                        title={"About us"}
+                                        target={"/about"}
+                                        size={"15rem"}
+                                    />
+                                </Link>
+                            </li>
 
-						<li>
-							<Link to={'/about'}>
-								<Square
-									title={'About us'}
-									target={'/about'}
-									size={'15rem'}
-								/>
-							</Link>
-						</li>
-
-						<li>
-							<Square
-								title={'LogIn / LogOut'}
-								onClick={'logout'}
-								size={'10rem'}
-							/>
-						</li>
-					</ul>
-				</nav>
-			</header>
-			}
-			{children}
-		</>
-	);
+                            <li>
+                                <Square
+                                    button={true}
+                                    title={"LogIn / LogOut"}
+                                    onClick={"logout"}
+                                    size={"10rem"}
+                                />
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+            )}
+            {children}
+        </>
+    );
 }

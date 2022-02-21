@@ -6,7 +6,7 @@ import classes from "./Logo.module.scss";
 function LogoTrivia() {
     return (
         <div className={classes.container}>
-            <Square className={classes.logo} />
+            {/* <Square className={classes.logo} /> */}
             <p className={classes.logo__title}>
                 <span className={classes.logo__span}>T</span>rivia
             </p>

@@ -28,33 +28,45 @@
         justify-content: center;
   
         label{
+          // border: 2px solid lime;
           cursor: pointer;
-          padding: 1rem 2rem;
-          margin: 2rem;
+          // padding: 1rem 2rem;
+          // margin: 2rem;
+          width: 100%;
+          height: 100%;
           border-radius: 1rem;
-          background: $color__primary--dark;
           color: $color__primary--light;
           font-weight: 900;
-          transition: transform .5s, background .5s, color .5s;
-
+          transition: transform .5s, color .2s;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          
           &:hover{
-            transform: scale(0.95);
-            background: $color__primary--light;
-            color: $color__primary--dark;
+            // transform: scale(0.95), rotate(-45deg);
+            color: $color__gold;
+          }
+          
+          p {
+            transform: rotate(-45deg);
           }
 
           input[type='radio']{
+            background: rgb(255, 238, 0);
             appearance: none;
             display: none;
-            width: 10%;
-            height: 10%;
-            &:checked .label{
-              background: #000;
+            width: 10rem;
+            height: 10rem;
+            &:checked {
+              
+              border: 2px solid rgb(4, 0, 255);
+              background: rgb(255, 0, 0);
+             
             }
           }
         }
       }
-  
+
       textarea{
         background: $color__secondary--light;
         color: $color__secondary--dark;

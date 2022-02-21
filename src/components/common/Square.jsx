@@ -7,6 +7,7 @@ import { useAuth } from "../../context/loginContext";
 import classes from "./Square.module.scss";
 
 export default function Square({
+	children,
     title,
 	color,
     size,
@@ -47,7 +48,9 @@ export default function Square({
                             : onClick
                     }
                 >
-                    <div className={`${classes.square} ${classes[color]}`}>
+                    <div
+                        className={`${classes.square} ${classes.animation} ${classes[color]}`}
+                    >
                         {title === "LogIn / LogOut" ? (
                             currentUser ? (
                                 <FaSignOutAlt
@@ -67,7 +70,7 @@ export default function Square({
                     style={{ width: size, height: size }}
                     className={classes.box}
                 >
-                    <div className={`${classes.square}`}>
+                    <div className={`${classes.square} ${classes[color]}`}>
                         {title === "trophy" && !level ? (
                             <FaTrophy className={classes.trophy} />
                         ) : title === "trophy" && level < 0.5 ? (
@@ -79,6 +82,7 @@ export default function Square({
                         ) : (
                             <h3 className="heading heading__3">{title}</h3>
                         )}
+                        {children}
                     </div>
                 </div>
             )}
