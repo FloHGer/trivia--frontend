@@ -11,8 +11,8 @@ export default function Auth({children}) {
 		(async () => {
 			try {
 				const res = await axios.get(`${process.env.REACT_APP_BACKEND}/auth/check`, {withCredentials: true});
-				if (res.data.message === 'success') setCurrentUser(res.data.payload);
-				if (res.data.message !== 'success') setCurrentUser(false);
+				if (res.data.message === 'success') return setCurrentUser(res.data.payload);
+				setCurrentUser(false);
 			} catch (err) {console.error(err)}
 		})();
 	}, [currentUser]);
