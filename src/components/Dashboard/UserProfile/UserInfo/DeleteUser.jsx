@@ -47,6 +47,7 @@ const DeleteUser = ({ setOpenDeleteModal }) => {
                             onClick={deleteProfile}
                             maxWidth="18rem"
                             maxHeight="6rem"
+                            fontSize="2.3rem"
                             borderRadius="1rem"
                         ></Button>
                         <Button
@@ -54,6 +55,7 @@ const DeleteUser = ({ setOpenDeleteModal }) => {
                             title={"cancel"}
                             maxWidth="18rem"
                             maxHeight="6rem"
+                            fontSize="2.3rem"
                             borderRadius="1rem"
                             onClick={() => setOpenDeleteModal(false)}
                         ></Button>
