@@ -21,6 +21,13 @@
       display: flex;
       align-items: center;
       flex-direction: column;
+
+      h2{
+        margin-bottom: 2rem;
+        font-size: 3.5rem;
+        color: $color__silver;
+        text-shadow: .2rem .2rem .5rem $color__primary--dark;
+      }
   
       .ratingContainer{
         width: 100%;

@@ -41,7 +41,7 @@ export default function Square({
 					${classes.box}
 					${title === "LogIn / LogOut" ? classes.logSquare : ""}
 				`}
-                    style={{ width: size, height: size, marginLeft: ml }}
+                    style={{ width: size, height: size }}
                     onClick={
                         onClick === "logout"
                             ? currentUser
@@ -73,7 +73,7 @@ export default function Square({
             )}
             {!button && (
                 <div
-                    style={{ width: size, height: size, marginLeft: ml }}
+                    style={{ width: size, height: size }}
                     className={classes.box}
                 >
                     <div className={`${classes.square} ${answerState ? classes[answerState] : classes[color]}`}>

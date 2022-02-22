@@ -18,6 +18,12 @@
             display: flex;
             justify-content: flex-start;
             align-items: center;
+
+            .back{
+                // color: $color__bronze;
+                text-shadow: .2rem .2rem 2rem $color__gold, -.2rem -.2rem 2rem $color__gold;
+                font-weight: 900;
+            }
         }
 
         &--link {

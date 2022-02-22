@@ -44,9 +44,10 @@ export default function Navigation({children}) {
 
                             {path !== "/" && (
                                 <NavItem
-                                    title={currentUser ? "Dashboard" : "Home"}
+                                    title={currentUser ? "BACK" : "HOME"}
                                     target={currentUser ? "/dashboard" : "/"}
                                     number={"6"}
+                                    back={'back'}
                                 />
                             )}
 
@@ -83,7 +84,6 @@ export default function Navigation({children}) {
                                         title={"Ranks"}
                                         target={"/ranks"}
                                         size={"15rem"}
-                                        ml={'2rem'}
                                     />
                                 </Link>
                             </li>
@@ -95,7 +95,6 @@ export default function Navigation({children}) {
                                         title={"Feedback"}
                                         target={"/feedback"}
                                         size={"15rem"}
-                                        ml={'2rem'}
                                     />
                                 </Link>
                             </li>
@@ -107,7 +106,6 @@ export default function Navigation({children}) {
                                         title={"About us"}
                                         target={"/about"}
                                         size={"15rem"}
-                                        ml={'2rem'}
                                     />
                                 </Link>
                             </li>
