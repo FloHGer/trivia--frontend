@@ -27,10 +27,10 @@
         cursor: auto;
     }
 
-    &__blue {
+    &__blue:enabled {
         background: $color__primary--light;
 
-        &:hover{
+        &:hover:enabled{
             background: $color__primary--light;
         }
     }

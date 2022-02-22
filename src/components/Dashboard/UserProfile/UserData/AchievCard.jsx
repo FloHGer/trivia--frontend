@@ -12,6 +12,7 @@ function AchievCard({ data, title, text, values }) {
                     title={'trophy'}
                     level={data.unlocked.length / values.length}
                     size={'10rem'}
+                    ml={'2rem'}
                 />
                 <div className={classes.left__date}>
                     {(data.unlocked.length && (

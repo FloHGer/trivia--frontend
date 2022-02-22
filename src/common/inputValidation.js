@@ -5,7 +5,7 @@ export const validation = async(target, currentUser, setCurrentUser, setResponse
   try{
     if(target.name === 'username'
     && (target.value.length < 2
-    || target.value.includes(' '))) return;
+    || target.value.includes(' '))) return setResponse(['ERROR', 'at least 2 chars required & no spaces allowed']);
 
     if(target.name === 'email'
     && !target.value
@@ -17,8 +17,9 @@ export const validation = async(target, currentUser, setCurrentUser, setResponse
         [target.name === 'username' ? 'username' : 'email']: target.value,
       }
     });
-    if (response.data.message !== "user updated") return;
-    setResponse(`${target.name} updated!`)
-    if(target.name === 'username') setCurrentUser(target.value)
+    console.log(response.data)
+    if (response.data.message !== "user updated") return setResponse(['ERROR', `${target.name} taken!`]);
+    setResponse(['SUCCESS', `${target.name} updated!`]);
+    if(target.name === 'username') setCurrentUser(target.value);
   }catch(err){console.log(err)}
 }

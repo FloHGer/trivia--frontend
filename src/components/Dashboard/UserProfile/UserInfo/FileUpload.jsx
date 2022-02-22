@@ -110,6 +110,7 @@ const FileUpload = ({ setImageModal, setImage }) => {
                        fontSize="2rem"
                        borderRadius="1rem"
                        title="Submit"
+                       disabled = {!file}
                        onClick={handleSubmission}
                    ></Button>
                    <Button

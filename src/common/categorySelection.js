@@ -1,5 +1,9 @@
 
-export const categorySelection = (selectedCategories = [], setSelectedCategories, allCategories, navigate) => {
+export const categorySelection = (selectedCategories = [
+    'choose', 'choose', 'choose',
+    'choose', 'choose', 'choose',
+  ],
+  setSelectedCategories, allCategories, navigate) => {
   const quickCategories = [...selectedCategories];
 
   quickCategories.forEach((quickCategory, i) => {

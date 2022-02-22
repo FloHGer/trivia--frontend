@@ -87,8 +87,8 @@ export default function UserInfoCard() {
         <section className={classes.profile__user}>
             {response && (
                 <FeedbackCard
-                    title={"SUCCESS"}
-                    text={response}
+                    title={response[0]}
+                    text={response[1]}
                     onClick={() => setResponse(null)}
                 />
             )}

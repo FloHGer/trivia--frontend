@@ -23,9 +23,14 @@
     }
 
     &__text {
+        font-size: 2rem;
         margin-left: 4rem;
         font-weight: 900;
         color: $color__primary--light;
         transition: color 1s;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

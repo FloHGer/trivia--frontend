@@ -44,7 +44,7 @@ export default function Warning({setWarning}) {
 						className={styles.btn__blue}
 						title={'Play!'} 
 						onClick={() =>
-							categorySelection(selectedCategories, setSelectedCategories, allCategories, navigate)
+							categorySelection(undefined, setSelectedCategories, allCategories, navigate)
 						}
 					/>
 					<p>{'OR'}</p>

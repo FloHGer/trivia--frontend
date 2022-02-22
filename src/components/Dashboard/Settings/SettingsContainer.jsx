@@ -22,7 +22,6 @@ export default function SettingsContainer() {
 	
 	const categoryChangeHandler = (newValue, i) => {
 		const update = allCategories.filter(category => category.name === newValue)[0];
-		console.log(update)
 		update === undefined ? selectedCategories[i] = 'choose' : selectedCategories[i] = update;
 		setSelectedCategories(selectedCategories);
 		patchHandler();
@@ -120,24 +119,11 @@ export default function SettingsContainer() {
 				<Button
 					className={styles.btn__blue}
 					title={'Play!'}
-					onClick={() => categorySelection(selectedCategories, setSelectedCategories, allCategories, navigate)}
+					onClick={() => {
+						categorySelection(gameMode === 'quick' ? undefined : selectedCategories, setSelectedCategories, allCategories, navigate)
+					}}
 				/>
 			</div>
 		</section>
 	);
 }
-
-
-	// const selections = selectedCategories.map((category, i) => {
-	// 	return {
-	// 		name: `Category ${i}`,
-	// 		value: category.name,
-	// 		change: newValue => {
-	// 			selectedCategories[i] = {name: allCategories.filter(category => category.name === newValue)};
-	// 			setSelectedCategories(selectedCategories);
-	// 			patchHandler('category', i, newValue);
-	// 		}
-	// 	}
-	// })
-	// console.log(selections)
-
