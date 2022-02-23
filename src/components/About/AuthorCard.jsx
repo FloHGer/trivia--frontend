@@ -12,7 +12,8 @@ export default function AuthorCard({className, name, nickname, src, github, home
 				onMouseEnter={() => setQr(true)}
 				onMouseLeave={() => setQr(false)}
 			>
-				<img className={classes.author__picture} src={qr ? src[1] : src[0]} alt={name} />
+				<img className={classes.author__picture} src={src[1]} alt={name} />
+				<img className={classes.author__picture} src={src[0]} alt={name} style={{opacity: qr ? 0 : 1}} />
 				<div className={classes.author__info}>
 					<h2>{name}</h2>
 					<h4>'{nickname}'</h4>

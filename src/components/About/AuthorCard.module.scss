@@ -15,7 +15,7 @@
 
     &:hover &__picture{
         border-radius: 0;
-        transition: border-radius 1s;
+        transition: border-radius 1s, opacity 2s;
     }
 
     &__picture {
@@ -26,7 +26,7 @@
         position: absolute;
         top: -30%;
         left: -20%;
-        transition: border-radius 1s;
+        transition: border-radius 1s, opacity 2s;
     }
 
     &__info {

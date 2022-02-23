@@ -40,6 +40,7 @@
 			background-color: $color__primary--light;
 			transform: rotate(45deg);
 			margin-right: 1rem;
+			transition: background 1s;
 		}
 
 		h2{
@@ -55,7 +56,7 @@
 		&:hover &__diamond{
 			transform: rotate(405deg);
 			background: $color__gold;
-			transition: transform 1s ease-in-out, background 2s;
+			transition: transform 1s, background 2s;
 		}
 	}
 }
