@@ -31,8 +31,31 @@
 	}
 
 	&__link {
-		&:hover {
-			text-shadow: 1px 1px 2rem #fff;
+		display: flex;
+		align-items: center;
+
+		&__diamond{
+			width: 1.5rem;
+			height: 1.5rem;
+			background-color: $color__primary--light;
+			transform: rotate(45deg);
+			margin-right: 1rem;
+		}
+
+		h2{
+			transition: color 1s;
+		}
+
+		&:hover h2{
+			text-shadow: 0 0 2rem $color__primary--light;
+			color: $color__gold;
+			transition: color 2s;
+		}
+
+		&:hover &__diamond{
+			transform: rotate(405deg);
+			background: $color__gold;
+			transition: transform 1s ease-in-out, background 2s;
 		}
 	}
 }
