@@ -38,7 +38,7 @@ export default function Feedback() {
             <h1 className={"heading heading__1"}>{"Feedback"}</h1>
             <div className={classes.card}>
                 <form onSubmit={(e) => submitHandler(e)}>
-                    <h2>{'RATE US:'}</h2>
+                    {/* <h2>{'RATE US:'}</h2> */}
                     <div 
                     className={classes.ratingContainer}
                     >
@@ -62,7 +62,7 @@ export default function Feedback() {
                             </Square>
                         ))}
                     </div>
-                    <h2>{'WRITE US:'}</h2>
+                    {/* <h2>{'WRITE US:'}</h2> */}
                     <textarea
                         onChange={(e) => setMessage(e.target.value)}
                         placeholder={"your message..."}
