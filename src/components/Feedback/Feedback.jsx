@@ -10,7 +10,7 @@ import classes from "./Feedback.module.scss";
 
 export default function Feedback() {
     const navigate = useNavigate();
-    const [rating, setRating] = useState(0);
+    const [rating, setRating] = useState('no rating');
     const [message, setMessage] = useState("");
     const [feedback, setFeedback] = useState(false);
 
@@ -38,7 +38,7 @@ export default function Feedback() {
             <h1 className={"heading heading__1"}>{"Feedback"}</h1>
             <div className={classes.card}>
                 <form onSubmit={(e) => submitHandler(e)}>
-                    {/* <h2>{'RATE US:'}</h2> */}
+                    <h2>{'RATE US:'}</h2>
                     <div 
                     className={classes.ratingContainer}
                     >
@@ -62,7 +62,7 @@ export default function Feedback() {
                             </Square>
                         ))}
                     </div>
-                    {/* <h2>{'WRITE US:'}</h2> */}
+                    <h2>{'WRITE US:'}</h2>
                     <textarea
                         onChange={(e) => setMessage(e.target.value)}
                         placeholder={"your message..."}
@@ -73,7 +73,7 @@ export default function Feedback() {
                         maxWidth={"40%"}
                         maxHeight={"5rem"}
                         fontSize={"2rem"}
-                        disabled={message.length < 10}
+                        disabled={message.length < 10 && rating === 'no rating'}
                     />
                 </form>
             </div>

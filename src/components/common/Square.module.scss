@@ -82,7 +82,7 @@
     cursor: default;
 }
 .active{
-    box-shadow: 4px -4px 2rem 2px $color__gold;
+    box-shadow: 0 0 3rem .5rem $color__gold;
 
     h3, p {
         color: $color__gold;

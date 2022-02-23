@@ -2,19 +2,19 @@
 
 
 .main{
-  padding: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 80%;
 
   h1{
-    margin-bottom: 3%;
+    margin: -2% 0 2%;
   }
 
   .card{
     background: $color__primary;
     border-radius: 1rem;
-    padding: 2% 0;
     width: 60%;
 
     form{
