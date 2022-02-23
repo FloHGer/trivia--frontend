@@ -4,7 +4,7 @@ import Square from "../../../common/Square";
 
 import classes from "./AchievCard.module.scss";
 
-function AchievCard({ data, title, text, values }) {
+export default function AchievCard({ data, title, text, values }) {
     return (
         <div className={data.unlocked.length ? classes.card__unlocked : classes.card}>
             <div className={classes.left}>
@@ -56,5 +56,3 @@ function AchievCard({ data, title, text, values }) {
         </div>
     );
 }
-
-export default AchievCard;
