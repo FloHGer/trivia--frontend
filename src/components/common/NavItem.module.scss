@@ -6,7 +6,7 @@
 	align-items: center;
 
 	.back {
-		text-shadow: 0.2rem 0.2rem 2rem $color__gold, -0.2rem -0.2rem 2rem #ce0;
+		text-shadow: 0.2rem 0.2rem 2rem $color__gold, -0.2rem -0.2rem 2rem $color__yellow;
 		font-weight: 900;
 	}
 
@@ -48,14 +48,14 @@
 		}
 
 		&:hover h2{
-			text-shadow: 0 0 2rem #ce0;
-			color: #ce0;
+			text-shadow: 0 0 2rem $color__yellow;
+			color: $color__yellow;
 			transition: color 2s, text-shadow 1s;
 		}
 
 		&:hover &__diamond{
 			transform: rotate(405deg);
-			background: #ce0;
+			background: $color__yellow;
 			transition: transform 1s, background 2s;
 		}
 	}

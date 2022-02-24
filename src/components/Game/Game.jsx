@@ -56,7 +56,7 @@ export default function Game() {
 		if (!currentUser && counter === 6)
 			return setTimeout(() => {
 				return setFinalScreen([]);
-			}, 1000);
+			}, 4000);
 		// known user
 		if (currentUser && counter === 6) {
 			const results = allAnswers.map((category, i) => {
@@ -73,7 +73,7 @@ export default function Game() {
 				if (res.data.message === 'game posted')
 					return setTimeout(() => {
 						return setFinalScreen(res.data.payload.achievs);
-					}, 1000);
+					}, 4000);
 				return 'error';
 			})();
 		}

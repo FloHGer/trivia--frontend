@@ -7,12 +7,14 @@
     width: 98%;
     margin: 1rem auto;
     padding: 2rem;
-    background-color: rgba($color__primary--dark, .5);
+    background: $color__primary--medium;
     box-shadow: .2rem .2rem .5rem $color__primary--medium;
     border-radius: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    opacity: .7;
+    color: $color__primary--light;
 
     &__unlocked{
         position: relative;
@@ -20,13 +22,18 @@
         width: 98%;
         margin: 1rem auto;
         padding: 2rem;
-        background-color: rgba($color__primary, .5);
+        background: $color__glass__milky;
         box-shadow: .2px .2px 1rem $color__primary--dark;
-        
         border-radius: 1rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        opacity: .9;
+    
+        .card__data--title,
+        .card__data--condition{
+            color: $color__primary--dark;
+        }
     }
 
     &__text {
@@ -47,21 +54,19 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-weight: 700;
-            color: $color__primary--dark;
+            font-weight: 700;            
         }
 
         &--condition {
             padding: 0.2rem;
             font-size: 1.8rem;
-            font-weight: 400;
-            color: $color__secondary--dark;
+            font-weight: 400;            
         }
 
         &--todo {
             background-color: rgba($color__primary--dark, 0.5);
-            border: 1px solid rgba($color__primary--dark, 0.5);
-            border-radius: 1rem;
+            box-shadow: 0 0 .5rem $color__primary--dark;
+            border-radius: .5rem;
             color: #fff;
             font-size: 1.5rem;
             font-weight: 400;

@@ -12,7 +12,6 @@
     justify-content: space-evenly;
     height: 20%;
     box-shadow: .2rem .2rem .5rem $color__primary--dark;
-    // box-shadow: 0 0 .5rem $color__primary--light;
 }
 
 
@@ -25,7 +24,7 @@
     
 
     &__title {
-        font-size: 2rem;
+        font-size: clamp(1.5rem, 1vw, 4rem);
         text-align: center;
         text-transform: uppercase;
         font-weight: 700;
@@ -38,11 +37,10 @@
         width: 25%;
         background-color: $color__primary--dark;
         padding: .5rem 1rem;
-        font-size: 1.5rem;
+        font-size: clamp(1.5rem, .9vw, 4rem);
         border-radius: 1rem;
         font-weight: 700;
         color: $color__primary--light;
-        // box-shadow: 0 0 .5rem $color__primary--medium;
     }
 
     &__together {

@@ -8,24 +8,29 @@
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         height: 5rem;
     }
 
     &--paragraph {
         cursor: pointer;
         width: 33%;
+        height: 100%;
         padding: 1rem;
         font-size: 2rem;
+        font-weight: 700;
         letter-spacing: 2px;
         color: $color__secondary--dark;
         background-color: $color__glass__milky;
         border-top-left-radius: 1rem;
         border-top-right-radius: 1rem;
+        transition: background .5s, font-size .5s;
 
         &:hover {
             background-color: #6ccfe8dd;
             color: $color__primary--dark;
-            font-weight: 700;
+            font-size: 2.2rem;
+            transition: background .5s, font-size .5s;
         }
     }
 
@@ -42,12 +47,13 @@
 .active {
     cursor: pointer;
     width: 33%;
+    height: 100%;
     padding: 1rem;
     font-size: 2rem;
     letter-spacing: 2px;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
-    color: $color__gold--dark;
+    color: $color__yellow;
     background-color: $color__glass__clear;
     font-weight: 700;
 }

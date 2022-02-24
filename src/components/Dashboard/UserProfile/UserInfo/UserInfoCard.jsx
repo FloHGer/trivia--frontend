@@ -96,6 +96,10 @@ export default function UserInfoCard() {
             <div className={classes["profile__user--piccontainer"]}>
                 <img
                     key={Date.now()}
+                    title={edit
+                            ? 'click to change profile image'
+                        : 'your profile data is locked - please unlock it first'
+                    }
                     src={image || ""}
                     alt={currentUser}
                     referrerPolicy="no-referrer"
@@ -115,6 +119,10 @@ export default function UserInfoCard() {
 
                 {/* FLAGS */}
                 <div
+                    title={edit
+                            ? 'click to change nationality'
+                        : 'your profile data is locked - please unlock it first'
+                    }
                     className={classes["profile__user--pic__flag"]}
                     style={{
                         cursor: edit ? "pointer" : "default",
@@ -151,17 +159,25 @@ export default function UserInfoCard() {
                     <input
                         type="text"
                         name="username"
+                        title={edit
+                                ? 'click to change username'
+                            : 'your profile data is locked - please unlock it first'
+                        }
                         value={username || ""}
+                        style={edit ? {
+                            background: '#dbd3d8',
+                            color: '#235074',
+                        } : null}
                         readOnly={edit ? false : true}
                         onChange={(e) => inputChangeHandler(e.target)}
                         onBlur={(e) =>
                             edit
                                 ? validation(
-                                      e.target,
-                                      currentUser,
-                                      setCurrentUser,
-                                      setResponse
-                                  )
+                                    e.target,
+                                    currentUser,
+                                    setCurrentUser,
+                                    setResponse
+                                )
                                 : null
                         }
                     />
@@ -170,17 +186,21 @@ export default function UserInfoCard() {
                     <input
                         type="text"
                         name="email"
+                        title={edit
+                            ? 'you can\'t change your email - please create a new account'
+                            : 'your profile data is locked - please unlock it first'
+                        }
                         value={email || ""}
                         readOnly={edit ? true : true}
                         onChange={(e) => inputChangeHandler(e.target)}
                         onBlur={(e) =>
                             edit
                                 ? validation(
-                                      e.target,
-                                      currentUser,
-                                      setCurrentUser,
-                                      setResponse
-                                  )
+                                    e.target,
+                                    currentUser,
+                                    setCurrentUser,
+                                    setResponse
+                                )
                                 : null
                         }
                     />
