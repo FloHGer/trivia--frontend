@@ -13,7 +13,8 @@
   }
 
   .card{
-    background: $color__primary;
+    background: $color__glass__clear;
+    box-shadow: 0 0 2rem $color__primary--light;
     border-radius: 1rem;
     width: 60%;
 
@@ -75,7 +76,7 @@
       }
 
       textarea{
-        background: $color__secondary--light;
+        background: #dbd3d8cc;
         color: $color__secondary--dark;
         resize: none;
         width: 100%;

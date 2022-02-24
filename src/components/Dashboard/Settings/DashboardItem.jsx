@@ -1,27 +1,9 @@
-// import axios from 'axios';
-
-// import {useAuth} from '../../../context/loginContext';
 import {useAllCategories} from '../../../context/gameContext';
 import classes from './DashboardItem.module.scss';
 
-export default function DashboardItem({title, elements, type}) {
-	// const [currentUser] = useAuth();
-	const [allCategories] = useAllCategories();
 
-	// const changeHandler = async (target, element, i) => {
-	// 	element.change(target.value);
-	// 	await axios.patch(
-	// 		`${process.env.REACT_APP_BACKEND}/user/${currentUser}`,
-	// 		{
-	// 			updates: {
-	// 				options: {
-	// 					[type === 'radio' ? title.shortName : title.shortName[i]]: target.value,
-	// 				},
-	// 			},
-	// 		},
-	// 		{withCredentials: true}
-	// 	);
-	// };
+export default function DashboardItem({title, elements, type}) {
+	const [allCategories] = useAllCategories();
 
 	return (
 		<div className={classes.dashboard__item}>

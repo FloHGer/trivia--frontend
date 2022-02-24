@@ -7,8 +7,8 @@
 
 .author{
     position: relative;
-    background: rgba(219, 211, 216, 0.16);
-    box-shadow: 0px 2px 4px #6ccfe8;
+    background: $color__glass__clear;
+    box-shadow: 0 0  1rem #6ccfe8;
     border-radius: 1rem;
     padding: 2rem;
     margin: 1rem;
@@ -27,6 +27,7 @@
         top: -30%;
         left: -20%;
         transition: border-radius 1s, opacity 2s;
+        box-shadow: 0 0 3rem #6ccfe888;
     }
 
     &__info {
@@ -50,7 +51,8 @@
 
         &--git a,
         &--page a,
-        &--email a {
+        &--email a,
+        &--linked a{
             margin: 1rem;
             display: flex;
             justify-content: flex-start;

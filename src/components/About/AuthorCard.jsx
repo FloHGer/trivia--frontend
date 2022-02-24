@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import {FaGithub, FaHome, FaEnvelope} from 'react-icons/fa';
+import {FaGithub, FaHome, FaEnvelope, FaLinkedin} from 'react-icons/fa';
 
 import classes from './AuthorCard.module.scss';
 
-export default function AuthorCard({className, name, nickname, src, github, homepage, email}) {
+export default function AuthorCard({className, name, nickname, src, github, homepage, email, linked}) {
 	const [qr, setQr] = useState(false);
 
 	return (
@@ -18,13 +18,20 @@ export default function AuthorCard({className, name, nickname, src, github, home
 					<h2>{name}</h2>
 					<h4>'{nickname}'</h4>
 
+					<div className={classes['author__info--linked']}>
+						<a href={`https://linkedin.com/in${linked}`} target={'_blank'} rel={'noreferrer'}>
+							<FaLinkedin className={classes.author__icons} />
+							<h3>{linked}</h3>
+						</a>
+					</div>
+
 					<div className={classes['author__info--git']}>
 						<a href={`https://github.com${github}`} target={'_blank'} rel={'noreferrer'}>
 							<FaGithub className={classes.author__icons} />
 							<h3>{github}</h3>
 						</a>
 					</div>
-					
+
 					<div className={classes['author__info--email']}>
 						<a href={`mailto:${email}?subject=Found you on your Trivia Project`}>
 							<FaEnvelope className={classes.author__icons} />

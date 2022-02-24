@@ -14,16 +14,16 @@
     font-weight: 700;
     background: $color__secondary--light;
     box-shadow: .3rem .3rem .5rem rgba($color__primary--dark, 0.9);
-    transition: transform .2s, background 1s;
+    transition: transform .3s, background 1s;
     
     &:hover {
         transform: scale(0.98);
-        background: $color__primary--light;
+        background: $color__glass__white;
     }
 
     &:disabled {
         background-color: $color__grey--dark;
-        color: $color__grey--mid;
+        color: $color__grey--light;
         cursor: auto;
     }
 
@@ -31,7 +31,7 @@
         background: $color__primary--light;
 
         &:hover:enabled{
-            background: $color__primary--light;
+            background: $color__glass__milky;
         }
     }
 

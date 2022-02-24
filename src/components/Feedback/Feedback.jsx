@@ -73,7 +73,7 @@ export default function Feedback() {
                         maxWidth={"40%"}
                         maxHeight={"5rem"}
                         fontSize={"2rem"}
-                        disabled={message.length < 10 && rating === 'no rating'}
+                        disabled={message.length < 5 && rating === 'no rating'}
                     />
                 </form>
             </div>

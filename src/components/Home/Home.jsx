@@ -20,7 +20,7 @@ export default function Home() {
         ["become the best", "Be sweet! Be cute!", "Be aggressive!"],
         ["battle the best", "Flower power", "Kill them all!"],
         ["surprise your friends", "Everyone's a winner", "The one and only!"],
-        ["waste some time", "Relax, take it easy!", "Under pressure"],
+        ["kill some time", "Relax, take it easy!", "Under pressure"],
         ["waste some time", "Look at the top", "Be on the top!"],
     ];
 

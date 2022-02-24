@@ -20,6 +20,7 @@ export default function About() {
                 github={'/diebanz'}
                 email={'banznatalia@gmail.com'}
                 homepage={'diebanz.works'}
+                linked={'/natalia-banz'}
             />
             <AuthorCard
                 className={classes.item2}
@@ -29,6 +30,7 @@ export default function About() {
                 github={'/FloHGer'}
                 email={'mail@FlorianHoehle.de'}
                 homepage={'FlorianHoehle.de'}
+                linked={'/FloHGer'}
             />
             <AuthorCard
                 className={classes.item3}
@@ -38,6 +40,7 @@ export default function About() {
                 github={'/Tobi-LoFu'}
                 email={'tobler@gmx.com'}
                 // homepage={''}
+                linked={'/T-Pfaffenzeller'}
             />
         </main>
     );
