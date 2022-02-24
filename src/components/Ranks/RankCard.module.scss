@@ -18,16 +18,14 @@
 
     .rank{
       margin: .5rem;
-      padding: 1rem;
+      padding: 1rem 3rem;
       display: flex;
       align-items: center;
-      color: $color__primary;
+      justify-content: space-between;
+      color: $color__primary--light;
+      font-weight: 900;
       background: $color__primary--dark;
       border-radius: 1rem;
-
-      *{
-        margin: 0 2rem;
-      }
 
       .image{
         width: 3vh;
@@ -41,15 +39,18 @@
       }
 
       .name{
-        width: 15%;
+        width: 35%;
       }
 
       .value{
-        margin-left: auto;
-        width: 10%;
+        width: 20%;
         text-align: right;
       }
 
+    }
+    
+    .rank:nth-child(even) {
+      background: $color__primary--medium;
     }
   }
 }

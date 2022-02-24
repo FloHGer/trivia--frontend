@@ -4,11 +4,11 @@
 .card {
     position: relative;
     z-index: 0;
-    width: 90%;
+    width: 98%;
     margin: 1rem auto;
     padding: 2rem;
     background-color: rgba($color__primary--dark, .5);
-    box-shadow: .1rem .1rem .1rem $color__primary--dark;
+    box-shadow: .2rem .2rem .5rem $color__primary--medium;
     border-radius: 1rem;
     display: flex;
     justify-content: space-between;
@@ -17,11 +17,11 @@
     &__unlocked{
         position: relative;
         z-index: 0;
-        width: 90%;
+        width: 98%;
         margin: 1rem auto;
         padding: 2rem;
         background-color: rgba($color__primary, .5);
-        box-shadow: 5px 5px 2rem $color__primary--dark;
+        box-shadow: .2px .2px 1rem $color__primary--dark;
         
         border-radius: 1rem;
         display: flex;

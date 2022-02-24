@@ -1,36 +1,43 @@
+
 @import "../../../../sass/config.scss";
 
-.table {
+.list{
+  
+  .rank:nth-child(odd){
+    background: $color__primary--medium;
+    color: $color__primary--light;
+  }
+  
+  .rank{
+    margin: 0.8rem 0.5rem;
+    padding: 1rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     color: $color__primary--dark;
-    width: 100%;
-    text-align: center;
-    border-collapse: collapse;
-
-    &__head {
-        padding: 1rem;
-        text-transform: uppercase;
-        background-color: $color__secondary--light;
-
-        &--title {
-            width: 45%;
-            font-size: 2.2rem;
-            padding: 1rem;
-
-            &:first-child {
-                width: 10%;
-            }
-        }
+    font-weight: 900;
+    background: $color__glass__milky;
+;
+    border-radius: .7rem;
+    box-shadow: .2rem .2rem .5rem $color__primary--medium;
+    
+    .image{
+      width: 3vh;
+      height: 3vh;
+      border-radius: 50%;
+      object-fit: cover;
     }
-
-    &__body {
-        font-size: 1.8rem;
-        text-transform: uppercase;
-
-        &--item {
-        }
-
-        &--item:nth-child(even) {
-            background-color: $color__secondary--light;
-        }
+    .flag{
+      height: 2vh;
     }
+    .name{
+      width: 35%;
+    }
+    .value{
+      width: 20%;
+      text-align: right;
+    }
+  }
 }
+
+

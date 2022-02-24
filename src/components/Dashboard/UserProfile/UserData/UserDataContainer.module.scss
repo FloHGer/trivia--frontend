@@ -18,12 +18,12 @@
         font-size: 2rem;
         letter-spacing: 2px;
         color: $color__secondary--dark;
-        background-color: $color__primary;
+        background-color: $color__glass__milky;
         border-top-left-radius: 1rem;
         border-top-right-radius: 1rem;
 
         &:hover {
-            background-color: $color__primary--light;
+            background-color: #6ccfe8dd;
             color: $color__primary--dark;
             font-weight: 700;
         }
@@ -32,7 +32,7 @@
     &--data {
         height: 100%;
         padding: 2rem 1rem;
-        background-color: $color__primary--light;
+        background-color: $color__glass__clear;
         border-bottom-left-radius: 1rem;
         border-bottom-right-radius: 1rem;
         overflow-y: auto;
@@ -47,7 +47,7 @@
     letter-spacing: 2px;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
-    color: $color__secondary--dark;
-    background-color: $color__primary--light;
+    color: $color__gold--dark;
+    background-color: $color__glass__clear;
     font-weight: 700;
 }

@@ -28,8 +28,8 @@ export default function RankCard({type}) {
           <div key={i} className={classes.rank}>
             <h3>{i + 1}</h3>
             <img className={classes.image} src={rank.img} alt={rank.username} />
-            <img className={classes.flag} src={flags[rank.nat].url.small} alt='flag' />
             <p className={classes.name}>{rank.username}</p>
+            <img className={classes.flag} src={flags[rank.nat].url.small} alt='flag' />
             <p className={classes.value}>{rank.value}</p>
           </div>
         ))}
