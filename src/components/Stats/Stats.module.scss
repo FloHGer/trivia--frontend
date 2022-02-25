@@ -23,21 +23,22 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: $color__glass__milky;
+      background: $color__glass__clear;
       box-shadow: 0 0 1rem $color__primary--light;
       border-radius: 1rem;
       margin: 1vw;
       padding: 2rem;
 
       h2{
-        color: $color__primary--dark;
+        color: $color__secondary--light;
+        text-shadow: .2rem .2rem .5rem $color__primary--dark;
         font-weight: 900;
       }
 
       .valueCard{
         width: 30%;
-        background: $color__primary--dark;
-        color: $color__primary;
+        background: $color__primary--light;
+        color: $color__primary--dark;
         border-radius: .5rem;
         padding: 1rem 2rem;
         margin-top: 2rem;

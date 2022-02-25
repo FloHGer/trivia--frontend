@@ -12,12 +12,17 @@
 		align-self: flex-end;
 		margin: 2vh;
 		p {
-			background: $color__primary--dark;
+			background: $color__glass__clear;
 			color: $color__primary--light;
+			box-shadow: 0 0 2rem $color__primary--light;
+			font-weight: 900;
 			font-size: 3rem;
 			border-radius: 1rem;
 			margin: 1rem;
 			padding: 1rem 2rem;
+		}
+		span{
+			color: $color__gold;
 		}
 	}
 }

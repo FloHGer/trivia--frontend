@@ -2,13 +2,13 @@ import {useNavigate} from 'react-router-dom';
 
 import classes from './FadeOut.module.scss';
 
-export default function FadeOut({onClick, children}) {
+export default function FadeOut({onClick, target, children}) {
 	const navigate = useNavigate();
 
 	return (
 		<div
 			className={classes.fadeOut}
-			onClick={onClick ? () => navigate('/') : null}
+			onClick={target ? () => navigate(target) : onClick}
 		>
 			{children}
 		</div>

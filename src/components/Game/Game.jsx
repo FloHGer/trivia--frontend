@@ -47,7 +47,7 @@ export default function Game() {
 	};
 
 	// post game data
-	const postGame = () => {
+	const postGame = (calcScore) => {
 		let counter = 0;
 		allAnswers.forEach(category => {
 			if (category.length === 5 || (category.length && !category[category.length - 1])) counter++;
@@ -67,7 +67,7 @@ export default function Game() {
 			});
 			(async () => {
 				const res = await axios.post(`${process.env.REACT_APP_BACKEND}/user/${currentUser}/games`, {
-					score,
+					score: calcScore,
 					categories: results,
 				});
 				if (res.data.message === 'game posted')
@@ -96,7 +96,7 @@ export default function Game() {
 		});
 		calcScore += bonus.reduce((sum, value) => sum + value, 0);
 		setScore(calcScore);
-		postGame();
+		postGame(calcScore);
 	}, [allAnswers]);
 
 	// fetch questions
@@ -136,7 +136,7 @@ export default function Game() {
 			<header className={classes.header}>
 				<Logo />
 				<div className={classes.gameInfo}>
-					<p>{`${score} points`}</p>
+					<p><span>{score}</span>{' points'}</p>
 					{(currentUser && <p>{currentUser}</p>) || <p>{'Quick Game'}</p>}
 					<Square
 						button={true}

@@ -22,8 +22,8 @@ export default function RankCard({type}) {
 
   return (
     <div className={classes.rankCard}>
-      <h2 className={'heading heading__2'}>{type.toUpperCase()}</h2>
       <div className={classes.list}>
+      <h2 className={'heading heading__2'}>{type.toUpperCase()}</h2>
         {ranking.map((rank, i) => (
           <div key={i} className={classes.rank}>
             <h3>{i + 1}</h3>

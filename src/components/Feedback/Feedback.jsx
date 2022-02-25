@@ -37,7 +37,7 @@ export default function Feedback() {
             )}
             <h1 className={"heading heading__1"}>{"Feedback"}</h1>
             <div className={classes.card}>
-                <form onSubmit={(e) => submitHandler(e)}>
+                <form className={classes.form} onSubmit={(e) => submitHandler(e)}>
                     <h2>{'RATE US:'}</h2>
                     <div 
                     className={classes.ratingContainer}
@@ -51,8 +51,9 @@ export default function Feedback() {
                                 <label
                                     className={classes.label}
                                 >
-                                    <p>{i + 1}</p>
+                                    <p className={classes.p}>{i + 1}</p>
                                     <input
+                                        className={classes.input}
                                         type={"radio"}
                                         name={"rating"}
                                         value={i + 1}

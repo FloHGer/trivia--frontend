@@ -20,7 +20,7 @@ export default function Warning({setWarning}) {
 
 	return (
 		<div className={classes.warning}>
-			<Card background={'#6ccfe866'} boxShadow={'0 0 2rem #6ccfe8'}>
+			<Card className={classes.card}>
 				<FaTimesCircle className={classes.warning__icon} onClick={() => setWarning(false)} style={{cursor: 'pointer'}} />
 
 				<h2 className={`${classes.warning__red}`}>{'WARNING! ACHTUNG! UWAGA!'}</h2>

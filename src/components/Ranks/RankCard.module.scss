@@ -6,6 +6,7 @@
   h2{
     margin-bottom: 4rem;
     color: $color__secondary--light;
+    text-shadow: .2rem .2rem .5rem $color__primary--dark;
     font-weight: 900;
   }
 
@@ -13,7 +14,7 @@
     background: $color__primary;
     padding: 5%;
     border-radius: 1rem;
-    background: $color__glass__milky;
+    background: $color__glass__clear;
     box-shadow: 0 0 2rem $color__primary--light;
 
     .rank{

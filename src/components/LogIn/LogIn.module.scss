@@ -23,7 +23,7 @@
 
     &__icon {
         font-size: 3rem;
-        color: $color__secondary--dark;
+        color: $color__primary;
         position: absolute;
         top: 2rem;
         right: 2rem;
@@ -38,7 +38,7 @@
     font-size: 4rem;
 }
 
-form {
+.form {
     width: 80%;
     margin: 0 auto;
     padding: 2rem;
@@ -46,7 +46,7 @@ form {
     flex-direction: column;
     position: relative;
 
-    label {
+    .label {
         position: absolute;
         font-size: 3rem;
         cursor: text;
@@ -60,7 +60,7 @@ form {
         transition: transform .5s, box-shadow .5s, opacity 2s;
     }
 
-    input {
+    .input {
         width: 100%;
         margin: 1rem 0 2rem;
         border: 0;

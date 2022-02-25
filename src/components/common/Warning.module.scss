@@ -3,11 +3,24 @@
 
 .warning {
     margin: 2rem;
-    color: $color__warning;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75%;
+
+    .card{
+        background: $color__glass__clear;
+        width: 70%;
+        border-radius: 1rem;
+        box-shadow: 0 0 1rem $color__primary--light;
+        padding: 6rem 0;
+        position: relative;
+        z-index: 50;
+    }
 
     &__icon {
         font-size: 3rem;
-        color: $color__secondary--dark;
+        color: $color__primary;
         position: absolute;
         top: 2rem;
         right: 2rem;
@@ -20,17 +33,17 @@
     &__buttons {
         margin-top: 4rem;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
 
         & p {
             font-size: 2.5rem;
             font-weight: 700;
+            width: 12%;
+            text-align: center;
             color: $color__primary--light;
         }
     }
-
-    
 
     &__red {
         color: $color__warning;
@@ -44,6 +57,7 @@
         text-align: center;
         font-size: 4rem;
         margin-bottom: 4rem;
+        text-shadow: 0 0 0.3rem $color__primary--light;
     }
 
     & h3{
@@ -53,5 +67,6 @@
     & h3, h4 {
         font-size: 3rem;
         margin-bottom: 2rem;
+        text-shadow: 0 0 0.3rem $color__primary--light;
     }
 }

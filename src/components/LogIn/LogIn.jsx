@@ -55,7 +55,7 @@ export default function LogIn() {
 	return (
 		<main>
 			{feedback && <FeedbackCard title={feedback} text={'check your emails to log in'} onClick={() => navigate('/')} />}
-			<Card background={'#6ccfe866'} boxShadow={'0 0 2rem #6ccfe8'}>
+			<Card background={'#6ccfe833'} boxShadow={'0 0 2rem #6ccfe8'}>
 				<Link to='/'>
 					<FaTimesCircle className={classes.login__icon} />
 				</Link>
@@ -81,9 +81,9 @@ export default function LogIn() {
 
 				<p className={classes.break}>{'OR'}</p>
 
-				<form onSubmit={submitHandler}>
+				<form className={classes.form} onSubmit={submitHandler}>
 					<div className={classes.email}>
-						<input type='email' name='email' id='email' value={email} onChange={(e) => updateInputHandler(e.target.value)} />
+						<input type='email' name='email' id='email' value={email} className={classes.input} onChange={(e) => updateInputHandler(e.target.value)} />
 						<label className={classes.label} htmlFor='email' style={{opacity: email.length ? 0 : 1}}>{'Your email'}</label>
 						<p>{error}</p>
 					</div>
@@ -92,7 +92,7 @@ export default function LogIn() {
 					</button>
 				</form>
 			</Card>
-			<FadeOut onClick={true}/>
+			<FadeOut target={'/'}/>
 		</main>
 	);
 }

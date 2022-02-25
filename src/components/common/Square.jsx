@@ -16,7 +16,7 @@ export default function Square({
     disabled,
     level,
     button,
-    ml,
+    ariaLabel,
 }) {
     const [currentUser, setCurrentUser] = useAuth();
     const navigate = useNavigate();
@@ -36,6 +36,7 @@ export default function Square({
         <>
             {button && (
                 <button
+                    aria-label={ariaLabel || ''}
                     disabled={disabled}
                     className={`
 					${classes.box}
