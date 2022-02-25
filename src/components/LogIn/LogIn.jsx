@@ -66,12 +66,14 @@ export default function LogIn() {
 
 				<div className={classes.login__socials}>
 					<button
+						aria-label={'google login'}
 						className={classes['login__socials--google']}
 						onClick={() => window.open(`${process.env.REACT_APP_BACKEND}/auth/google`, '_self')}
 					>
 						<FaGoogle className={classes['login__socials--icon']} />
 					</button>
 					<button
+						aria-label={'githubmmmmmmmnmmmmoa login'}
 						className={classes['login__socials--github']}
 						onClick={() => window.open(`${process.env.REACT_APP_BACKEND}/auth/github`, '_self')}
 					>
