@@ -10,6 +10,7 @@ export default function Card(props) {
                 maxWidth: props.maxWidth || '',
                 fontSize: props.fontSize || '',
                 background: props.background || '',
+                boxShadow: props.boxShadow || '',
             }}        
         >
             {props.children}

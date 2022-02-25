@@ -20,24 +20,24 @@ export default function Warning({setWarning}) {
 
 	return (
 		<div className={classes.warning}>
-			<Card>
+			<Card background={'#6ccfe866'} boxShadow={'0 0 2rem #6ccfe8'}>
 				<FaTimesCircle className={classes.warning__icon} onClick={() => setWarning(false)} style={{cursor: 'pointer'}} />
 
 				<h2 className={`${classes.warning__red}`}>{'WARNING! ACHTUNG! UWAGA!'}</h2>
 
 				<h3 className={'heading heading__3'}>
 					{'This is '}
-					<span className={`${classes.warning__red}`}>{'quickgame '}</span>
+					<strong className={`${classes.warning__red}`}>{'quickgame '}</strong>
 					{'mode:'}
 				</h3>
 
-				<h4 className={`heading ${classes.warning__red}`}>{'no statistics!'}</h4>
+				<h4 className={`heading ${classes.warning__red}`}><strong>{'no '}</strong>{'statistics!'}</h4>
 
-				<h4 className={`heading ${classes.warning__red}`}>{'no rankings!'}</h4>
+				<h4 className={`heading ${classes.warning__red}`}><strong>{'no '}</strong>{'rankings!'}</h4>
 
-				<h4 className={`heading ${classes.warning__red}`}>{'no achievements!'}</h4>
+				<h4 className={`heading ${classes.warning__red}`}><strong>{'no '}</strong>{'achievements!'}</h4>
 
-				<h4 className={`heading ${classes.warning__gold}`}>{'no glory!'}</h4>
+				<h4 className={`heading ${classes.warning__gold}`}><strong>{'no '}</strong>{'glory!'}</h4>
 
 				<div className={classes.warning__buttons}>
 					<Button

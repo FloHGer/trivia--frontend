@@ -11,7 +11,8 @@
         align-items: center;
 
         h3{
-            color: $color__secondary--dark;
+            color: $color__primary--light;
+            font-size: 3.5rem;
         }
 
         p{
@@ -43,11 +44,20 @@ form {
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    position: relative;
 
     label {
-        font-size: 2.5rem;
+        position: absolute;
+        font-size: 3rem;
+        cursor: text;
         text-transform: uppercase;
-        color: $color__secondary--dark;
+        color: $color__primary--medium;
+        background: $color__secondary--light;
+        top: 5rem;
+        left: 2rem;
+        padding: 0 2rem;
+        border-radius: .5rem;
+        transition: transform .5s, box-shadow .5s, opacity 2s;
     }
 
     input {
@@ -58,15 +68,29 @@ form {
         color: $color__secondary--dark;
         font-size: 2.5rem;
         border-bottom: .2rem solid transparent;
-
         background: $color__secondary--light;
         box-shadow: .2rem .2rem 1rem #173650;
         border-radius: 1rem;
+        transition: box-shadow .5s;
 
         &:focus {
             outline: none;
             box-shadow: .2rem .2rem 1rem $color__secondary--light;
         }
+
+        &:focus + label{
+            transform: translateY(-4rem);
+            box-shadow: .2rem .2rem 1rem $color__secondary--light;
+        }
+    }
+
+    p{
+        position: absolute;
+        right: 5rem;
+        top: 5.25rem;
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: $color__warning;
     }
 }
 

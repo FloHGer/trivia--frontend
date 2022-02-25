@@ -14,13 +14,15 @@ export default function LogIn() {
 	const [feedback, setFeedback] = useState('');
 	const [email, setEmail] = useState('');
 	const [btnDisabled, setBtnDisabled] = useState(true);
+	const [error, setError] = useState(null);
 
 	const updateInputHandler = value => {
 		setBtnDisabled(true);
 		setEmail(value);
-
-		if (value.match(/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i))
-			setBtnDisabled(false);
+		if (!value.match(/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i))
+			return setError('EMail invalid!');
+		setError(null);
+		setBtnDisabled(false);
 	};
 
 	const submitHandler = async event => {
@@ -53,7 +55,7 @@ export default function LogIn() {
 	return (
 		<main>
 			{feedback && <FeedbackCard title={feedback} text={'check your emails to log in'} onClick={() => navigate('/')} />}
-			<Card>
+			<Card background={'#6ccfe866'} boxShadow={'0 0 2rem #6ccfe8'}>
 				<Link to='/'>
 					<FaTimesCircle className={classes.login__icon} />
 				</Link>
@@ -81,9 +83,9 @@ export default function LogIn() {
 
 				<form onSubmit={submitHandler}>
 					<div className={classes.email}>
-						<label className={classes.label} htmlFor='email'>{'Your email'}
 						<input type='email' name='email' id='email' value={email} onChange={(e) => updateInputHandler(e.target.value)} />
-						</label>
+						<label className={classes.label} htmlFor='email' style={{opacity: email.length ? 0 : 1}}>{'Your email'}</label>
+						<p>{error}</p>
 					</div>
 					<button type='submit' className={classes.btn} disabled={btnDisabled}>
 						{'Log in'}
