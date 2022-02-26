@@ -15,7 +15,7 @@ export default function Home() {
     const [title2, setTitle2] = useState(0);
 
     const titles = [
-        ["drop some knowledge", "Play!", "Log in"],
+        ["drop some knowledge", "Play!", "LogIn"],
         ["earn some knowledge", "Just messing around...", "Getting serious, roar!"],
         ["become the best", "Be sweet! Be cute!", "Be aggressive!"],
         ["battle the best", "Flower power", "Kill them all!"],

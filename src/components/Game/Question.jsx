@@ -40,7 +40,7 @@ export default function Question() {
 	return (
 		<FadeOut>
 			<Card background={'#6ccfe888'}>
-				<h2 className={classes.question}>{showQuestion.question.question}</h2>
+				<h2 className={classes.question} aria-label={showQuestion.question.question} >{showQuestion.question.question}</h2>
 				<div className={classes.answers}>
 					<Answer
 						letter='A'

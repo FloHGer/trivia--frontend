@@ -56,7 +56,7 @@ export default function LogIn() {
 		<main>
 			{feedback && <FeedbackCard title={feedback} text={'check your emails to log in'} onClick={() => navigate('/')} />}
 			<Card background={'#6ccfe833'} boxShadow={'0 0 2rem #6ccfe8'}>
-				<Link to='/'>
+				<Link to='/' aria-label={'back to main'}>
 					<FaTimesCircle className={classes.login__icon} />
 				</Link>
 				<div className={classes.login__text}>
@@ -73,7 +73,7 @@ export default function LogIn() {
 						<FaGoogle className={classes['login__socials--icon']} />
 					</button>
 					<button
-						aria-label={'githubmmmmmmmnmmmmoa login'}
+						aria-label={'github login'}
 						className={classes['login__socials--github']}
 						onClick={() => window.open(`${process.env.REACT_APP_BACKEND}/auth/github`, '_self')}
 					>

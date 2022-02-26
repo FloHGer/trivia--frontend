@@ -203,6 +203,7 @@ export default function Game() {
 													button={true}
 													key={`[${i}][${j}]`}
 													title={(j + 1) * 100}
+													ariaLabel={`${selectedCategories[i].name} ${(j + 1) * 100} points`}
 													size={'10vh'}
 													answerState={answerState}
 													disabled={disabledState}

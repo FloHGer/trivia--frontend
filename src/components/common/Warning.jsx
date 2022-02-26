@@ -1,4 +1,4 @@
-import {Link, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {FaTimesCircle} from 'react-icons/fa';
 
 import FadeOut from './FadeOut';
@@ -21,7 +21,7 @@ export default function Warning({setWarning}) {
 	return (
 		<div className={classes.warning}>
 			<Card className={classes.card}>
-				<FaTimesCircle className={classes.warning__icon} onClick={() => setWarning(false)} style={{cursor: 'pointer'}} />
+				<FaTimesCircle className={classes.warning__icon} onClick={() => setWarning(false)} style={{cursor: 'pointer'}} aria-label={'back to main'} />
 
 				<h2 className={`${classes.warning__red}`}>{'WARNING! ACHTUNG! UWAGA!'}</h2>
 
@@ -48,9 +48,7 @@ export default function Warning({setWarning}) {
 						}
 					/>
 					<p>{'OR'}</p>
-					<Link to='/login'>
-						<Button title='LogIn' />
-					</Link>
+					<Button title='LogIn' onClick={navigate('/login')} />
 				</div>
 			</Card>
 			<FadeOut onClick={() => setWarning(false)}/>
