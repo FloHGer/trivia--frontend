@@ -28,7 +28,6 @@ const FileUpload = ({ setImageModal, setImage }) => {
 
       const formData = new FormData();
       formData.append("userImg", file);
-      console.log(formData);
       try {
          const response = await axios.post(
             `${process.env.REACT_APP_BACKEND}/user/${currentUser}/upload`,
@@ -40,7 +39,6 @@ const FileUpload = ({ setImageModal, setImage }) => {
                data: formData,
             }
          );
-         console.log(response);
          if (response.data.message !== "profile image uploaded")
             console.log(response.data.message);
          setImage(null);
