@@ -38,7 +38,7 @@ export default function Question() {
 
 
 	return (
-		<FadeOut>
+		<FadeOut background={'linear-gradient(to bottom, #0000 0, #000a 8%, #000a 100%)'}>
 			<Card background={'#6ccfe888'}>
 				<h2 className={classes.question} aria-label={showQuestion.question.question} >{showQuestion.question.question}</h2>
 				<div className={classes.answers}>

@@ -6,6 +6,7 @@ import he from 'he';
 import {useAuth} from '../../context/loginContext';
 import {useAnswers, useCategories, useQuestions, useShowQuestion} from '../../context/gameContext';
 
+import FadeOut from '../common/FadeOut';
 import FeedbackCard from '../common/FeedbackCard';
 import Square from '../common/Square';
 import Spinner from '../common/Spinner';
@@ -150,6 +151,7 @@ export default function Game() {
 				</div>
 			</header>
 			<main className={classes.container}>
+			<FadeOut background={'linear-gradient(to bottom, #0000 0, #000a 20%, #000a 100%)'} />
 				<div className={classes.game}>
 					{finalScreen && (
 						<FeedbackCard
