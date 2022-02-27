@@ -18,9 +18,11 @@ body {
     width: 100vw;
     height: 100vh;
     background-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.7),
-            rgba(0, 0, 0, 0.7)
+            to top,
+            #000a 0,
+            #000a 70%,
+            #000c 80%,
+            #000c 100%
         ),
         url(./../img/background.png);
     background-position: center;
