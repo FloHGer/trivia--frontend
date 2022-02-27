@@ -1,3 +1,4 @@
+import { useEffect, useCallback } from 'react';
 import {useNavigate} from 'react-router-dom';
 import {FaTimesCircle} from 'react-icons/fa';
 
@@ -10,12 +11,20 @@ import {useCategories, useAllCategories} from '../../context/gameContext';
 import styles from './Button.module.scss';
 import classes from './Warning.module.scss';
 
+
 export default function Warning({setWarning}) {
 	const navigate = useNavigate();
 	const [allCategories] = useAllCategories();
-	const [selectedCategories, setSelectedCategories] = useCategories();
+	const [, setSelectedCategories] = useCategories();
 
-	// document.onkeydown = (k) => k.key === 'Escape' ? setWarning(false) : null;
+	const keyHandler = useCallback((e) => {
+		if(e.keyCode === 27) setWarning(false);
+	}, [setWarning])
+	
+	useEffect(()=> {
+		window.addEventListener('keydown', keyHandler) 
+		return () => window.removeEventListener("keydown", keyHandler); 
+	},[keyHandler])
 
 
 	return (
@@ -48,7 +57,7 @@ export default function Warning({setWarning}) {
 						}
 					/>
 					<p>{'OR'}</p>
-					<Button title='LogIn' onClick={navigate('/login')} />
+					<Button title='LogIn' onClick={() => navigate('/login')} />
 				</div>
 			</Card>
 			<FadeOut onClick={() => setWarning(false)}/>

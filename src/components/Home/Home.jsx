@@ -40,7 +40,10 @@ export default function Home() {
                         type="submit"
                         onMouseEnter={() => setTitle1(Math.floor(Math.random() * 6 + 1))}
                         onMouseLeave={() => setTitle1(0)}
-                        onClick={() => setWarning(true)}
+                        onClick={() => {
+                            setTitle1(0);
+                            setWarning(true);
+                        }}
                         title={titles[title1][1]}
                     />
                     <Link to="/login">

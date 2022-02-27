@@ -35,7 +35,7 @@ export default function Feedback() {
                     onClick={() => navigate("/")}
                 />
             )}
-            <h1 className={"heading heading__1"}>{"Feedback"}</h1>
+            {/* <h1 className={"heading heading__1"}>{"Feedback"}</h1> */}
             <div className={classes.card}>
                 <form className={classes.form} onSubmit={(e) => submitHandler(e)}>
                     <h2>{'RATE US:'}</h2>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
 import FileUpload from "./FileUpload";
@@ -16,6 +16,7 @@ export default function UserInfoCard() {
     const [response, setResponse] = useState(null);
     const [data, setData] = useState();
     const [nat, setNat] = useState();
+    const [usernameFocus, setUsernameFocus] = useState(false);
     const [username, setUsername] = useState();
     const [email, setEmail] = useState();
     const [edit, setEdit] = useState(false);
@@ -83,13 +84,34 @@ export default function UserInfoCard() {
         setImageModal(false);
     };
 
+    // enter on username
+    const keyHandler = useCallback((e) => {
+		if(e.keyCode === 13) document.getElementById('username').blur();
+	}, []);
+
+    useEffect(()=> {
+		document.getElementById('username').addEventListener('keydown', keyHandler);
+		return () => document.getElementById('username').removeEventListener("keydown", keyHandler); 
+	},[keyHandler]);
+// username focus
+    const focusHandler = () => setUsernameFocus(true);
+
+    useEffect(()=> {
+		document.getElementById('username').addEventListener('focus', focusHandler);
+		return () => document.getElementById('username').removeEventListener("focus", focusHandler);
+	},[]);
+
+
     return (
         <section className={classes.profile__user}>
             {response && (
                 <FeedbackCard
                     title={response[0]}
                     text={response[1]}
-                    onClick={() => setResponse(null)}
+                    onClick={() => {
+                        setResponse(null);
+                        setUsernameFocus(false);
+                    }}
                 />
             )}
             {/* PIC */}
@@ -159,6 +181,7 @@ export default function UserInfoCard() {
                     <input
                         type="text"
                         name="username"
+                        id='username'
                         title={edit
                                 ? 'click to change username'
                             : 'your profile data is locked - please unlock it first'
@@ -216,11 +239,13 @@ export default function UserInfoCard() {
 
                 <FaTrashAlt
                     className={classes["profile__user--trashIcon"]}
+                    title={"Delete profile"}
                     style={{
                         visibility: edit ? "visible" : "hidden",
+                        color: usernameFocus ? 'grey' : null,
+                        cursor: usernameFocus ? 'default' : null,
                     }}
-                    title={"Delete profile"}
-                    onClick={modalHandler}
+                    onClick={!usernameFocus ? modalHandler : null}
                 />
             </div>
             {openDeleteModal && (

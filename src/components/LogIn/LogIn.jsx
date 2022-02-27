@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useCallback} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 
@@ -8,6 +8,7 @@ import Card from '../common/Card';
 import FeedbackCard from '../common/FeedbackCard';
 
 import classes from './LogIn.module.scss';
+
 
 export default function LogIn() {
 	const navigate = useNavigate();
@@ -33,23 +34,14 @@ export default function LogIn() {
 		}catch(err){console.log(err)}
 	};
 
-	// useEffect(() =>{
-	// 	const escHandler = k => k.key === 'Escape' ? navigate('/') : null;
-  //   document.addEventListener('onkeydown', escHandler);
-
-  //   return () => document.removeEventListener('onkeydown', escHandler)
-	// })
-
-	// useEffect(function setupListener() {
-  //   function escHandler(k) {
-	// 		if(k.key === 'Escape') navigate('/')
-  //   }
-  //   document.addEventListener('onkeydown', escHandler)
-
-  //   return function cleanupListener() {
-  //     document.removeEventListener('onkeydown', escHandler)
-  //   }
-  // })
+	const keyHandler = useCallback((e) => {
+		if(e.keyCode === 27) navigate('/');
+	}, [navigate])
+	
+	useEffect(()=> {
+		window.addEventListener('keydown', keyHandler) 
+		return () => window.removeEventListener("keydown", keyHandler); 
+	},[keyHandler]);
 
 
 	return (

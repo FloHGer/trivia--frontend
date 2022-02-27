@@ -17,7 +17,6 @@ export const validation = async(target, currentUser, setCurrentUser, setResponse
         [target.name === 'username' ? 'username' : 'email']: target.value,
       }
     });
-    console.log(response.data)
     if (response.data.message !== "user updated") return setResponse(['ERROR', `${target.name} taken!`]);
     setResponse(['SUCCESS', `${target.name} updated!`]);
     if(target.name === 'username') setCurrentUser(target.value);
