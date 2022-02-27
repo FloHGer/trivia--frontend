@@ -11,7 +11,6 @@ import styles from "../../../common/Button.module.scss";
 
 const DeleteUser = ({ setOpenDeleteModal }) => {
     const [currentUser, setCurrentUser] = useAuth();
-    const [isDeleted, setIsDeleted] = useState();
     const [finalScreen, setFinalScreen] = useState(false);
     const navigate = useNavigate();
 
@@ -26,7 +25,7 @@ const DeleteUser = ({ setOpenDeleteModal }) => {
                 setFinalScreen(true);
                 setTimeout(() => {
                     return (
-                        navigate("/"), setIsDeleted(true), setCurrentUser(false)
+                        navigate("/"), setCurrentUser(false)
                     );
                 }, 3000);
             }

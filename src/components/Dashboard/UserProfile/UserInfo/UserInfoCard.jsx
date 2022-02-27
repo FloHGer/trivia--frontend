@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import axios from "axios";
 
 import FileUpload from "./FileUpload";
@@ -17,6 +17,7 @@ export default function UserInfoCard() {
     const [data, setData] = useState();
     const [nat, setNat] = useState();
     const [usernameFocus, setUsernameFocus] = useState(false);
+    const usernameRef = useRef();
     const [username, setUsername] = useState();
     const [email, setEmail] = useState();
     const [edit, setEdit] = useState(false);
@@ -86,20 +87,22 @@ export default function UserInfoCard() {
 
     // enter on username
     const keyHandler = useCallback((e) => {
-		if(e.keyCode === 13) document.getElementById('username').blur();
+		if(e.keyCode === 13) usernameRef.current.blur();
 	}, []);
 
     useEffect(()=> {
-		document.getElementById('username').addEventListener('keydown', keyHandler);
-		return () => document.getElementById('username').removeEventListener("keydown", keyHandler); 
+        const usernameRefCurrent = usernameRef.current;
+        usernameRefCurrent.addEventListener('keydown', keyHandler);
+		return () => usernameRefCurrent.removeEventListener('keydown', keyHandler); 
 	},[keyHandler]);
 // username focus
-    const focusHandler = () => setUsernameFocus(true);
+    const focusHandler = useCallback(() => setUsernameFocus(true), []);
 
     useEffect(()=> {
-		document.getElementById('username').addEventListener('focus', focusHandler);
-		return () => document.getElementById('username').removeEventListener("focus", focusHandler);
-	},[]);
+        const usernameRefCurrent = usernameRef.current;
+        usernameRefCurrent.addEventListener('focus', focusHandler);
+		return () => usernameRefCurrent.removeEventListener('focus', focusHandler);
+	},[focusHandler]);
 
 
     return (
@@ -182,6 +185,7 @@ export default function UserInfoCard() {
                         type="text"
                         name="username"
                         id='username'
+                        ref={usernameRef}
                         title={edit
                                 ? 'click to change username'
                             : 'your profile data is locked - please unlock it first'
