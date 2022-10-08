@@ -1,0 +1,35 @@
+name: Build Docker Production image and push it to ECR
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+      id-token: write
+      contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: ${{ secrets.AWS_ROLE }}
+        aws-region: eu-central-1
+
+    - name: Node Setup
+      uses: actions/setup-node@v2
+      with:
+        node-version: 18
+
+    - name: npm install
+
+    - name: npm build
+
+    - name: Push to S3
+      run: aws s3 sync ./public/ s3://${{ secrets.bucket }} --delete
