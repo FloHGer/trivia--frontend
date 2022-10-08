@@ -1,4 +1,4 @@
-name: Build Docker Production image and push it to ECR
+name: Deployment to S3 bucket
 
 on:
   push:
@@ -27,11 +27,11 @@ jobs:
       with:
         node-version: 18
 
-    - name: npm install
+    - name: NPM install
       run : npm ci
 
-    - name: npm build
-      run: npm build
+    - name: NPM build
+      run: npm run build
 
     - name: Push to S3
       run: aws s3 sync ./public/ s3://${{ secrets.bucket }} --delete
